@@ -10,6 +10,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
     <Authors>Alex Stroot</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>Implements a firm pattern for theming Wpf applications.</Description>
     <Copyright>2023</Copyright>
     <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom/tree/master/Lexicom.Concentrate.Wpf.Themes</PackageProjectUrl>
@@ -19,8 +20,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Configuration.Settings" Version="3.0.0" />
-    <PackageReference Include="Lexicom.Extensions.Exceptions" Version="3.0.0" />
+    <PackageReference Include="Lexicom.Configuration.Settings.For.Wpf" Version="7.0.7" />
+    <PackageReference Include="Lexicom.Extensions.Exceptions" Version="7.0.7" />
   </ItemGroup>
 
   <ItemGroup>

@@ -9,6 +9,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
     <Authors>Alex Stroot</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>Abstractions for the Lexicom.Concentrate.Wpf.Themes package. Allowing this package to not enforce a target framework including windows.</Description>
     <Copyright>2023</Copyright>
     <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom/tree/master/Lexicom.Concentrate.Wpf.Themes.Abstractions</PackageProjectUrl>
@@ -18,9 +19,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Validation.Amenities" Version="3.0.0" />
-    <PackageReference Include="Lexicom.Validation.Options" Version="3.0.0" />
-    <PackageReference Include="Lexicom.Wpf.Amenities.Abstractions" Version="3.0.0" />
+    <PackageReference Include="Lexicom.Validation.Amenities" Version="7.0.7" />
+    <PackageReference Include="Lexicom.Validation.Options" Version="7.0.7" />
+    <PackageReference Include="Lexicom.Wpf.Amenities.Abstractions" Version="7.0.7" />
   </ItemGroup>
 
 </Project>

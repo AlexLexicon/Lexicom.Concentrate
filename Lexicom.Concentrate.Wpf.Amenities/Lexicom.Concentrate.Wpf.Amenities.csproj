@@ -10,6 +10,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
     <Authors>Alex Stroot</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>Adds convenient but optional features for any Wpf application project. Although not necessary these features are specifically designed to integrate with other Lexicom Wpf application packages.</Description>
     <Copyright>2023</Copyright>
     <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom/tree/master/Lexicom.Concentrate.Wpf.Amenities</PackageProjectUrl>
@@ -17,6 +18,10 @@
     <RepositoryType>github</RepositoryType>
     <PackageTags>dependencyinjection;wpf</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Lexicom.DependencyInjection.Amenities" Version="7.0.7" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Lexicom.Concentrate.Supports.Wpf\Lexicom.Concentrate.Supports.Wpf.csproj" />

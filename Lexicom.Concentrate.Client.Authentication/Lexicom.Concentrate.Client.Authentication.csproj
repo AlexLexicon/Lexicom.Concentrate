@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -9,6 +9,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
     <Authors>Alex Stroot</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>Implements a firm pattern for authentication with an HttpClient.</Description>
     <Copyright>2023</Copyright>
     <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom/tree/master/Lexicom.Concentrate.Client.Authentication</PackageProjectUrl>
@@ -18,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Authentication.Http" Version="3.0.0" />
+    <PackageReference Include="Lexicom.Authentication.Http" Version="7.0.7" />
   </ItemGroup>
 
 </Project>
