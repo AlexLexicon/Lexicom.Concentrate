@@ -15,21 +15,28 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicom.Concentrate.Wpf.The
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Supports", "Supports", "{4E606032-2B65-417B-A2F8-EA035F09F938}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicom.Concentrate.Supports.AspNetCore.Controllers", "Lexicom.Concentrate.Supports.AspNetCore.Controllers\Lexicom.Concentrate.Supports.AspNetCore.Controllers.csproj", "{8E716640-0EBB-4D9F-95E2-6E8D9D587104}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicom.Concentrate.Supports.AspNetCore.Controllers", "Lexicom.Concentrate.Supports.AspNetCore.Controllers\Lexicom.Concentrate.Supports.AspNetCore.Controllers.csproj", "{8E716640-0EBB-4D9F-95E2-6E8D9D587104}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicom.Concentrate.Supports.Blazor.WebAssembly", "Lexicom.Concentrate.Supports.Blazor.WebAssembly\Lexicom.Concentrate.Supports.Blazor.WebAssembly.csproj", "{6E616A76-6DC9-453D-A3C9-B7DCAA4D7602}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicom.Concentrate.Supports.Blazor.WebAssembly", "Lexicom.Concentrate.Supports.Blazor.WebAssembly\Lexicom.Concentrate.Supports.Blazor.WebAssembly.csproj", "{6E616A76-6DC9-453D-A3C9-B7DCAA4D7602}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicom.Concentrate.Supports.ConsoleApp", "Lexicom.Concentrate.Supports.ConsoleApp\Lexicom.Concentrate.Supports.ConsoleApp.csproj", "{DDAF9F67-F5CA-4AF4-84DC-404FCD1EF58F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicom.Concentrate.Supports.ConsoleApp", "Lexicom.Concentrate.Supports.ConsoleApp\Lexicom.Concentrate.Supports.ConsoleApp.csproj", "{DDAF9F67-F5CA-4AF4-84DC-404FCD1EF58F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicom.Concentrate.Supports.Wpf", "Lexicom.Concentrate.Supports.Wpf\Lexicom.Concentrate.Supports.Wpf.csproj", "{B897E540-4118-4F5E-8F8B-9069E4E2B519}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicom.Concentrate.Supports.Wpf", "Lexicom.Concentrate.Supports.Wpf\Lexicom.Concentrate.Supports.Wpf.csproj", "{B897E540-4118-4F5E-8F8B-9069E4E2B519}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicom.Concentrate.Wpf.Amenities", "Lexicom.Concentrate.Wpf.Amenities\Lexicom.Concentrate.Wpf.Amenities.csproj", "{71C71CC9-8939-4246-87A1-9053B8A931B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicom.Concentrate.Wpf.Amenities", "Lexicom.Concentrate.Wpf.Amenities\Lexicom.Concentrate.Wpf.Amenities.csproj", "{71C71CC9-8939-4246-87A1-9053B8A931B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicom.Concentrate.Wpf.Amenities.Abstractions", "Lexicom.Concentrate.Wpf.Amenities.Abstractions\Lexicom.Concentrate.Wpf.Amenities.Abstractions.csproj", "{0A4C4162-5BFF-46E6-B099-0E33C489E528}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicom.Concentrate.Wpf.Amenities.Abstractions", "Lexicom.Concentrate.Wpf.Amenities.Abstractions\Lexicom.Concentrate.Wpf.Amenities.Abstractions.csproj", "{0A4C4162-5BFF-46E6-B099-0E33C489E528}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicom.Concentrate.Client.Authentication", "Lexicom.Concentrate.Client.Authentication\Lexicom.Concentrate.Client.Authentication.csproj", "{71CDFCB9-70AB-4B9E-BCED-06F8B266E9FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicom.Concentrate.Client.Authentication", "Lexicom.Concentrate.Client.Authentication\Lexicom.Concentrate.Client.Authentication.csproj", "{71CDFCB9-70AB-4B9E-BCED-06F8B266E9FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicom.Concentrate.Client.Authentication.For.Wpf", "Lexicom.Concentrate.Client.Authentication.For.Wpf\Lexicom.Concentrate.Client.Authentication.For.Wpf.csproj", "{9CADB287-4877-4263-89F6-74AAF4D0B647}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicom.Concentrate.Client.Authentication.For.Wpf", "Lexicom.Concentrate.Client.Authentication.For.Wpf\Lexicom.Concentrate.Client.Authentication.For.Wpf.csproj", "{9CADB287-4877-4263-89F6-74AAF4D0B647}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{DE5EBE31-F8AA-4A5A-8941-CA81FA191C74}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{703B7EA7-4900-4AAE-BDAC-6E090FCD061A}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\pipeline.yml = .github\workflows\pipeline.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +104,7 @@ Global
 		{0A4C4162-5BFF-46E6-B099-0E33C489E528} = {70E736F4-A0DE-47DC-8653-3DB24627709C}
 		{71CDFCB9-70AB-4B9E-BCED-06F8B266E9FD} = {5B09E073-47C9-4708-A160-354F9E32E611}
 		{9CADB287-4877-4263-89F6-74AAF4D0B647} = {5B09E073-47C9-4708-A160-354F9E32E611}
+		{703B7EA7-4900-4AAE-BDAC-6E090FCD061A} = {DE5EBE31-F8AA-4A5A-8941-CA81FA191C74}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B876B770-657E-4FDC-9C39-0651538EDA63}
