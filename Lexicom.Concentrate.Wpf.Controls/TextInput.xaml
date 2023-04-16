@@ -1,0 +1,191 @@
+﻿<UserControl 
+    x:Class="Lexicom.Concentrate.Wpf.Controls.TextInput"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    mc:Ignorable="d"
+    Focusable="True"
+    VerticalContentAlignment="Center"
+    d:DesignWidth="128"
+    d:DesignHeight="64"
+    x:Name="ccTextInput">
+
+    <UserControl.Template>
+        <ControlTemplate TargetType="UserControl">
+            <StackPanel x:Name="ccStackPanel">
+                <Border
+                    x:Name="ccTitleBorder"
+                    
+                    IsEnabled="{TemplateBinding IsEnabled}"
+                    IsHitTestVisible="{TemplateBinding IsHitTestVisible}"
+                    
+                    Background="{Binding TitleBackground, ElementName=ccTextInput}"
+                    BorderBrush="{Binding TitleBorderBrush, ElementName=ccTextInput}"
+                    BorderThickness="{Binding TitleBorderThickness, ElementName=ccTextInput}"
+                    CornerRadius="{Binding TitleCornerRadius, ElementName=ccTextInput}"
+                    Height="{Binding TitleHeight, ElementName=ccTextInput}"
+                    MinHeight="{Binding TitleMinHeight, ElementName=ccTextInput}"
+                    MaxHeight="{Binding TitleMaxHeight, ElementName=ccTextInput}"
+                    Opacity="{Binding TitleOpacity, ElementName=ccTextInput}"
+                    Padding="{Binding TitlePadding, ElementName=ccTextInput}"
+                    Visibility="{Binding TitleVisiblity, ElementName=ccTextInput}"
+                    Width="{Binding TitleWidth, ElementName=ccTextInput}"
+                    MinWidth="{Binding TitleMinWidth, ElementName=ccTextInput}"
+                    MaxWidth="{Binding TitleMaxWidth, ElementName=ccTextInput}">
+                    <Label
+                        x:Name="ccTitleLabel"
+                        
+                        Background="{x:Null}"
+                        BorderBrush="{x:Null}"
+                        BorderThickness="0"
+                        Padding="0"
+                        
+                        FlowDirection="{Binding TitleFlowDirection, ElementName=ccTextInput}"
+                        FontFamily="{Binding TitleFontFamily, ElementName=ccTextInput}"
+                        FontSize="{Binding TitleFontSize, ElementName=ccTextInput}"
+                        FontStretch="{Binding TitleFontStretch, ElementName=ccTextInput}"
+                        FontStyle="{Binding TitleFontStyle, ElementName=ccTextInput}"
+                        FontWeight="{Binding TitleFontWeight, ElementName=ccTextInput}"
+                        Foreground="{Binding TitleForeground, ElementName=ccTextInput}"
+                        HorizontalContentAlignment="{Binding TitleHorizontalContentAlignment, ElementName=ccTextInput}"
+                        VerticalContentAlignment="{Binding TitleVerticalContentAlignment, ElementName=ccTextInput}">
+                        <TextBlock 
+                            x:Name="ccTitleTextBlock"
+                            
+                            d:Text="Title"
+                            
+                            LineHeight="{Binding TitleLineHeight, ElementName=ccTextInput}"
+                            Text="{Binding TitleText, ElementName=ccTextInput}"
+                            TextAlignment="{Binding TitleTextAlignment, ElementName=ccTextInput}" 
+                            TextTrimming="{Binding TitleTextTrimming, ElementName=ccTextInput}"
+                            TextWrapping="{Binding TitleTextWrapping, ElementName=ccTextInput}"/>
+                    </Label>
+                </Border>
+                <Border 
+                    x:Name="ccInputBorder"
+                    
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    IsHitTestVisible="{TemplateBinding IsHitTestVisible}"
+                    Padding="{TemplateBinding Padding}"
+                    ToolTip="{TemplateBinding ToolTip}"
+
+                    CornerRadius="{Binding CornerRadius, ElementName=ccTextInput}"
+                    Height="{Binding InputHeight, ElementName=ccTextInput}"
+                    MinHeight="{Binding InputMinHeight, ElementName=ccTextInput}"
+                    MaxHeight="{Binding InputMaxHeight, ElementName=ccTextInput}"
+                    Opacity="{Binding InputOpacity, ElementName=ccTextInput}"
+                    Visibility="{Binding InputVisiblity, ElementName=ccTextInput}"
+                    Width="{Binding InputWidth, ElementName=ccTextInput}"
+                    MinWidth="{Binding InputMinWidth, ElementName=ccTextInput}"
+                    MaxWidth="{Binding InputMaxWidth, ElementName=ccTextInput}">
+                    <TextBox
+                        x:Name="ccInputTextBox"
+
+                        d:Text="Input"
+                        
+                        Background="{x:Null}"
+                        BorderBrush="{x:Null}"
+                        BorderThickness="0"
+                        Padding="0"
+                        
+                        AllowDrop="{TemplateBinding AllowDrop}"
+                        ContextMenu="{TemplateBinding ContextMenu}"
+                        FlowDirection="{TemplateBinding FlowDirection}"
+                        Focusable="{TemplateBinding Focusable}"
+                        FontFamily="{TemplateBinding FontFamily}"
+                        FontSize="{TemplateBinding FontSize}"
+                        FontStyle="{TemplateBinding FontStyle}"
+                        FontStretch="{TemplateBinding FontStretch}"
+                        FontWeight="{TemplateBinding FontWeight}"
+                        Foreground="{TemplateBinding Foreground}"
+                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        IsEnabled="{TemplateBinding IsEnabled}"
+                        IsTabStop="{TemplateBinding IsTabStop}"
+                        TabIndex="{TemplateBinding TabIndex}"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                        
+                        AcceptsReturn="{Binding AcceptsReturn, ElementName=ccTextInput}"
+                        AcceptsTab="{Binding AcceptsTab, ElementName=ccTextInput}"
+                        CaretBrush="{Binding CaretBrush, ElementName=ccTextInput}"
+                        CharacterCasing="{Binding CharacterCasing, ElementName=ccTextInput}"
+                        HorizontalScrollBarVisibility="{Binding HorizontalScrollBarVisibility, ElementName=ccTextInput}"
+                        IsReadOnly="{Binding IsReadOnly, ElementName=ccTextInput}"
+                        IsInactiveSelectionHighlightEnabled="{Binding IsInactiveSelectionHighlightEnabled, ElementName=ccTextInput}"
+                        IsReadOnlyCaretVisible="{Binding IsReadOnlyCaretVisible, ElementName=ccTextInput}"
+                        IsUndoEnabled="{Binding IsUndoEnabled, ElementName=ccTextInput}"
+                        MaxLength="{Binding MaxLength, ElementName=ccTextInput}"
+                        MaxLines="{Binding MaxLines, ElementName=ccTextInput}"
+                        MinLines="{Binding MinLines, ElementName=ccTextInput}"
+                        SelectionBrush="{Binding SelectionBrush, ElementName=ccTextInput}"
+                        SelectionOpacity="{Binding SelectionOpacity, ElementName=ccTextInput}"
+                        SelectionTextBrush="{Binding SelectionTextBrush, ElementName=ccTextInput}"
+                        Text="{Binding Text, ElementName=ccTextInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        TextAlignment="{Binding TextAlignment, ElementName=ccTextInput}"
+                        TextWrapping="{Binding TextWrapping, ElementName=ccTextInput}"
+                        UndoLimit="{Binding UndoLimit, ElementName=ccTextInput}"
+                        VerticalScrollBarVisibility="{Binding VerticalScrollBarVisibility, ElementName=ccTextInput}"
+
+                        Loaded="InputTextBox_Loaded"
+                        TextChanged="InputTextBox_TextChanged"
+                        GotFocus="InputTextBox_GotFocus"
+                        LostFocus="InputTextBox_LostFocus"/>
+                </Border>
+                <ItemsControl ItemsSource="{Binding Errors, ElementName=ccTextInput}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border
+                                x:Name="ccErrorBorder"
+                    
+                                IsEnabled="{TemplateBinding IsEnabled}"
+                                IsHitTestVisible="{TemplateBinding IsHitTestVisible}"
+                    
+                                Background="{Binding ErrorBackground, ElementName=ccTextInput}"
+                                BorderBrush="{Binding ErrorBorderBrush, ElementName=ccTextInput}"
+                                BorderThickness="{Binding ErrorBorderThickness, ElementName=ccTextInput}"
+                                CornerRadius="{Binding ErrorCornerRadius, ElementName=ccTextInput}"
+                                Height="{Binding ErrorHeight, ElementName=ccTextInput}"
+                                MinHeight="{Binding ErrorMinHeight, ElementName=ccTextInput}"
+                                MaxHeight="{Binding ErrorMaxHeight, ElementName=ccTextInput}"
+                                Opacity="{Binding ErrorOpacity, ElementName=ccTextInput}"
+                                Padding="{Binding ErrorPadding, ElementName=ccTextInput}"
+                                Visibility="{Binding ErrorVisiblity, ElementName=ccTextInput}"
+                                Width="{Binding ErrorWidth, ElementName=ccTextInput}"
+                                MinWidth="{Binding ErrorMinWidth, ElementName=ccTextInput}"
+                                MaxWidth="{Binding ErrorMaxWidth, ElementName=ccTextInput}">
+                                <Label
+                                    x:Name="ccErrorLabel"
+                        
+                                    Background="{x:Null}"
+                                    BorderBrush="{x:Null}"
+                                    BorderThickness="0"
+                                    Padding="0"
+                        
+                                    FlowDirection="{Binding ErrorFlowDirection, ElementName=ccTextInput}"
+                                    FontFamily="{Binding ErrorFontFamily, ElementName=ccTextInput}"
+                                    FontSize="{Binding ErrorFontSize, ElementName=ccTextInput}"
+                                    FontStretch="{Binding ErrorFontStretch, ElementName=ccTextInput}"
+                                    FontStyle="{Binding ErrorFontStyle, ElementName=ccTextInput}"
+                                    FontWeight="{Binding ErrorFontWeight, ElementName=ccTextInput}"
+                                    Foreground="{Binding ErrorForeground, ElementName=ccTextInput}"
+                                    HorizontalContentAlignment="{Binding ErrorHorizontalContentAlignment, ElementName=ccTextInput}"
+                                    VerticalContentAlignment="{Binding ErrorVerticalContentAlignment, ElementName=ccTextInput}">
+                                    <TextBlock 
+                                        x:Name="ccErrorTextBlock"
+                            
+                                        LineHeight="{Binding ErrorLineHeight, ElementName=ccTextInput}"
+                                        Text="{Binding}"
+                                        TextAlignment="{Binding ErrorTextAlignment, ElementName=ccTextInput}" 
+                                        TextTrimming="{Binding ErrorTextTrimming, ElementName=ccTextInput}"
+                                        TextWrapping="{Binding ErrorTextWrapping, ElementName=ccTextInput}"/>
+                                </Label>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ControlTemplate>
+    </UserControl.Template>
+</UserControl>
