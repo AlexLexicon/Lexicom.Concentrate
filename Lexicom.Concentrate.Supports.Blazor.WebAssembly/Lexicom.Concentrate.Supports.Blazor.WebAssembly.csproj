@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Supports.Blazor.WebAssembly" Version="7.0.8" />
+    <PackageReference Include="Lexicom.Supports.Blazor.WebAssembly" Version="7.0.10" />
   </ItemGroup>
 
 </Project>

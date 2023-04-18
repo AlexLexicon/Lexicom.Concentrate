@@ -20,7 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Supports.Wpf" Version="7.0.8" />
+    <PackageReference Include="Lexicom.Supports.Wpf" Version="7.0.10" />
   </ItemGroup>
 
 </Project>

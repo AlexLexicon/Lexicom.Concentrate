@@ -20,8 +20,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Configuration.Settings.For.Wpf" Version="7.0.8" />
-    <PackageReference Include="Lexicom.Extensions.Exceptions" Version="7.0.8" />
+    <PackageReference Include="Lexicom.Configuration.Settings.For.Wpf" Version="7.0.10" />
+    <PackageReference Include="Lexicom.Extensions.Exceptions" Version="7.0.10" />
   </ItemGroup>
 
   <ItemGroup>

@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Validation.Options" Version="7.0.8" />
+    <PackageReference Include="Lexicom.Validation.Options" Version="7.0.10" />
   </ItemGroup>
 
 </Project>
