@@ -20,13 +20,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="README.md" Pack="true" PackagePath="\"/>
+    <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Validation.Amenities" Version="7.0.10" />
-    <PackageReference Include="Lexicom.Validation.Options" Version="7.0.10" />
-    <PackageReference Include="Lexicom.Wpf.Amenities.Abstractions" Version="7.0.10" />
+    <PackageReference Include="Lexicom.Validation.Amenities" Version="7.0.11" />
+    <PackageReference Include="Lexicom.Validation.Options" Version="7.0.11" />
+    <PackageReference Include="Lexicom.Wpf.Amenities.Abstractions" Version="7.0.11" />
   </ItemGroup>
 
 </Project>

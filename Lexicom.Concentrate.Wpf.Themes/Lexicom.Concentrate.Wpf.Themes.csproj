@@ -21,12 +21,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="README.md" Pack="true" PackagePath="\"/>
+    <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Configuration.Settings.For.Wpf" Version="7.0.10" />
-    <PackageReference Include="Lexicom.Extensions.Exceptions" Version="7.0.10" />
+    <PackageReference Include="Lexicom.Configuration.Settings.For.Wpf" Version="7.0.11" />
+    <PackageReference Include="Lexicom.Extensions.Exceptions" Version="7.0.11" />
   </ItemGroup>
 
   <ItemGroup>
