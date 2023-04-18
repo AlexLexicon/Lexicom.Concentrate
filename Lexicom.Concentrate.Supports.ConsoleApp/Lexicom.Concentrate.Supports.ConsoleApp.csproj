@@ -7,6 +7,7 @@
     <Nullable>enable</Nullable>
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
 
     <Authors>Alex Stroot</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -17,7 +18,11 @@
     <RepositoryType>github</RepositoryType>
     <PackageTags>console;dependencyinjection</PackageTags>
   </PropertyGroup>
-  
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Lexicom.Supports.ConsoleApp" Version="7.0.10" />
   </ItemGroup>

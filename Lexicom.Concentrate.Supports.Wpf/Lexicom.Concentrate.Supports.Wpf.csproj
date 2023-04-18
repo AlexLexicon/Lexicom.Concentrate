@@ -8,7 +8,8 @@
     <UseWPF>true</UseWPF>
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    
     <Authors>Alex Stroot</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>The base package for all Lexicom.Concentrate...For.Wpf packages. Relies on and enforces the target framework to be windows. Extends the base Lexicom.Supports.Wpf.</Description>
@@ -18,6 +19,10 @@
     <RepositoryType>github</RepositoryType>
     <PackageTags>dependencyinjection;wpf</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Lexicom.Supports.Wpf" Version="7.0.10" />
