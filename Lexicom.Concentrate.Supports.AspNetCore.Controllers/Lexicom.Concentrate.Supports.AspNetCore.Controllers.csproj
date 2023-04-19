@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Supports.AspNetCore.Controllers" Version="7.0.16" />
+    <PackageReference Include="Lexicom.Supports.AspNetCore.Controllers" Version="7.0.17" />
   </ItemGroup>
 
 </Project>
