@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Supports.Blazor.WebAssembly" Version="7.0.38" />
+    <PackageReference Include="Lexicom.Supports.Blazor.WebAssembly" Version="7.0.40" />
   </ItemGroup>
 
 </Project>
