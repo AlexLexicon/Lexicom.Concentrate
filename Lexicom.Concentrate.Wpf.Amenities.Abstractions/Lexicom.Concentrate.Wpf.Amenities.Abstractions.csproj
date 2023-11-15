@@ -26,11 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Validation.Options" Version="7.0.55" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="NewFolder\" />
+    <PackageReference Include="Lexicom.Validation.Options" Version="7.0.56" />
   </ItemGroup>
 
 </Project>

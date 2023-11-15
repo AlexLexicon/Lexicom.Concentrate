@@ -27,8 +27,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Configuration.Settings.For.Wpf" Version="7.0.55" />
-    <PackageReference Include="Lexicom.Extensions.Exceptions" Version="7.0.55" />
+    <PackageReference Include="Lexicom.Configuration.Settings.For.Wpf" Version="7.0.56" />
+    <PackageReference Include="Lexicom.Extensions.Exceptions" Version="7.0.56" />
   </ItemGroup>
 
   <ItemGroup>

@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Supports.ConsoleApp" Version="7.0.55" />
+    <PackageReference Include="Lexicom.Supports.ConsoleApp" Version="7.0.56" />
   </ItemGroup>
 
 </Project>
