@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Authentication.Http" Version="7.0.53" />
+    <PackageReference Include="Lexicom.Authentication.Http" Version="7.0.55" />
   </ItemGroup>
 
 </Project>

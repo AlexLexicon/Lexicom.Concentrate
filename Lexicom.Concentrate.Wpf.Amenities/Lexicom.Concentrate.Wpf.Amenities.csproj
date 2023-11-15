@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.DependencyInjection.Amenities" Version="7.0.53" />
+    <PackageReference Include="Lexicom.DependencyInjection.Amenities" Version="7.0.55" />
   </ItemGroup>
 
   <ItemGroup>
