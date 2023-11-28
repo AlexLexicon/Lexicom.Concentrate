@@ -1,6 +1,7 @@
 name: .Net8 Build and Publish
 
 on:
+  workflow_dispatch:
   push:
     branches: [ master ]
   pull_request:
