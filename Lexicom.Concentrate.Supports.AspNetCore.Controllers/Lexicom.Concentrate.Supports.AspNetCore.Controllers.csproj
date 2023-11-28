@@ -25,7 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Supports.AspNetCore.Controllers" Version="7.0.56" />
+    <PackageReference Include="Lexicom.Authentication.Http" Version="7.0.59" />
+    <PackageReference Include="Lexicom.Supports.AspNetCore.Controllers" Version="7.0.59" />
   </ItemGroup>
 
 </Project>
