@@ -1,7 +1,4 @@
 ﻿namespace Lexicom.Concentrate.Wpf.Themes.Exceptions;
-public class AppliedThemeNotFound : Exception
+public class AppliedThemeNotFound() : Exception($"No applied theme could be found for this application.")
 {
-    public AppliedThemeNotFound() : base($"No applied theme could be found for this application.")
-    {
-    }
 }
