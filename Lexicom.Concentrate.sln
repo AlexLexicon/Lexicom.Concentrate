@@ -35,7 +35,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{DE5E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{703B7EA7-4900-4AAE-BDAC-6E090FCD061A}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\pipeline.yml = .github\workflows\pipeline.yml
+		.github\workflows\dotnet8.yml = .github\workflows\dotnet8.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".repo", ".repo", "{142A0BDB-15E1-429B-8D5C-4910B46C8D93}"
