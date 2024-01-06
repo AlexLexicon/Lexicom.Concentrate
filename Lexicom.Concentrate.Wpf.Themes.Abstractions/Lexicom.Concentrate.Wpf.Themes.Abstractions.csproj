@@ -25,9 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Validation.Amenities" Version="7.0.59" />
+    <PackageReference Include="Lexicom.Validation.Amenities" Version="7.0.61" />
     <PackageReference Include="Lexicom.Validation.Options" Version="7.0.59" />
-    <PackageReference Include="Lexicom.Wpf.Amenities.Abstractions" Version="7.0.59" />
+    <PackageReference Include="Lexicom.Wpf.Amenities.Abstractions" Version="7.0.61" />
   </ItemGroup>
 
 </Project>
