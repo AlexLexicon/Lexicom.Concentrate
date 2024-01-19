@@ -647,13 +647,13 @@ public partial class TextInput : UserControl
         set => SetValue(ErrorTextWrappingProperty, value);
     }
 
-    public static readonly DependencyProperty ErrorTextMaxLinesProperty = DependencyProperty.Register(nameof(ErrorTextMaxLines), typeof(int?), typeof(TextInput), new PropertyMetadata(null, OnErrorTextMaxLinesProperty_PropertyChanged));
-    public int? ErrorTextMaxLines
+    public static readonly DependencyProperty ErrorsMaxLinesProperty = DependencyProperty.Register(nameof(ErrorsMaxLines), typeof(int?), typeof(TextInput), new PropertyMetadata(null, OnErrorTextMaxLinesProperty_PropertyChanged));
+    public int? ErrorsMaxLines
     {
-        get => (int?)GetValue(ErrorTextMaxLinesProperty);
+        get => (int?)GetValue(ErrorsMaxLinesProperty);
         set
         {
-            SetValue(ErrorTextMaxLinesProperty, value);
+            SetValue(ErrorsMaxLinesProperty, value);
             Validate();
         }
     }
@@ -730,9 +730,9 @@ public partial class TextInput : UserControl
         {
             IEnumerable<string?> errors = Validation.Invoke(Text);
 
-            if (ErrorTextMaxLines is not null)
+            if (ErrorsMaxLines is not null)
             {
-                errors = errors.Take(ErrorTextMaxLines.Value);
+                errors = errors.Take(ErrorsMaxLines.Value);
             }
 
             Errors = errors;
