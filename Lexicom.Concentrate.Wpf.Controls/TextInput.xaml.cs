@@ -647,6 +647,24 @@ public partial class TextInput : UserControl
         set => SetValue(ErrorTextWrappingProperty, value);
     }
 
+    public static readonly DependencyProperty ErrorTextMaxLinesProperty = DependencyProperty.Register(nameof(ErrorTextMaxLines), typeof(int?), typeof(TextInput), new PropertyMetadata(null, OnErrorTextMaxLinesProperty_PropertyChanged));
+    public int? ErrorTextMaxLines
+    {
+        get => (int?)GetValue(ErrorTextMaxLinesProperty);
+        set
+        {
+            SetValue(ErrorTextMaxLinesProperty, value);
+            Validate();
+        }
+    }
+    private static void OnErrorTextMaxLinesProperty_PropertyChanged(DependencyObject source, DependencyPropertyChangedEventArgs e)
+    {
+        if (source is TextInput TextInput)
+        {
+            TextInput.Validate();
+        }
+    }
+
     #endregion
 
     public static readonly DependencyProperty ValidationProperty = DependencyProperty.Register(nameof(Validation), typeof(Func<string?, IEnumerable<string?>>), typeof(TextInput), new PropertyMetadata(null, OnValidationProperty_PropertyChanged));
@@ -710,7 +728,14 @@ public partial class TextInput : UserControl
     {
         if (Validation is not null)
         {
-            Errors = Validation.Invoke(Text);
+            IEnumerable<string?> errors = Validation.Invoke(Text);
+
+            if (ErrorTextMaxLines is not null)
+            {
+                errors = errors.Take(ErrorTextMaxLines.Value);
+            }
+
+            Errors = errors;
             ValidateCommand?.Execute(ValidateCommandParameter);
         }
     }
