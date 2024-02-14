@@ -710,6 +710,20 @@ public partial class TextInput : UserControl
         private set => SetValue(IsFocusedProperty, value);
     }
 
+    public static readonly DependencyProperty InputCommandProperty = DependencyProperty.Register(nameof(InputCommand), typeof(ICommand), typeof(TextInput), new PropertyMetadata(null));
+    public ICommand? InputCommand
+    {
+        get => (ICommand?)GetValue(InputCommandProperty);
+        set => SetValue(InputCommandProperty, value);
+    }
+
+    public static readonly DependencyProperty InputCommandParameterProperty = DependencyProperty.Register(nameof(InputCommandParameter), typeof(object), typeof(TextInput), new PropertyMetadata(null));
+    public object? InputCommandParameter
+    {
+        get => (object?)GetValue(InputCommandParameterProperty);
+        set => SetValue(InputCommandParameterProperty, value);
+    }
+
     public static readonly DependencyProperty ValidateCommandProperty = DependencyProperty.Register(nameof(ValidateCommand), typeof(ICommand), typeof(TextInput), new PropertyMetadata(null));
     public ICommand? ValidateCommand
     {
@@ -763,6 +777,7 @@ public partial class TextInput : UserControl
     private void InputTextBox_TextChanged(object sender, TextChangedEventArgs e)
     {
         Validate();
+        InputCommand?.Execute(InputCommandParameter);
     }
 
     private void InputTextBox_Loaded(object sender, RoutedEventArgs e)
