@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using Lexicom.Validation;
+using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
@@ -667,6 +669,29 @@ public partial class TextInput : UserControl
 
     #endregion
 
+    public static readonly DependencyProperty ValidatorProperty = DependencyProperty.Register(nameof(Validator), typeof(IRuleSetValidator<string?>), typeof(TextInput), new PropertyMetadata(null, OnValidatorProperty_PropertyChanged));
+    public IRuleSetValidator<string?>? Validator
+    {
+        get => (IRuleSetValidator<string?>?)GetValue(ValidatorProperty);
+        set
+        {
+            SetValue(ValidatorProperty, value);
+            SetValidator(value);
+        }
+    }
+    private static void OnValidatorProperty_PropertyChanged(DependencyObject source, DependencyPropertyChangedEventArgs e)
+    {
+        if (source is TextInput textInput && e.NewValue is IRuleSetValidator<string?> validator)
+        {
+            textInput.SetValidator(validator);
+        }
+    }
+    private void SetValidator(IRuleSetValidator<string?>? validator)
+    {
+        Validation = validator?.Validation;
+        Errors = validator?.ValidationErrors ?? [];
+    }
+
     public static readonly DependencyProperty ValidationProperty = DependencyProperty.Register(nameof(Validation), typeof(Func<string?, IEnumerable<string?>>), typeof(TextInput), new PropertyMetadata(null, OnValidationProperty_PropertyChanged));
     public Func<string?, IEnumerable<string?>>? Validation
     {
@@ -679,9 +704,9 @@ public partial class TextInput : UserControl
     }
     private static void OnValidationProperty_PropertyChanged(DependencyObject source, DependencyPropertyChangedEventArgs e)
     {
-        if (source is TextInput TextInput)
+        if (source is TextInput textInput)
         {
-            TextInput.Validate();
+            textInput.Validate();
         }
     }
 
@@ -692,16 +717,50 @@ public partial class TextInput : UserControl
         set => SetValue(IsValidProperty, value);
     }
 
-    public static readonly DependencyProperty ErrorsProperty = DependencyProperty.Register(nameof(Errors), typeof(IEnumerable<string?>), typeof(TextInput), new PropertyMetadata(null));
-    public IEnumerable<string?>? Errors
+    public static readonly DependencyProperty ErrorsProperty = DependencyProperty.Register(nameof(Errors), typeof(ObservableCollection<string>), typeof(TextInput), new PropertyMetadata(new ObservableCollection<string>(), OnErrorsProperty_PropertyChanged));
+    public ObservableCollection<string> Errors
     {
-        get => (IEnumerable<string?>?)GetValue(ErrorsProperty);
+        get => (ObservableCollection<string>)GetValue(ErrorsProperty);
         set
         {
+            if (Errors is not null)
+            {
+                Errors.CollectionChanged -= Errors_CollectionChanged;
+            }
+
             SetValue(ErrorsProperty, value);
-            IsValid = value is not null && !value.Any();
+
+            ArgumentNullException.ThrowIfNull(Errors);
+
+            Errors.CollectionChanged += Errors_CollectionChanged;
+
+            SetIsValidFromErrors();
         }
     }
+    private void Errors_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+    {
+        SetIsValidFromErrors();
+    }
+    private static void OnErrorsProperty_PropertyChanged(DependencyObject source, DependencyPropertyChangedEventArgs e)
+    {
+        if (source is TextInput textInput)
+        {
+            if (e.OldValue is not null and ObservableCollection<string> previousCollection)
+            {
+                previousCollection.CollectionChanged -= textInput.Errors_CollectionChanged;
+            }
+
+            ArgumentNullException.ThrowIfNull(e.NewValue, nameof(Errors));
+
+            if (e.NewValue is ObservableCollection<string> newCollection)
+            {
+                newCollection.CollectionChanged += textInput.Errors_CollectionChanged;
+            }
+
+            textInput.SetIsValidFromErrors();
+        }
+    }
+    private void SetIsValidFromErrors() => IsValid = Errors is not null && !Errors.Any();
 
     public new static readonly DependencyProperty IsFocusedProperty = DependencyProperty.Register(nameof(IsFocused), typeof(bool), typeof(TextInput), new PropertyMetadata(false));
     public new bool IsFocused
@@ -749,7 +808,15 @@ public partial class TextInput : UserControl
                 errors = errors.Take(ErrorsMaxLines.Value);
             }
 
-            Errors = errors;
+            Errors.Clear();
+            foreach (string? error in errors)
+            {
+                if (error is not null)
+                {
+                    Errors.Add(error);
+                }
+            }
+
             ValidateCommand?.Execute(ValidateCommandParameter);
         }
     }

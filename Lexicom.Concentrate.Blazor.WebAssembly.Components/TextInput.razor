@@ -1,0 +1,68 @@
+<div class="lexicom-textinput-border">
+    <input class="lexicom-textinput-input" type="text" placeholder="@Hint" @bind="Text" @bind:event="oninput" @bind:after="InputTextChanged" @onkeypress="OnKeyPressAsync" />
+    <div class="lexicom-textinput-errors-border">
+        <ul class="lexicom-textinput-errors">
+            @foreach (string error in Errors)
+            {
+                <li class="lexicom-textinput-error">
+                    @error
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string? Hint { get; set; }
+
+    [Parameter]
+    public string? Text { get; set; }
+
+    [Parameter]
+    public Func<string?, IEnumerable<string>>? Validation { get; set; }
+
+    [Parameter]
+    public ObservableCollection<string> Errors { get; set; } = [];
+
+    [Parameter]
+    public bool IsValid { get; set; }
+
+    [Parameter]
+    public EventCallback<string?> EnterPressed { get; set; }
+
+    [Parameter]
+    public EventCallback<string?> TextChanged { get; set; }
+
+    private async Task OnKeyPressAsync(KeyboardEventArgs e)
+    {
+        if (e.Code is "Enter")
+        {
+            await EnterPressed.InvokeAsync(Text);
+        }
+    }
+
+    private async Task InputTextChanged()
+    {
+        if (Validation is not null)
+        {
+            IEnumerable<string> errors = Validation.Invoke(Text);
+
+            Errors.Clear();
+            foreach (string error in errors)
+            {
+                Errors.Add(error);
+            }
+
+            IsValid = !Errors.Any();
+
+            await InvokeAsync(StateHasChanged);
+        }
+        else
+        {
+            IsValid = true;
+        }
+
+        await TextChanged.InvokeAsync(Text);
+    }
+}

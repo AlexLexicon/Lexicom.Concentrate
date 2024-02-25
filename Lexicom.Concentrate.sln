@@ -35,7 +35,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{DE5E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{703B7EA7-4900-4AAE-BDAC-6E090FCD061A}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\dotnet8.yml = .github\workflows\dotnet8.yml
+		.github\workflows\dotnet6.yml = .github\workflows\dotnet6.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".repo", ".repo", "{142A0BDB-15E1-429B-8D5C-4910B46C8D93}"
@@ -49,6 +49,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".images", ".images", "{C37A
 	ProjectSection(SolutionItems) = preProject
 		lexicom.concentrate.nuget.icon.png = lexicom.concentrate.nuget.icon.png
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blazor", "Blazor", "{623BD8A8-7490-4045-A99E-8B4726A3FA31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicom.Concentrate.Blazor.WebAssembly.Components", "Lexicom.Concentrate.Blazor.WebAssembly.Components\Lexicom.Concentrate.Blazor.WebAssembly.Components.csproj", "{04E4A6E8-8C4B-4435-A04D-D1C49E22FDC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -100,6 +104,10 @@ Global
 		{9CADB287-4877-4263-89F6-74AAF4D0B647}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CADB287-4877-4263-89F6-74AAF4D0B647}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CADB287-4877-4263-89F6-74AAF4D0B647}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04E4A6E8-8C4B-4435-A04D-D1C49E22FDC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04E4A6E8-8C4B-4435-A04D-D1C49E22FDC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04E4A6E8-8C4B-4435-A04D-D1C49E22FDC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04E4A6E8-8C4B-4435-A04D-D1C49E22FDC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +125,7 @@ Global
 		{71CDFCB9-70AB-4B9E-BCED-06F8B266E9FD} = {5B09E073-47C9-4708-A160-354F9E32E611}
 		{9CADB287-4877-4263-89F6-74AAF4D0B647} = {5B09E073-47C9-4708-A160-354F9E32E611}
 		{703B7EA7-4900-4AAE-BDAC-6E090FCD061A} = {DE5EBE31-F8AA-4A5A-8941-CA81FA191C74}
+		{04E4A6E8-8C4B-4435-A04D-D1C49E22FDC6} = {623BD8A8-7490-4045-A99E-8B4726A3FA31}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B876B770-657E-4FDC-9C39-0651538EDA63}

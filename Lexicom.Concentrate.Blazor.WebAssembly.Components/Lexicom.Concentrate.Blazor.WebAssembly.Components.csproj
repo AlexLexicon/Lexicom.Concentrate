@@ -1,22 +1,22 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-
+    <ImplicitUsings>enable</ImplicitUsings>
+    
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>lexicom.concentrate.nuget.icon.png</PackageIcon>
 
     <Authors>Alex Stroot</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Description>The base package for all Lexicom.Concentrate...For.Blazor.WebAssembly packages. Relies on and enforces the inclusion of the Microsoft.AspNetCore.Components.WebAssembly package reference. Extends the base Lexicom.Supports.Blazor.WebAssembly.</Description>
-    <Copyright>2023</Copyright>
-    <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom/tree/master/Lexicom.Concentrate.Supports.Blazor.WebAssembly</PackageProjectUrl>
+    <Description>Supplies useful controls for any Blazor web assembly application project.</Description>
+    <Copyright>2024</Copyright>
+    <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom/tree/master/Lexicom.Concentrate.Blazor.WebAssembly.Components</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AlexLexicon/Lexicom</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
-    <PackageTags>blazor;dependencyinjection;webassembly</PackageTags>
+    <PackageTags>blazor;webassembly</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,7 +25,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Supports.Blazor.WebAssembly" Version="8.0.40" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.2" />
+    <PackageReference Include="Lexicom.Validation" Version="8.0.40" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>
