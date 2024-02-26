@@ -1,3 +1,7 @@
+@using System.Collections.ObjectModel
+@using System.Collections.Specialized
+@using Lexicom.Validation
+
 <div class="lexicom-textinput-border">
     <input class="lexicom-textinput-input" type="text" placeholder="@Hint" @bind="Text" @bind:event="oninput" @bind:after="InputTextChanged" @onkeypress="OnKeyPressAsync" />
     <div class="lexicom-textinput-errors-border">
@@ -19,11 +23,52 @@
     [Parameter]
     public string? Text { get; set; }
 
+    private IRuleSetValidator<string?>? _validator;
+#pragma warning disable BL0007 // we are not updating the view in this code, only updating other parameters
+    [Parameter]
+    public IRuleSetValidator<string?>? Validator
+    {
+        get => _validator;
+        set
+        {
+            _validator = value;
+
+            Validation = _validator?.Validation;
+            Errors = _validator?.ValidationErrors ?? [];
+        }
+    }
+#pragma warning restore BL0007
+
     [Parameter]
     public Func<string?, IEnumerable<string>>? Validation { get; set; }
 
+    private ObservableCollection<string> _errors = [];
     [Parameter]
-    public ObservableCollection<string> Errors { get; set; } = [];
+#pragma warning disable BL0007 // we are not updating the view in this code, only adding/removing event triggers so we should be safe
+    public ObservableCollection<string> Errors
+    {
+        get => _errors;
+        set
+        {
+            if (Errors is not null)
+            {
+                Errors.CollectionChanged -= ErrorsCollectionChanged;
+            }
+
+            _errors = value;
+
+            if (Errors is null)
+            {
+                throw new Exception("hjkasdhjlasdjklasjkld!!!");
+            }
+
+            Errors.CollectionChanged += ErrorsCollectionChanged;
+        }
+    }
+#pragma warning restore BL0007
+
+    [Parameter]
+    public int? ErrorsMaxLines { get; set; }
 
     [Parameter]
     public bool IsValid { get; set; }
@@ -33,6 +78,16 @@
 
     [Parameter]
     public EventCallback<string?> TextChanged { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> IsValidChanged { get; set; }
+
+    private void ErrorsCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
+    {
+        IsValid = Errors is null || !Errors.Any();
+
+        StateHasChanged();
+    }
 
     private async Task OnKeyPressAsync(KeyboardEventArgs e)
     {
@@ -44,25 +99,41 @@
 
     private async Task InputTextChanged()
     {
+        bool newIsValid;
         if (Validation is not null)
         {
-            IEnumerable<string> errors = Validation.Invoke(Text);
+            IEnumerable<string?> errors = Validation.Invoke(Text);
 
-            Errors.Clear();
-            foreach (string error in errors)
+            if (ErrorsMaxLines is not null)
             {
-                Errors.Add(error);
+                errors = errors.Take(ErrorsMaxLines.Value);
             }
 
-            IsValid = !Errors.Any();
+            Errors.Clear();
+            foreach (string? error in errors)
+            {
+                if (error is not null)
+                {
+                    Errors.Add(error);
+                }
+            }
+
+            newIsValid = !Errors.Any();
 
             await InvokeAsync(StateHasChanged);
         }
         else
         {
-            IsValid = true;
+            newIsValid = true;
         }
 
         await TextChanged.InvokeAsync(Text);
+
+        if (IsValid != newIsValid)
+        {
+            IsValid = newIsValid;
+
+            await IsValidChanged.InvokeAsync(IsValid);
+        }
     }
 }
