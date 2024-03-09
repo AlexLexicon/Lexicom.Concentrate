@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>lexicom.concentrate.nuget.icon.png</PackageIcon>
+
+    <Authors>Alex Stroot</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Description>Adds convenient but optional features for any Blazor web assembly application project. Although not necessary these features are specifically designed to integrate with other Lexicom Blazor web assembly application packages.</Description>
+    <Copyright>2024</Copyright>
+    <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom/tree/master/Lexicom.Concentrate.Blazor.WebAssembly.Amenities</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/AlexLexicon/Lexicom</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+    <PackageTags>blazor;webassembly</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+    <None Include="..\lexicom.concentrate.nuget.icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR.Contracts" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions\Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>
