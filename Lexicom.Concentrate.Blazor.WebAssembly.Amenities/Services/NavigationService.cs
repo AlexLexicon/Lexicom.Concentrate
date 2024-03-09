@@ -25,9 +25,12 @@ public class NavigationService : INavigationService, IDisposable
         _navigationManager = navigationManager;
     }
 
+    private IDisposable? RegisteredLocationChangingHandler { get; set; }
+
     public async Task InitalizeNotificationsAsync(CancellationToken cancellationToken = default)
     {
         _navigationManager.LocationChanged += OnLocationChanged;
+        RegisteredLocationChangingHandler = _navigationManager.RegisterLocationChangingHandler(OnLocationChanging);
 
         string currentUrl = await GetCurrentUrlAsync();
         await NavigationLocationChangedAsync(currentUrl, cancellationToken);
@@ -55,11 +58,17 @@ public class NavigationService : INavigationService, IDisposable
     public void Dispose()
     {
         _navigationManager.LocationChanged -= OnLocationChanged;
+        RegisteredLocationChangingHandler?.Dispose();
     }
 
     private async void OnLocationChanged(object? sender, LocationChangedEventArgs e)
     {
         await NavigationLocationChangedAsync(e.Location, cancellationToken: default);
+    }
+
+    private async ValueTask OnLocationChanging(LocationChangingContext locationChangingContext)
+    {
+        await _mediator.Publish(new NavigationLocationChangingNotification(new LocationChangingManager(locationChangingContext)));
     }
 
     private async Task NavigationLocationChangedAsync(string url, CancellationToken cancellationToken)
