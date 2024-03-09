@@ -84,6 +84,18 @@ public class NavigationService : INavigationService, IDisposable
     }
 
     /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, bool value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?> 
+        { 
+            { name, value } 
+        });
+    }
+
+    /// <exception cref="ArgumentNullException"/>
     public Task<string> GetUrlWithQueryParameterAsync(string name, bool? value)
     {
         ArgumentNullException.ThrowIfNull(name);
@@ -91,6 +103,18 @@ public class NavigationService : INavigationService, IDisposable
         string url = _navigationManager.GetUriWithQueryParameter(name, value);
 
         return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, bool? value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
     }
 
     /// <exception cref="ArgumentNullException"/>
@@ -104,6 +128,18 @@ public class NavigationService : INavigationService, IDisposable
     }
 
     /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, DateTime value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
+    }
+
+    /// <exception cref="ArgumentNullException"/>
     public Task<string> GetUrlWithQueryParameterAsync(string name, DateTime? value)
     {
         ArgumentNullException.ThrowIfNull(name);
@@ -111,6 +147,18 @@ public class NavigationService : INavigationService, IDisposable
         string url = _navigationManager.GetUriWithQueryParameter(name, value);
 
         return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, DateTime? value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
     }
 
     /// <exception cref="ArgumentNullException"/>
@@ -124,6 +172,18 @@ public class NavigationService : INavigationService, IDisposable
     }
 
     /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, DateOnly value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
+    }
+
+    /// <exception cref="ArgumentNullException"/>
     public Task<string> GetUrlWithQueryParameterAsync(string name, DateOnly? value)
     {
         ArgumentNullException.ThrowIfNull(name);
@@ -131,6 +191,18 @@ public class NavigationService : INavigationService, IDisposable
         string url = _navigationManager.GetUriWithQueryParameter(name, value);
 
         return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, DateOnly? value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
     }
 
     /// <exception cref="ArgumentNullException"/>
@@ -144,6 +216,18 @@ public class NavigationService : INavigationService, IDisposable
     }
 
     /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, TimeOnly value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
+    }
+
+    /// <exception cref="ArgumentNullException"/>
     public Task<string> GetUrlWithQueryParameterAsync(string name, TimeOnly? value)
     {
         ArgumentNullException.ThrowIfNull(name);
@@ -151,6 +235,18 @@ public class NavigationService : INavigationService, IDisposable
         string url = _navigationManager.GetUriWithQueryParameter(name, value);
 
         return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, TimeOnly? value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
     }
 
     /// <exception cref="ArgumentNullException"/>
@@ -164,6 +260,18 @@ public class NavigationService : INavigationService, IDisposable
     }
 
     /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, decimal value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
+    }
+
+    /// <exception cref="ArgumentNullException"/>
     public Task<string> GetUrlWithQueryParameterAsync(string name, decimal? value)
     {
         ArgumentNullException.ThrowIfNull(name);
@@ -171,6 +279,18 @@ public class NavigationService : INavigationService, IDisposable
         string url = _navigationManager.GetUriWithQueryParameter(name, value);
 
         return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, decimal? value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
     }
 
     /// <exception cref="ArgumentNullException"/>
@@ -184,6 +304,18 @@ public class NavigationService : INavigationService, IDisposable
     }
 
     /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, double value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
+    }
+
+    /// <exception cref="ArgumentNullException"/>
     public Task<string> GetUrlWithQueryParameterAsync(string name, double? value)
     {
         ArgumentNullException.ThrowIfNull(name);
@@ -191,6 +323,18 @@ public class NavigationService : INavigationService, IDisposable
         string url = _navigationManager.GetUriWithQueryParameter(name, value);
 
         return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, double? value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
     }
 
     /// <exception cref="ArgumentNullException"/>
@@ -204,6 +348,18 @@ public class NavigationService : INavigationService, IDisposable
     }
 
     /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, float value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
+    }
+
+    /// <exception cref="ArgumentNullException"/>
     public Task<string> GetUrlWithQueryParameterAsync(string name, float? value)
     {
         ArgumentNullException.ThrowIfNull(name);
@@ -211,6 +367,18 @@ public class NavigationService : INavigationService, IDisposable
         string url = _navigationManager.GetUriWithQueryParameter(name, value);
 
         return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, float? value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
     }
 
     /// <exception cref="ArgumentNullException"/>
@@ -224,6 +392,18 @@ public class NavigationService : INavigationService, IDisposable
     }
 
     /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, Guid value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
+    }
+
+    /// <exception cref="ArgumentNullException"/>
     public Task<string> GetUrlWithQueryParameterAsync(string name, Guid? value)
     {
         ArgumentNullException.ThrowIfNull(name);
@@ -231,6 +411,18 @@ public class NavigationService : INavigationService, IDisposable
         string url = _navigationManager.GetUriWithQueryParameter(name, value);
 
         return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, Guid? value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
     }
 
     /// <exception cref="ArgumentNullException"/>
@@ -244,6 +436,18 @@ public class NavigationService : INavigationService, IDisposable
     }
 
     /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, int value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
+    }
+
+    /// <exception cref="ArgumentNullException"/>
     public Task<string> GetUrlWithQueryParameterAsync(string name, int? value)
     {
         ArgumentNullException.ThrowIfNull(name);
@@ -251,6 +455,18 @@ public class NavigationService : INavigationService, IDisposable
         string url = _navigationManager.GetUriWithQueryParameter(name, value);
 
         return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, int? value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
     }
 
     /// <exception cref="ArgumentNullException"/>
@@ -264,6 +480,18 @@ public class NavigationService : INavigationService, IDisposable
     }
 
     /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, long value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
+    }
+
+    /// <exception cref="ArgumentNullException"/>
     public Task<string> GetUrlWithQueryParameterAsync(string name, long? value)
     {
         ArgumentNullException.ThrowIfNull(name);
@@ -274,6 +502,18 @@ public class NavigationService : INavigationService, IDisposable
     }
 
     /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, long? value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
+    }
+
+    /// <exception cref="ArgumentNullException"/>
     public Task<string> GetUrlWithQueryParameterAsync(string name, string? value)
     {
         ArgumentNullException.ThrowIfNull(name);
@@ -281,6 +521,18 @@ public class NavigationService : INavigationService, IDisposable
         string url = _navigationManager.GetUriWithQueryParameter(name, value);
 
         return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public async Task<string> GetUrlWithQueryParameterAsync(string url, string name, string? value)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(name);
+
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
+        });
     }
 
     /// <exception cref="ArgumentNullException"/>
@@ -305,7 +557,7 @@ public class NavigationService : INavigationService, IDisposable
     }
 
     /// <exception cref="ArgumentNullException"/>
-    public async Task SetUrlAsync(string url, bool noLoad = false, bool forceLoad = false, bool replace = false, CancellationToken cancellationToken = default)
+    public async Task SetUrlAsync(string url, CancellationToken cancellationToken = default, bool forceLoad = false, bool noLoad = false, bool replace = false)
     {
         ArgumentNullException.ThrowIfNull(url);
 
