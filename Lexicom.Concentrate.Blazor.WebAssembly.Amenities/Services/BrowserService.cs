@@ -30,14 +30,6 @@ public class BrowserService : IBrowserService
     }
 
     /// <exception cref="ArgumentNullException"/>
-    public async Task ScrollToElementIdAsync(string elementId, CancellationToken cancellationToken)
-    {
-        ArgumentNullException.ThrowIfNull(elementId);
-
-        await ExecuteJavaScriptAsync($$"""document.getElementById('{{elementId}}').scrollIntoView({behavior:'smooth'})""", cancellationToken);
-    }
-
-    /// <exception cref="ArgumentNullException"/>
     public async Task ExecuteJavaScriptAsync(string javascript, CancellationToken cancellationToken = default, params object?[]? args)
     {
         ArgumentNullException.ThrowIfNull(javascript);
