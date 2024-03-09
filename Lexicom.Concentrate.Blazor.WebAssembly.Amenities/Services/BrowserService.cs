@@ -5,13 +5,16 @@ public class BrowserService : IBrowserService
 {
     private readonly IJSRuntime _iJSRuntime;
 
+    /// <exception cref="ArgumentNullException"/>
     public BrowserService(IJSRuntime iJSRuntime)
     {
+        ArgumentNullException.ThrowIfNull(iJSRuntime);
+
         _iJSRuntime = iJSRuntime;
     }
 
-    public async Task OpenNewTabAsync(string url)
+    public async Task OpenNewTabAsync(string url, CancellationToken cancellationToken)
     {
-        await _iJSRuntime.InvokeVoidAsync("open", url, "_blank");
+        await _iJSRuntime.InvokeVoidAsync("open", cancellationToken, url, "_blank");
     }
 }
