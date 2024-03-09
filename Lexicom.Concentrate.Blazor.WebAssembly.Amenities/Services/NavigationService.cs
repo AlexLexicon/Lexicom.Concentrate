@@ -1,4 +1,4 @@
-﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions.Notifications;
+﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Notifications;
 using MediatR;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
@@ -21,34 +21,20 @@ public class NavigationService : INavigationService, IDisposable
         _navigationManager = navigationManager;
     }
 
-    public Task InitalizeNotificationsAsync(CancellationToken cancellationToken)
+    public Task InitalizeNotificationsAsync()
     {
-        cancellationToken.ThrowIfCancellationRequested();
-
         _navigationManager.LocationChanged += OnLocationChanged;
 
         return Task.CompletedTask;
     }
 
-    public Task<string> GetCurrentUrlAsync(CancellationToken cancellationToken)
+    public Task<string> GetCurrentUrlAsync()
     {
-        cancellationToken.ThrowIfCancellationRequested();
-
         return Task.FromResult(_navigationManager.Uri);
     }
 
-    public async Task SetUrlAsync(string url, CancellationToken cancellationToken)
+    public Task SetUrlAsync(string url, bool forceLoad = false, bool replace = false)
     {
-        await SetUrlAsync(url, forceLoad: false, cancellationToken);
-    }
-    public async Task SetUrlAsync(string url, bool forceLoad, CancellationToken cancellationToken)
-    {
-        await SetUrlAsync(url, forceLoad: false, replace: false, cancellationToken);
-    }
-    public Task SetUrlAsync(string url, bool forceLoad, bool replace, CancellationToken cancellationToken)
-    {
-        cancellationToken.ThrowIfCancellationRequested();
-
         _navigationManager.NavigateTo(url, forceLoad, replace);
 
         return Task.CompletedTask;
