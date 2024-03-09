@@ -50,7 +50,7 @@ public interface INavigationService
     /// <exception cref="ArgumentNullException"/>
     Task<string> GetUrlWithQueryParameterAsync(string name, long? value);
     /// <exception cref="ArgumentNullException"/>
-    Task<string> GetUrLWithQueryParameterAsync(string name, string? value);
+    Task<string> GetUrlWithQueryParameterAsync(string name, string? value);
     /// <exception cref="ArgumentNullException"/>
     Task<string> GetUrlWithQueryParametersAsync(IReadOnlyDictionary<string, object?> parameters);
     /// <exception cref="ArgumentNullException"/>

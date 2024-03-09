@@ -274,7 +274,7 @@ public class NavigationService : INavigationService, IDisposable
     }
 
     /// <exception cref="ArgumentNullException"/>
-    public Task<string> GetUrLWithQueryParameterAsync(string name, string? value)
+    public Task<string> GetUrlWithQueryParameterAsync(string name, string? value)
     {
         ArgumentNullException.ThrowIfNull(name);
 
