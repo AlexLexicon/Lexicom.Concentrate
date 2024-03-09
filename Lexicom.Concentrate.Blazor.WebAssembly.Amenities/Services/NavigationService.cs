@@ -36,13 +36,48 @@ public class NavigationService : INavigationService, IDisposable
         await NavigationLocationChangedAsync(currentUrl, cancellationToken);
     }
 
+    public Task RefreshAsync()
+    {
+        _navigationManager.Refresh();
+
+        return Task.CompletedTask;
+    }
+
+    public Task<string> GetBaseUrlAsync()
+    {
+        return Task.FromResult(_navigationManager.BaseUri);
+    }
+
     public Task<string> GetCurrentUrlAsync()
     {
         return Task.FromResult(_navigationManager.Uri);
     }
 
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetFullUrlAsync(string relativePath)
+    {
+        ArgumentNullException.ThrowIfNull(relativePath);
+
+        var fullUri = _navigationManager.ToAbsoluteUri(relativePath);
+
+        return Task.FromResult(fullUri.ToString());
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetRelativePathUrlAsync(string fullUrl)
+    {
+        ArgumentNullException.ThrowIfNull(fullUrl);
+
+        string relativePath = _navigationManager.ToBaseRelativePath(fullUrl);
+
+        return Task.FromResult(relativePath);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
     public async Task SetUrlAsync(string url, bool noLoad = false, bool forceLoad = false, bool replace = false, CancellationToken cancellationToken = default)
     {
+        ArgumentNullException.ThrowIfNull(url);
+
         if (noLoad)
         {
             await _browserService.ChangeUrlAsync(url, cancellationToken);
