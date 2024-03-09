@@ -17,4 +17,9 @@ public class BrowserService : IBrowserService
     {
         await _iJSRuntime.InvokeVoidAsync("open", cancellationToken, url, "_blank");
     }
+
+    public async Task ChangeUrlAsync(string url, CancellationToken cancellationToken)
+    {
+        await _iJSRuntime.InvokeVoidAsync("ChangeUrl", url, cancellationToken);
+    }
 }

@@ -7,25 +7,30 @@ namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
 public class NavigationService : INavigationService, IDisposable
 {
     private readonly IMediator _mediator;
+    private readonly IBrowserService _browserService;
     private readonly NavigationManager _navigationManager;
 
     /// <exception cref="ArgumentNullException"/>
     public NavigationService(
         IMediator mediator,
+        IBrowserService browserService,
         NavigationManager navigationManager)
     {
         ArgumentNullException.ThrowIfNull(mediator);
+        ArgumentNullException.ThrowIfNull(browserService);
         ArgumentNullException.ThrowIfNull(navigationManager);
 
         _mediator = mediator;
+        _browserService = browserService;
         _navigationManager = navigationManager;
     }
 
-    public Task InitalizeNotificationsAsync()
+    public async Task InitalizeNotificationsAsync(CancellationToken cancellationToken = default)
     {
         _navigationManager.LocationChanged += OnLocationChanged;
 
-        return Task.CompletedTask;
+        string currentUrl = await GetCurrentUrlAsync();
+        await NavigationLocationChangedAsync(currentUrl, cancellationToken);
     }
 
     public Task<string> GetCurrentUrlAsync()
@@ -33,11 +38,18 @@ public class NavigationService : INavigationService, IDisposable
         return Task.FromResult(_navigationManager.Uri);
     }
 
-    public Task SetUrlAsync(string url, bool forceLoad = false, bool replace = false)
+    public async Task SetUrlAsync(string url, bool noLoad = false, bool forceLoad = false, bool replace = false, CancellationToken cancellationToken = default)
     {
-        _navigationManager.NavigateTo(url, forceLoad, replace);
+        if (noLoad)
+        {
+            await _browserService.ChangeUrlAsync(url, cancellationToken);
 
-        return Task.CompletedTask;
+            await NavigationLocationChangedAsync(url, cancellationToken);
+        }
+        else
+        {
+            _navigationManager.NavigateTo(url, forceLoad, replace);
+        }
     }
 
     public void Dispose()
@@ -47,6 +59,11 @@ public class NavigationService : INavigationService, IDisposable
 
     private async void OnLocationChanged(object? sender, LocationChangedEventArgs e)
     {
-        await _mediator.Publish(new NavigationLocationChangedNotification(e.Location));
+        await NavigationLocationChangedAsync(e.Location, cancellationToken: default);
+    }
+
+    private async Task NavigationLocationChangedAsync(string url, CancellationToken cancellationToken)
+    {
+        await _mediator.Publish(new NavigationLocationChangedNotification(url), cancellationToken);
     }
 }

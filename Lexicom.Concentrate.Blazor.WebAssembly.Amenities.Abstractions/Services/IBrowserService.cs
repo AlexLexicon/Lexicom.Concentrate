@@ -2,4 +2,5 @@
 public interface IBrowserService
 {
     Task OpenNewTabAsync(string url, CancellationToken cancellationToken);
+    Task ChangeUrlAsync(string url, CancellationToken cancellationToken);
 }
