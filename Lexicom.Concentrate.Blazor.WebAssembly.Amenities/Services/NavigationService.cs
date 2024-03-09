@@ -68,7 +68,11 @@ public class NavigationService : INavigationService, IDisposable
 
     private async ValueTask OnLocationChanging(LocationChangingContext locationChangingContext)
     {
-        await _mediator.Publish(new NavigationLocationChangingNotification(new LocationChangingManager(locationChangingContext)));
+        var locationChangingManager = new LocationChangingManager(locationChangingContext);
+
+        string url = await locationChangingManager.GetUrlAsync();
+
+        await _mediator.Publish(new NavigationLocationChangingNotification(url, locationChangingManager));
     }
 
     private async Task NavigationLocationChangedAsync(string url, CancellationToken cancellationToken)
