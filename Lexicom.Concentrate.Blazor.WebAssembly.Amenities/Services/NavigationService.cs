@@ -74,6 +74,237 @@ public class NavigationService : INavigationService, IDisposable
     }
 
     /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, bool value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, bool? value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, DateTime value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, DateTime? value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, DateOnly value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, DateOnly? value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, TimeOnly value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, TimeOnly? value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, decimal value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, decimal? value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, double value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, double? value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, float value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, float? value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, Guid value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, Guid? value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, int value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, int? value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, long value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParameterAsync(string name, long? value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrLWithQueryParameterAsync(string name, string? value)
+    {
+        ArgumentNullException.ThrowIfNull(name);
+
+        string url = _navigationManager.GetUriWithQueryParameter(name, value);
+
+        return Task.FromResult(url);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParametersAsync(IReadOnlyDictionary<string, object?> parameters)
+    {
+        ArgumentNullException.ThrowIfNull(parameters);
+
+        string urlWithParameters = _navigationManager.GetUriWithQueryParameters(parameters);
+
+        return Task.FromResult(urlWithParameters);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetUrlWithQueryParametersAsync(string url, IReadOnlyDictionary<string, object?> parameters)
+    {
+        ArgumentNullException.ThrowIfNull(url);
+        ArgumentNullException.ThrowIfNull(parameters);
+
+        string urlWithParameters = _navigationManager.GetUriWithQueryParameters(url, parameters);
+
+        return Task.FromResult(urlWithParameters);
+    }
+
+    /// <exception cref="ArgumentNullException"/>
     public async Task SetUrlAsync(string url, bool noLoad = false, bool forceLoad = false, bool replace = false, CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(url);
