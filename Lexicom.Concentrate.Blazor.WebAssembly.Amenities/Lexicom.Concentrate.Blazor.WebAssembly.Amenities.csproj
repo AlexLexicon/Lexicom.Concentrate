@@ -39,6 +39,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions\Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions.csproj" />
+    <ProjectReference Include="..\Lexicom.Concentrate.Supports.Blazor.WebAssembly\Lexicom.Concentrate.Supports.Blazor.WebAssembly.csproj" />
   </ItemGroup>
 
 </Project>
