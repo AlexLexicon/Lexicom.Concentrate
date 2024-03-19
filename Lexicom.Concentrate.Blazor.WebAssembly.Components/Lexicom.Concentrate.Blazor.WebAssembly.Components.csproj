@@ -26,7 +26,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.3" />
-    <PackageReference Include="Lexicom.Validation" Version="8.0.56" />
+    <PackageReference Include="Lexicom.Validation" Version="8.0.57" />
   </ItemGroup>
 
   <ItemGroup>
