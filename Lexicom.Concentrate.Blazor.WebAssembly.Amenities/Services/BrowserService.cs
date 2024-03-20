@@ -18,7 +18,7 @@ public class BrowserService : IBrowserService
     {
         ArgumentNullException.ThrowIfNull(url);
 
-        await ExecuteJavaScriptAsync("open", cancellationToken, url, "_blank");
+        await ExecuteJavaScriptFunctionAsync("open", cancellationToken, url, "_blank");
     }
 
     /// <exception cref="ArgumentNullException"/>
@@ -26,22 +26,22 @@ public class BrowserService : IBrowserService
     {
         ArgumentNullException.ThrowIfNull(url);
 
-        await ExecuteJavaScriptAsync("ChangeUrl", cancellationToken, url);
+        await ExecuteJavaScriptFunctionAsync("ChangeUrl", cancellationToken, url);
     }
 
     /// <exception cref="ArgumentNullException"/>
-    public async Task ExecuteJavaScriptAsync(string javascript, CancellationToken cancellationToken = default, params object?[]? args)
+    public async Task ExecuteJavaScriptFunctionAsync(string functionName, CancellationToken cancellationToken = default, params object?[]? args)
     {
-        ArgumentNullException.ThrowIfNull(javascript);
+        ArgumentNullException.ThrowIfNull(functionName);
 
-        await _iJSRuntime.InvokeVoidAsync(javascript, cancellationToken, args);
+        await _iJSRuntime.InvokeVoidAsync(functionName, cancellationToken, args);
     }
 
     /// <exception cref="ArgumentNullException"/>
-    public async ValueTask<T> ExecuteJavaScriptAsync<T>(string javascript, CancellationToken cancellationToken = default, params object?[]? args)
+    public async ValueTask<T> ExecuteJavaScriptFunctionAsync<T>(string functionaName, CancellationToken cancellationToken = default, params object?[]? args)
     {
-        ArgumentNullException.ThrowIfNull(javascript);
+        ArgumentNullException.ThrowIfNull(functionaName);
 
-        return await _iJSRuntime.InvokeAsync<T>(javascript, cancellationToken, args);
+        return await _iJSRuntime.InvokeAsync<T>(functionaName, cancellationToken, args);
     }
 }

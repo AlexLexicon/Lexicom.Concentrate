@@ -2,13 +2,13 @@
 public interface INavigationService
 {
     Task InitalizeNotificationsAsync(CancellationToken cancellationToken = default);
-    Task RefreshAsync();
+    Task RefreshPageAsync();
+    Task<string> GetUrlAsync();
     Task<string> GetBaseUrlAsync();
-    Task<string> GetCurrentUrlAsync();
     /// <exception cref="ArgumentNullException"/>
-    Task<string> GetFullUrlAsync(string relativePath);
+    Task<string> GetAbsoluteUrlAsync(string relativePath);
     /// <exception cref="ArgumentNullException"/>
-    Task<string> GetRelativePathUrlAsync(string fullUrl);
+    Task<string> GetRelativeUrlPathAsync(string fullUrl);
     /// <exception cref="ArgumentNullException"/>
     Task<string> GetUrlWithQueryParameterAsync(string name, bool value);
     /// <exception cref="ArgumentNullException"/>
@@ -98,5 +98,5 @@ public interface INavigationService
     /// <exception cref="ArgumentNullException"/>
     Task<string> GetUrlWithQueryParametersAsync(string url, IReadOnlyDictionary<string, object?> parameters);
     /// <exception cref="ArgumentNullException"/>
-    Task SetUrlAsync(string url, CancellationToken cancellationToken = default, bool forceLoad = false, bool noLoad = false, bool replace = false);
+    Task NavigateToUrlAsync(string url, CancellationToken cancellationToken = default, bool forceLoad = false, bool noLoad = false, bool replace = false);
 }

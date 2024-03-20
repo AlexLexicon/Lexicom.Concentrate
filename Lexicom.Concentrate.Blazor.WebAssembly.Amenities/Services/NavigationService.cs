@@ -30,17 +30,23 @@ public class NavigationService : INavigationService, IDisposable
     public async Task InitalizeNotificationsAsync(CancellationToken cancellationToken = default)
     {
         _navigationManager.LocationChanged += OnLocationChanged;
+
         RegisteredLocationChangingHandler = _navigationManager.RegisterLocationChangingHandler(OnLocationChanging);
 
-        string currentUrl = await GetCurrentUrlAsync();
+        string currentUrl = await GetUrlAsync();
         await NavigationLocationChangedAsync(currentUrl, cancellationToken);
     }
 
-    public Task RefreshAsync()
+    public Task RefreshPageAsync()
     {
         _navigationManager.Refresh();
 
         return Task.CompletedTask;
+    }
+
+    public Task<string> GetUrlAsync()
+    {
+        return Task.FromResult(_navigationManager.Uri);
     }
 
     public Task<string> GetBaseUrlAsync()
@@ -48,27 +54,22 @@ public class NavigationService : INavigationService, IDisposable
         return Task.FromResult(_navigationManager.BaseUri);
     }
 
-    public Task<string> GetCurrentUrlAsync()
+    /// <exception cref="ArgumentNullException"/>
+    public Task<string> GetAbsoluteUrlAsync(string relativeUrlPath)
     {
-        return Task.FromResult(_navigationManager.Uri);
+        ArgumentNullException.ThrowIfNull(relativeUrlPath);
+
+        Uri absoluteUri = _navigationManager.ToAbsoluteUri(relativeUrlPath);
+
+        return Task.FromResult(absoluteUri.ToString());
     }
 
     /// <exception cref="ArgumentNullException"/>
-    public Task<string> GetFullUrlAsync(string relativePath)
+    public Task<string> GetRelativeUrlPathAsync(string absoluteUrl)
     {
-        ArgumentNullException.ThrowIfNull(relativePath);
+        ArgumentNullException.ThrowIfNull(absoluteUrl);
 
-        var fullUri = _navigationManager.ToAbsoluteUri(relativePath);
-
-        return Task.FromResult(fullUri.ToString());
-    }
-
-    /// <exception cref="ArgumentNullException"/>
-    public Task<string> GetRelativePathUrlAsync(string fullUrl)
-    {
-        ArgumentNullException.ThrowIfNull(fullUrl);
-
-        string relativePath = _navigationManager.ToBaseRelativePath(fullUrl);
+        string relativePath = _navigationManager.ToBaseRelativePath(absoluteUrl);
 
         return Task.FromResult(relativePath);
     }
@@ -557,7 +558,7 @@ public class NavigationService : INavigationService, IDisposable
     }
 
     /// <exception cref="ArgumentNullException"/>
-    public async Task SetUrlAsync(string url, CancellationToken cancellationToken = default, bool forceLoad = false, bool noLoad = false, bool replace = false)
+    public async Task NavigateToUrlAsync(string url, CancellationToken cancellationToken = default, bool forceLoad = false, bool noLoad = false, bool replace = false)
     {
         ArgumentNullException.ThrowIfNull(url);
 
