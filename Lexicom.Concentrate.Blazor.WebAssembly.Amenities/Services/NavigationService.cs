@@ -64,6 +64,12 @@ public class NavigationService : INavigationService, IDisposable
         return Task.FromResult(absoluteUri.ToString());
     }
 
+    public async Task<string> GetRelativeUrlPathAsync()
+    {
+        string url = await GetUrlAsync();
+        return await GetRelativeUrlPathAsync(url);
+    }
+
     /// <exception cref="ArgumentNullException"/>
     public Task<string> GetRelativeUrlPathAsync(string absoluteUrl)
     {
