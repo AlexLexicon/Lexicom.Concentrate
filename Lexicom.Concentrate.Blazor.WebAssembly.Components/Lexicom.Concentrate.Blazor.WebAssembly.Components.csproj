@@ -37,4 +37,8 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions\Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions.csproj" />
+  </ItemGroup>
+
 </Project>

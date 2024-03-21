@@ -1,0 +1,24 @@
+﻿@using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions.Services
+
+@inject IPrismService _prismService
+
+<pre>
+    <code class="language-@Language">
+        @ChildContent
+    </code>
+</pre>
+
+@code
+{
+    [Parameter]
+    public string? Language { get; set; }
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await _prismService.HighlightAllAsync();
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+}

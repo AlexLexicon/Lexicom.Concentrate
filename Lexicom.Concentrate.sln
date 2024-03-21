@@ -54,9 +54,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blazor", "Blazor", "{623BD8
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicom.Concentrate.Blazor.WebAssembly.Components", "Lexicom.Concentrate.Blazor.WebAssembly.Components\Lexicom.Concentrate.Blazor.WebAssembly.Components.csproj", "{04E4A6E8-8C4B-4435-A04D-D1C49E22FDC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicom.Concentrate.Blazor.WebAssembly.Amenities", "Lexicom.Concentrate.Blazor.WebAssembly.Amenities\Lexicom.Concentrate.Blazor.WebAssembly.Amenities.csproj", "{51CA7FEB-D1EF-4A7B-9713-887249F97841}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicom.Concentrate.Blazor.WebAssembly.Amenities", "Lexicom.Concentrate.Blazor.WebAssembly.Amenities\Lexicom.Concentrate.Blazor.WebAssembly.Amenities.csproj", "{51CA7FEB-D1EF-4A7B-9713-887249F97841}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions", "Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions\Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions.csproj", "{EA2FE5EB-225B-4C45-A5B8-0827F87CB7B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions", "Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions\Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions.csproj", "{EA2FE5EB-225B-4C45-A5B8-0827F87CB7B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
