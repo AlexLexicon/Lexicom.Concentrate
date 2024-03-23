@@ -1,5 +1,4 @@
-﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions.Services;
-using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
+﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Extensions;
@@ -13,6 +12,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IBrowserService, BrowserService>();
         services.AddSingleton<INavigationService, NavigationService>();
         services.AddSingleton<IPrismService, PrismService>();
+        services.AddSingleton<IQuickLinkService, QuickLinkService>();
 
         return services;
     }

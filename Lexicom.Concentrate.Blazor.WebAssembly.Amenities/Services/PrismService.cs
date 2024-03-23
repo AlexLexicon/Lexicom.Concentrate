@@ -1,6 +1,4 @@
-﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions.Services;
-
-namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
+﻿namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
 public class PrismService : IPrismService
 {
     private readonly IBrowserService _browserService;

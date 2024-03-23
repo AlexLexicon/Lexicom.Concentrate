@@ -98,6 +98,9 @@ public interface INavigationService
     Task<string> GetUrlWithQueryParametersAsync(IReadOnlyDictionary<string, object?> parameters);
     /// <exception cref="ArgumentNullException"/>
     Task<string> GetUrlWithQueryParametersAsync(string url, IReadOnlyDictionary<string, object?> parameters);
+
+#pragma warning disable CA1068 // CancellationToken parameters must come last (I prefer this since it makes the most common case (where you do pass the cancellation easier)
     /// <exception cref="ArgumentNullException"/>
     Task NavigateToUrlAsync(string url, CancellationToken cancellationToken = default, bool forceLoad = false, bool noLoad = false, bool replace = false);
+#pragma warning restore CA1068 // CancellationToken parameters must come last
 }
