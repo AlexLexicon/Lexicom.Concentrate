@@ -3,9 +3,9 @@
 @inject IQuickLinkService _linkService
 @inject IBrowserService _browserService
 
-@if (!string.IsNullOrWhiteSpace(Text) || !string.IsNullOrWhiteSpace(Identifier))
+@if (!string.IsNullOrWhiteSpace(Url))
 {
-    <a class="quicklink" @onclick="ClickAsync">
+    <a href="@Url" target="_blank" class="quicklink">
         @Text
     </a>
 }
@@ -17,16 +17,20 @@ else
 @code
 {
     [Parameter]
-    public string? Identifier { get; set; }
+    public virtual string? Identifier { get; set; }
 
     [Parameter]
-    public string? Text { get; set; }
+    public virtual string? Text { get; set; }
 
     [Parameter]
-    public RenderFragment? ChildContent { get; set; }
+    public virtual RenderFragment? ChildContent { get; set; }
 
-    private async Task ClickAsync()
+    protected virtual string? Url { get; set; }
+
+    protected override async Task OnInitializedAsync()
     {
+        await base.OnInitializedAsync();
+
         string? identifier = null;
         if (!string.IsNullOrWhiteSpace(Identifier))
         {
@@ -39,11 +43,9 @@ else
 
         if (identifier is not null)
         {
-            string? url = await _linkService.GetUrlFromIdentifierAsync(identifier);
-            if (url is not null)
-            {
-                await _browserService.OpenNewTabAsync(url);
-            }
+            Url = await _linkService.GetUrlFromIdentifierAsync(identifier);
+
+            StateHasChanged();
         }
     }
 }
