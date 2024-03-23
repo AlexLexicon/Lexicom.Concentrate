@@ -23,6 +23,8 @@ public class QuickLinkService : IQuickLinkService
     {
         ArgumentNullException.ThrowIfNull(identifier);
 
+        identifier = identifier.ToLowerInvariant();
+
         IDictionary<string, string> identifierToLinks = await GetDictionaryOrCreateWhenNotExistingAsync();
 
         if (identifierToLinks.TryGetValue(identifier, out string? url))
@@ -65,7 +67,9 @@ public class QuickLinkService : IQuickLinkService
             {
                 if (identifierToUrl.Key is not null && identifierToUrl.Value is not null)
                 {
-                    IdentifierToUrlDictionary.TryAdd(identifierToUrl.Key, identifierToUrl.Value);
+                    string identifier = identifierToUrl.Key.ToLowerInvariant();
+
+                    IdentifierToUrlDictionary.TryAdd(identifier, identifierToUrl.Value);
                 }
             }
         }
