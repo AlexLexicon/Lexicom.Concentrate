@@ -61,7 +61,7 @@ public class QuickLinkService : IQuickLinkService
 
     private void AppendToIdentifierToUrlDictionary(IDictionary<string, string> identifierToUrlDictionaryToAppend)
     {
-        if (IdentifierToUrlDictionary is not null)
+        if (IdentifierToUrlDictionary is not null && identifierToUrlDictionaryToAppend is not null)
         {
             foreach (var identifierToUrl in identifierToUrlDictionaryToAppend)
             {
