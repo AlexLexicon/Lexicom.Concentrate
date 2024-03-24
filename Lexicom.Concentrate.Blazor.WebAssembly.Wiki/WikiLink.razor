@@ -2,7 +2,7 @@
 
 @inject IWikiService _wikiService
 
-<div class="wiki-link">
+<span class="wiki-link">
     @if (!string.IsNullOrWhiteSpace(Url))
     {
         <a href="@Url" target="_blank">
@@ -13,7 +13,7 @@
     {
         @Text
     }
-</div>
+</span>
 
 @code
 {

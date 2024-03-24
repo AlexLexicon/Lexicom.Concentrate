@@ -37,7 +37,7 @@
     public virtual string? Title { get; set; }
 
     [Parameter]
-    public virtual string[]? RelatedIdentifiers { get; set; }
+    public virtual string[]? ReferenceIdentifiers { get; set; }
 
     protected virtual List<WikiReference>? References { get; set; }
 
@@ -45,9 +45,9 @@
     {
         References = [];
 
-        if (RelatedIdentifiers is not null)
+        if (ReferenceIdentifiers is not null)
         {
-            foreach (string identifier in RelatedIdentifiers)
+            foreach (string identifier in ReferenceIdentifiers)
             {
                 WikiReference? reference = await _wikiService.GetReferenceFromIdentifierAsync(identifier);
                 if (reference is not null)
