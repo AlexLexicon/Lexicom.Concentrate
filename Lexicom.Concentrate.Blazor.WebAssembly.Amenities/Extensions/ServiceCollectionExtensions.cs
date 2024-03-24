@@ -12,7 +12,6 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IBrowserService, BrowserService>();
         services.AddSingleton<INavigationService, NavigationService>();
         services.AddSingleton<IPrismService, PrismService>();
-        services.AddSingleton<IQuickLinkService, QuickLinkService>();
 
         return services;
     }

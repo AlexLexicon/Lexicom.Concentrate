@@ -1,0 +1,22 @@
+@using Lexicom.Concentrate.Blazor.WebAssembly.Components
+
+<div class="wiki-code-output-base">
+    <div class="wiki-code-output-header">
+        <div class="wiki-code-output-title">
+            Output
+        </div>
+    </div>
+    @* <div> *@
+    <div class="wiki-code-output-content">
+        <PrismCode>
+            @ChildContent
+        </PrismCode>
+    </div>
+    @* </div> *@
+</div>
+
+@code
+{
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}

@@ -1,23 +1,24 @@
-@using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services
+@using Lexicom.Concentrate.Blazor.WebAssembly.Wiki.Services
 
-@inject IQuickLinkService _linkService
-@inject IBrowserService _browserService
+@inject IWikiService _wikiService
 
-@if (!string.IsNullOrWhiteSpace(Url))
-{
-    <a href="@Url" target="_blank" class="quicklink">
+<div class="wiki-link">
+    @if (!string.IsNullOrWhiteSpace(Url))
+    {
+        <a href="@Url" target="_blank">
+            @Text
+        </a>
+    }
+    else
+    {
         @Text
-    </a>
-}
-else
-{
-    @Text
-}
+    }
+</div>
 
 @code
 {
     [Parameter]
-    public virtual string? Identifier { get; set; }
+    public virtual string? UrlIdentifier { get; set; }
 
     [Parameter]
     public virtual string? Text { get; set; }
@@ -32,9 +33,9 @@ else
         await base.OnInitializedAsync();
 
         string? identifier = null;
-        if (!string.IsNullOrWhiteSpace(Identifier))
+        if (!string.IsNullOrWhiteSpace(UrlIdentifier))
         {
-            identifier = Identifier;
+            identifier = UrlIdentifier;
         }
         else if (!string.IsNullOrWhiteSpace(Text))
         {
@@ -43,7 +44,7 @@ else
 
         if (identifier is not null)
         {
-            Url = await _linkService.GetUrlFromIdentifierAsync(identifier);
+            Url = await _wikiService.GetUrlFromIdentifierAsync(identifier);
 
             StateHasChanged();
         }

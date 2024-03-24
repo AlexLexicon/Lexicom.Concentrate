@@ -1,0 +1,62 @@
+@using Lexicom.Concentrate.Blazor.WebAssembly.Wiki.Abstractions.Models
+@using Lexicom.Concentrate.Blazor.WebAssembly.Wiki.Services
+
+@inject IWikiService _wikiService
+
+@if (References is not null)
+{
+    <div class="wiki-references">
+        @if (string.IsNullOrWhiteSpace(Title))
+        {
+            <h2>References</h2>
+        }
+        else
+        {
+            <h2>@Title</h2>
+        }
+        <ul class="wiki-references-list">
+            @if (References is not null)
+            {
+                @foreach (WikiReference reference in References)
+                {
+                    @if (!string.IsNullOrWhiteSpace(reference.Url) && string.IsNullOrWhiteSpace(reference.Text))
+                    {
+                        <li>
+                            <a href="reference.Url">@reference.Text</a>
+                        </li>
+                    }
+                }
+            }
+        </ul>
+    </div>
+}
+
+@code
+{
+    [Parameter]
+    public virtual string? Title { get; set; }
+
+    [Parameter]
+    public virtual string[]? RelatedIdentifiers { get; set; }
+
+    protected virtual List<WikiReference>? References { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        References = [];
+
+        if (RelatedIdentifiers is not null)
+        {
+            foreach (string identifier in RelatedIdentifiers)
+            {
+                WikiReference? reference = await _wikiService.GetReferenceFromIdentifierAsync(identifier);
+                if (reference is not null)
+                {
+                    References.Add(reference);
+                }
+            }
+        }
+
+        await base.OnInitializedAsync();
+    }
+}

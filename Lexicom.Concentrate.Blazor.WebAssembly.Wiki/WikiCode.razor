@@ -1,0 +1,34 @@
+@using Lexicom.Concentrate.Blazor.WebAssembly.Components
+
+<div class="wiki-code @(HasOutput ? "wiki-code-output-true" : "wiki-code-output-false")">
+    @if (Title is not null)
+    {
+        <div class="wiki-code-header">
+            <div class="wiki-code-title">
+                @Title
+            </div>
+        </div>
+    }
+    @* <div> *@
+    <div class="wiki-code-content">
+            <PrismCode Language="@Language">
+                @ChildContent
+            </PrismCode>
+        </div>
+    @* </div> *@
+</div>
+
+@code
+{
+    [Parameter]
+    public string? Language { get; set; }
+
+    [Parameter]
+    public string? Title { get; set; }
+
+    [Parameter]
+    public bool HasOutput { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}
