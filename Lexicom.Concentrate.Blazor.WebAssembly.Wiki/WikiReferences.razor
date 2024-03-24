@@ -8,11 +8,11 @@
     <div class="wiki-references">
         @if (string.IsNullOrWhiteSpace(Title))
         {
-            <h2>References</h2>
+            <div class="wiki-references-title">References</div>
         }
         else
         {
-            <h2>@Title</h2>
+            <div class="wiki-references-title">@Title</div>
         }
         <ul class="wiki-references-list">
             @if (References is not null)
@@ -21,8 +21,8 @@
                 {
                     @if (!string.IsNullOrWhiteSpace(reference.Url) && !string.IsNullOrWhiteSpace(reference.Text))
                     {
-                        <li>
-                            <a href="@reference.Url">@reference.Text</a>
+                        <li class="wiki-references-list-item">
+                            <a class="wiki-references-list-item-anchor" href="@reference.Url">@reference.Text</a>
                         </li>
                     }
                 }
