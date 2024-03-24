@@ -19,7 +19,7 @@
             {
                 @foreach (WikiReference reference in References)
                 {
-                    @if (!string.IsNullOrWhiteSpace(reference.Url) && string.IsNullOrWhiteSpace(reference.Text))
+                    @if (!string.IsNullOrWhiteSpace(reference.Url) && !string.IsNullOrWhiteSpace(reference.Text))
                     {
                         <li>
                             <a href="reference.Url">@reference.Text</a>
