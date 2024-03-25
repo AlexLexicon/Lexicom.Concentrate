@@ -3,9 +3,9 @@
 
 @inject IWikiService _wikiService
 
-@if (References is not null)
-{
-    <div class="wiki-references">
+<div class="wiki-references">
+    @if (References is not null && References.Count is > 0)
+    {
         @if (string.IsNullOrWhiteSpace(Title))
         {
             <div class="wiki-references-title">References</div>
@@ -15,21 +15,18 @@
             <div class="wiki-references-title">@Title</div>
         }
         <ul class="wiki-references-list">
-            @if (References is not null)
+            @foreach (WikiReference reference in References)
             {
-                @foreach (WikiReference reference in References)
+                @if (!string.IsNullOrWhiteSpace(reference.Url) && !string.IsNullOrWhiteSpace(reference.Text))
                 {
-                    @if (!string.IsNullOrWhiteSpace(reference.Url) && !string.IsNullOrWhiteSpace(reference.Text))
-                    {
-                        <li class="wiki-references-list-item">
-                            <a class="wiki-references-list-item-anchor" href="@reference.Url">@reference.Text</a>
-                        </li>
-                    }
+                    <li class="wiki-references-list-item">
+                        <a class="wiki-references-list-item-anchor" href="@reference.Url">@reference.Text</a>
+                    </li>
                 }
             }
         </ul>
-    </div>
-}
+    }
+</div>
 
 @code
 {
