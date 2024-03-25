@@ -6,11 +6,7 @@
 <div class="wiki-references">
     @if (References is not null && References.Count is > 0)
     {
-        @if (string.IsNullOrWhiteSpace(Title))
-        {
-            <div class="wiki-references-title">References</div>
-        }
-        else
+        if (!string.IsNullOrWhiteSpace(Title))
         {
             <div class="wiki-references-title">@Title</div>
         }
