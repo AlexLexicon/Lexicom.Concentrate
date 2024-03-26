@@ -25,16 +25,31 @@ public class NavigationService : INavigationService, IDisposable
         _navigationManager = navigationManager;
     }
 
+    private bool IsInitalized { get; set; }
+
     private IDisposable? RegisteredLocationChangingHandler { get; set; }
 
-    public async Task InitalizeNotificationsAsync(CancellationToken cancellationToken = default)
+    public async Task InitalizeNotificationsAsync(bool invoke = true, bool force = true, CancellationToken cancellationToken = default)
     {
+        if (force)
+        {
+            Dispose();
+        }
+
+        if (IsInitalized)
+        {
+            return;
+        }
+
         _navigationManager.LocationChanged += OnLocationChanged;
 
         RegisteredLocationChangingHandler = _navigationManager.RegisterLocationChangingHandler(OnLocationChanging);
 
-        string currentUrl = await GetUrlAsync();
-        await NavigationLocationChangedAsync(currentUrl, cancellationToken);
+        if (invoke)
+        {
+            string currentUrl = await GetUrlAsync();
+            await NavigationLocationChangedAsync(currentUrl, cancellationToken);
+        }
     }
 
     public Task RefreshPageAsync()
@@ -584,6 +599,7 @@ public class NavigationService : INavigationService, IDisposable
     {
         _navigationManager.LocationChanged -= OnLocationChanged;
         RegisteredLocationChangingHandler?.Dispose();
+        RegisteredLocationChangingHandler = null;
     }
 
     private async void OnLocationChanged(object? sender, LocationChangedEventArgs e)
