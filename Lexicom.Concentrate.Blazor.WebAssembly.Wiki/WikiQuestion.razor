@@ -1,16 +1,16 @@
-<div class="wiki-notice">
+<div class="wiki-question">
     @if (!HideIcon)
     {
-        <svg class="wiki-notice-icon" viewBox="0 0 16 16" aria-hidden="true">
+        <svg class="wiki-question-icon" viewBox="0 0 16 16" aria-hidden="true">
             <circle cx="8" cy="8" r="8" stroke-width="0"></circle>
-            <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.75 7.75h1.5v3.5"></path>
-            <circle cx="8" cy="4" r=".5" fill="none"></circle>
+            <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.5 6 a1 1 0 0 1 4.5 0 m-2 -2.25 a1 1 0 0 1 0 4.25 v1.05"></path>
+            <circle cx="8" cy="12.15" r=".5" fill="none"></circle>
         </svg>
     }
-    <div class="wiki-notice-content">
+    <div class="wiki-question-content">
         @if (!string.IsNullOrWhiteSpace(Title))
         {
-            <div class="wiki-notice-title">
+            <div class="wiki-question-title">
                 @Title
             </div>
         }
@@ -18,7 +18,7 @@
     </div>
 </div>
 
-@code 
+@code
 {
     [Parameter]
     public string? Title { get; set; }
