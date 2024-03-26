@@ -29,9 +29,9 @@ public class NavigationService : INavigationService, IDisposable
 
     private IDisposable? RegisteredLocationChangingHandler { get; set; }
 
-    public async Task InitalizeNotificationsAsync(bool invoke = true, bool force = true, CancellationToken cancellationToken = default)
+    public async Task InitalizeNotificationsAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken = default)
     {
-        if (force)
+        if (reset)
         {
             Dispose();
         }
