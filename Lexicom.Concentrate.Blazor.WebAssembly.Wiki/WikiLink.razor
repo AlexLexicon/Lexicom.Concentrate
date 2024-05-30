@@ -2,7 +2,7 @@
 
 @inject IWikiService _wikiService
 
-<span class="wiki-link">
+<span class="wiki-link @(!string.IsNullOrWhiteSpace(Url) ? "" : "wiki-link-anchor-missing")">
     @if (!string.IsNullOrWhiteSpace(Url))
     {
         <a class="wiki-link-anchor" href="@Url" target="_blank">
