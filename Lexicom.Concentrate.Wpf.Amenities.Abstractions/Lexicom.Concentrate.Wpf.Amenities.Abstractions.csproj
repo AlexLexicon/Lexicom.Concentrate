@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Validation.Options" Version="8.0.66" />
+    <PackageReference Include="Lexicom.Validation.Options" Version="8.0.68" />
   </ItemGroup>
 
 </Project>

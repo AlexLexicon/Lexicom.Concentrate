@@ -25,8 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Authentication.Http" Version="8.0.66" />
-    <PackageReference Include="Lexicom.Supports.AspNetCore.Controllers" Version="8.0.66" />
+    <PackageReference Include="Lexicom.Authentication.Http" Version="8.0.68" />
+    <PackageReference Include="Lexicom.Supports.AspNetCore.Controllers" Version="8.0.68" />
   </ItemGroup>
 
 </Project>
