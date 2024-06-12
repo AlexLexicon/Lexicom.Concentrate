@@ -20,8 +20,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\lexicom.concentrate.amenities.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\lexicom.concentrate.amenities.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\" />
     <None Include="..\lexicom.concentrate.nuget.icon.png" Pack="true" PackagePath="\" />
+    <None Include="wwwroot\lexicom.concentrate.amenities.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,10 +40,6 @@
   <ItemGroup>
     <PackageReference Include="MediatR" Version="12.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.6" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
