@@ -45,6 +45,8 @@ public class NavigationService : INavigationService, IDisposable
 
         RegisteredLocationChangingHandler = _navigationManager.RegisterLocationChangingHandler(OnLocationChanging);
 
+        IsInitalized = true;
+
         if (invoke)
         {
             string currentUrl = await GetUrlAsync();
@@ -600,6 +602,7 @@ public class NavigationService : INavigationService, IDisposable
         _navigationManager.LocationChanged -= OnLocationChanged;
         RegisteredLocationChangingHandler?.Dispose();
         RegisteredLocationChangingHandler = null;
+        IsInitalized = false;
     }
 
     private async void OnLocationChanged(object? sender, LocationChangedEventArgs e)
