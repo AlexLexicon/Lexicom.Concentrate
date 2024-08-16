@@ -16,7 +16,7 @@ public class ClipboardService : IClipboardService
     /// <exception cref="JavascriptExecutionException"/>
     public async Task<string?> ReadAsync(CancellationToken cancellationToken)
     {
-        return await _browserService.ExecuteJavaScriptFunctionAsync<string?>("", cancellationToken);
+        return await _browserService.ExecuteJavaScriptFunctionAsync<string?>("clipboard.read", cancellationToken);
     }
 
     /// <exception cref="ArgumentNullException"/>
@@ -25,6 +25,6 @@ public class ClipboardService : IClipboardService
     {
         ArgumentNullException.ThrowIfNull(text);
 
-        await _browserService.ExecuteJavaScriptFunctionAsync("clipboard.set", cancellationToken, text);
+        await _browserService.ExecuteJavaScriptFunctionAsync("clipboard.write", cancellationToken, text);
     }
 }
