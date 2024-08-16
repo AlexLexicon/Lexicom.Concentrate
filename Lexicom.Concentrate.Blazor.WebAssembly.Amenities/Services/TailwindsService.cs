@@ -1,4 +1,5 @@
-﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Models;
+﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Exceptions;
+using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Models;
 using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Notifications;
 using MediatR;
 using Microsoft.JSInterop;
@@ -13,14 +14,14 @@ public class TailwindsService : ITailwindsService
     private const int TAILWINDS_BREAKPOINT_SIZE_2XL = 1536;
 
     private readonly IMediator _mediator;
-    private readonly IJSRuntime _jSRuntime;
+    private readonly IBrowserService _browserService;
 
     public TailwindsService(
         IMediator mediator,
-        IJSRuntime jSRuntime)
+        IBrowserService browserService)
     {
         _mediator = mediator;
-        _jSRuntime = jSRuntime;
+        _browserService = browserService;
     }
 
     private DotNetObjectReference<TailwindsService>? _reference;
@@ -28,7 +29,8 @@ public class TailwindsService : ITailwindsService
     private bool IsInitalized { get; set; }
     private TailwindBreakpoint CurrentBreakpoint { get; set; }
 
-    public async Task InitalizeNotificationsAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken = default)
+    /// <exception cref="JavascriptExecutionException"/>
+    public async Task InitalizeNotificationsAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken)
     {
         if (reset)
         {
@@ -40,13 +42,13 @@ public class TailwindsService : ITailwindsService
             return;
         }
 
-        await _jSRuntime.InvokeVoidAsync("window.lexicomConcentrateAmenitiesRegisterTailwindsBreakpointCallback", cancellationToken, Reference);
+        await _browserService.ExecuteJavaScriptFunctionAsync("window.lexicomConcentrateAmenitiesRegisterTailwindsBreakpointCallback", cancellationToken, Reference);
 
         IsInitalized = true;
 
         if (invoke)
         {
-            await _jSRuntime.InvokeVoidAsync("window.lexicomConcentrateAmenitiesUpdateTailwindsBreakpointCallback", cancellationToken, Reference);
+            await _browserService.ExecuteJavaScriptFunctionAsync("window.lexicomConcentrateAmenitiesUpdateTailwindsBreakpointCallback", cancellationToken, Reference);
         }
     }
 

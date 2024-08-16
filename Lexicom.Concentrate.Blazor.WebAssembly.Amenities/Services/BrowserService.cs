@@ -1,4 +1,5 @@
-﻿using Microsoft.JSInterop;
+﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Exceptions;
+using Microsoft.JSInterop;
 
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
 public class BrowserService : IBrowserService
@@ -14,6 +15,7 @@ public class BrowserService : IBrowserService
     }
 
     /// <exception cref="ArgumentNullException"/>
+    /// <exception cref="JavascriptExecutionException"/>
     public async Task OpenNewTabAsync(string url, CancellationToken cancellationToken)
     {
         ArgumentNullException.ThrowIfNull(url);
@@ -22,6 +24,7 @@ public class BrowserService : IBrowserService
     }
 
     /// <exception cref="ArgumentNullException"/>
+    /// <exception cref="JavascriptExecutionException"/>
     public async Task ChangeUrlAsync(string url, CancellationToken cancellationToken)
     {
         ArgumentNullException.ThrowIfNull(url);
@@ -30,18 +33,34 @@ public class BrowserService : IBrowserService
     }
 
     /// <exception cref="ArgumentNullException"/>
-    public async Task ExecuteJavaScriptFunctionAsync(string functionName, CancellationToken cancellationToken = default, params object?[]? args)
+    /// <exception cref="JavascriptExecutionException"/>
+    public async Task ExecuteJavaScriptFunctionAsync(string functionName, CancellationToken cancellationToken, params object?[]? args)
     {
         ArgumentNullException.ThrowIfNull(functionName);
 
-        await _iJSRuntime.InvokeVoidAsync(functionName, cancellationToken, args);
+        try
+        {
+            await _iJSRuntime.InvokeVoidAsync(functionName, cancellationToken, args);
+        }
+        catch (Exception e)
+        {
+            throw new JavascriptExecutionException(functionName, e, args);
+        }
     }
 
     /// <exception cref="ArgumentNullException"/>
-    public async ValueTask<T> ExecuteJavaScriptFunctionAsync<T>(string functionaName, CancellationToken cancellationToken = default, params object?[]? args)
+    /// <exception cref="JavascriptExecutionException"/>
+    public async ValueTask<T> ExecuteJavaScriptFunctionAsync<T>(string functionName, CancellationToken cancellationToken, params object?[]? args)
     {
-        ArgumentNullException.ThrowIfNull(functionaName);
+        ArgumentNullException.ThrowIfNull(functionName);
 
-        return await _iJSRuntime.InvokeAsync<T>(functionaName, cancellationToken, args);
+        try
+        {
+            return await _iJSRuntime.InvokeAsync<T>(functionName, cancellationToken, args);
+        }
+        catch (Exception e)
+        {
+            throw new JavascriptExecutionException(functionName, e, args);
+        }
     }
 }

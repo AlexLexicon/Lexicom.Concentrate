@@ -29,7 +29,7 @@ public class NavigationService : INavigationService, IDisposable
 
     private IDisposable? RegisteredLocationChangingHandler { get; set; }
 
-    public async Task InitalizeNotificationsAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken = default)
+    public async Task InitalizeNotificationsAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken)
     {
         if (reset)
         {
@@ -581,7 +581,7 @@ public class NavigationService : INavigationService, IDisposable
     }
 
     /// <exception cref="ArgumentNullException"/>
-    public async Task NavigateToUrlAsync(string url, CancellationToken cancellationToken = default, bool forceLoad = false, bool noLoad = false, bool replace = false)
+    public async Task NavigateToUrlAsync(string url, CancellationToken cancellationToken, bool forceLoad = false, bool noLoad = false, bool replace = false)
     {
         ArgumentNullException.ThrowIfNull(url);
 

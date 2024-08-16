@@ -11,6 +11,7 @@ public static class ServiceCollectionExtensions
         ArgumentNullException.ThrowIfNull(services);
 
         services.AddSingleton<IBrowserService, BrowserService>();
+        services.AddSingleton<IClipboardService, ClipboardService>();
         services.AddSingleton<INavigationService, NavigationService>();
         services.AddSingleton<IPeriodicNotificator, PeriodicNotificator>();
         services.AddSingleton<IPrismService, PrismService>();

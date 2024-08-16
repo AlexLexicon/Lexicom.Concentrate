@@ -1,4 +1,6 @@
-﻿namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
+﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Exceptions;
+
+namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
 public class PrismService : IPrismService
 {
     private readonly IBrowserService _browserService;
@@ -8,7 +10,8 @@ public class PrismService : IPrismService
         _browserService = browserService;
     }
 
-    public async Task HighlightAllAsync(CancellationToken cancellationToken = default)
+    /// <exception cref="JavascriptExecutionException"/>
+    public async Task HighlightAllAsync(CancellationToken cancellationToken)
     {
         await _browserService.ExecuteJavaScriptFunctionAsync("Prism.highlightAll", cancellationToken);
     }
