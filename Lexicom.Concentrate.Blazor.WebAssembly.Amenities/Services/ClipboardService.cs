@@ -14,14 +14,14 @@ public class ClipboardService : IClipboardService
     }
 
     /// <exception cref="JavascriptExecutionException"/>
-    public async Task<string?> ReadClipboardAsync(CancellationToken cancellationToken)
+    public async Task<string?> ReadAsync(CancellationToken cancellationToken)
     {
         return await _browserService.ExecuteJavaScriptFunctionAsync<string?>("", cancellationToken);
     }
 
     /// <exception cref="ArgumentNullException"/>
     /// <exception cref="JavascriptExecutionException"/>
-    public async Task WriteClipboardAsync(string text, CancellationToken cancellationToken)
+    public async Task WriteAsync(string text, CancellationToken cancellationToken)
     {
         ArgumentNullException.ThrowIfNull(text);
 

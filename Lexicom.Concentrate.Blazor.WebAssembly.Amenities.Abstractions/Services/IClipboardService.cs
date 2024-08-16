@@ -4,8 +4,8 @@ namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
 public interface IClipboardService
 {
     /// <exception cref="JavascriptExecutionException"/>
-    Task<string?> ReadClipboardAsync(CancellationToken cancellationToken = default);
+    Task<string?> ReadAsync(CancellationToken cancellationToken = default);
     /// <exception cref="ArgumentNullException"/>
     /// <exception cref="JavascriptExecutionException"/>
-    Task WriteClipboardAsync(string text, CancellationToken cancellationToken = default);
+    Task WriteAsync(string text, CancellationToken cancellationToken = default);
 }
