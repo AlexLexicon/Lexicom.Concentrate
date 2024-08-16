@@ -30,7 +30,7 @@ public class TailwindsService : ITailwindsService
     private TailwindBreakpoint CurrentBreakpoint { get; set; }
 
     /// <exception cref="JavascriptExecutionException"/>
-    public async Task InitalizeNotificationsAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken)
+    public async Task InitalizeNotificationsAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken = default)
     {
         if (reset)
         {
