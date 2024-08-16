@@ -1,0 +1,31 @@
+<div class="wiki-warning">
+    @if (!HideIcon)
+    {
+        <svg class="wiki-warning-icon" viewBox="0 0 16 16" aria-hidden="true">
+            <path stroke-width="0" d="M8 0 16 16 0 16 8 0"></path>
+            <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M8 5.25 v3.25"></path>
+            <circle cx="8" cy="12.25" r=".5" fill="none"></circle>
+        </svg>
+    }
+    <div class="wiki-warning-content">
+        @if (!string.IsNullOrWhiteSpace(Title))
+        {
+            <div class="wiki-warning-title">
+                @Title
+            </div>
+        }
+        @ChildContent
+    </div>
+</div>
+
+@code
+{
+    [Parameter]
+    public string? Title { get; set; }
+
+    [Parameter]
+    public bool HideIcon { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}
