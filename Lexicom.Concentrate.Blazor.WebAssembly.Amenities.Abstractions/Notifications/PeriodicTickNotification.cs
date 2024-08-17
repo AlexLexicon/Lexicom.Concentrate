@@ -1,4 +1,4 @@
 ﻿using MediatR;
 
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Notifications;
-public record class PeriodicTickNotification(ulong Tick) : INotification;
+public record class PeriodicTickNotification(ulong Tick, DateTimeOffset Now) : INotification;
