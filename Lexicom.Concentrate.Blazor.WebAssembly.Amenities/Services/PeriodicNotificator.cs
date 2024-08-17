@@ -19,28 +19,28 @@ public class PeriodicNotificator : IPeriodicNotificator
         _timeProviderInterfaces = timeProviderInterfaces;
         _timeProviders = timeProviders;
 
-        GetDateTimeOffsetUtcDelegate = TimeProvider.System.GetUtcNow;
+        GetUtcNowDelegate = TimeProvider.System.GetUtcNow;
     }
 
     public bool IsStarted => Timer is not null;
 
     private Timer? Timer { get; set; }
     private ulong Tick { get; set; }
-    private Func<DateTimeOffset> GetDateTimeOffsetUtcDelegate { get; set; }
+    private Func<DateTimeOffset> GetUtcNowDelegate { get; set; }
 
     public void Start(TimeSpan period)
     {
         var timeProviderInterface = _timeProviderInterfaces.FirstOrDefault();
         if (timeProviderInterface is not null)
         {
-            GetDateTimeOffsetUtcDelegate = timeProviderInterface.GetUtcNow;
+            GetUtcNowDelegate = timeProviderInterface.GetUtcNow;
         }
         else
         {
             var timeProvider = _timeProviders.FirstOrDefault();
             if (timeProvider is not null)
             {
-                GetDateTimeOffsetUtcDelegate = timeProvider.GetUtcNow;
+                GetUtcNowDelegate = timeProvider.GetUtcNow;
             }
         }
 
@@ -51,8 +51,8 @@ public class PeriodicNotificator : IPeriodicNotificator
     {
         Tick++;
 
-        DateTimeOffset now = GetDateTimeOffsetUtcDelegate.Invoke();
+        DateTimeOffset utcNow = GetUtcNowDelegate.Invoke();
         
-        await _mediator.Publish(new PeriodicTickNotification(Tick, now));
+        await _mediator.Publish(new PeriodicTickNotification(Tick, utcNow));
     }
 }
