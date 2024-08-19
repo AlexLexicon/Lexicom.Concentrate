@@ -4,7 +4,7 @@ namespace Lexicom.Concentrate.Supports.Blazor.WebAssembly.Extensions;
 public static class BlazorWebAssemblyServiceBuilderExtensions
 {
     /// <exception cref="ArgumentNullException"/>
-    public static IBlazorWebAssemblyServiceBuilder Concentrate(this IBlazorWebAssemblyServiceBuilder builder, Action<IConcentrateBlazorWebAssemblyServiceBuilder>? configure)
+    public static IDependantBlazorWebAssemblyServiceBuilder Concentrate(this IDependantBlazorWebAssemblyServiceBuilder builder, Action<IConcentrateBlazorWebAssemblyServiceBuilder>? configure)
     {
         ArgumentNullException.ThrowIfNull(builder);
 
