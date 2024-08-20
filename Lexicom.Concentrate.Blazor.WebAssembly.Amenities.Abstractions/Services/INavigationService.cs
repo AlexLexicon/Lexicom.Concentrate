@@ -3,7 +3,9 @@ public interface INavigationService
 {
     Task InitalizeNotificationsAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken = default);
     Task RefreshPageAsync();
+    string GetUrl();
     Task<string> GetUrlAsync();
+    string GetBaseUrl();
     Task<string> GetBaseUrlAsync();
     /// <exception cref="ArgumentNullException"/>
     Task<string> GetAbsoluteUrlAsync(string relativePath);

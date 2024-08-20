@@ -61,14 +61,26 @@ public class NavigationService : INavigationService, IDisposable
         return Task.CompletedTask;
     }
 
+    public string GetUrl()
+    {
+        return _navigationManager.Uri;
+    }
     public Task<string> GetUrlAsync()
     {
-        return Task.FromResult(_navigationManager.Uri);
+        string url = GetUrl();
+
+        return Task.FromResult(url);
     }
 
+    public string GetBaseUrl()
+    {
+        return _navigationManager.BaseUri;
+    }
     public Task<string> GetBaseUrlAsync()
     {
-        return Task.FromResult(_navigationManager.BaseUri);
+        string baseUrl = GetBaseUrl();
+
+        return Task.FromResult(baseUrl);
     }
 
     /// <exception cref="ArgumentNullException"/>
@@ -84,6 +96,7 @@ public class NavigationService : INavigationService, IDisposable
     public async Task<string> GetRelativeUrlPathAsync()
     {
         string url = await GetUrlAsync();
+
         return await GetRelativeUrlPathAsync(url);
     }
 
