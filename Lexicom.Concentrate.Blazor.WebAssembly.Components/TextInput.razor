@@ -2,13 +2,13 @@
 @using System.Collections.Specialized
 @using Lexicom.Validation
 
-<div class="lexicom-textinput-border">
-    <input class="lexicom-textinput-input" type="text" placeholder="@Hint" @bind="Text" @bind:event="oninput" @bind:after="InputTextChanged" @onkeypress="OnKeyPressAsync" />
-    <div class="lexicom-textinput-errors-border">
-        <ul class="lexicom-textinput-errors">
+<div class="lexicom-textinput-border @(IsValid ? "lexicom-textinput-border-valid" : "lexicom-textinput-border-invalid")">
+    <input class="lexicom-textinput-input @(IsValid ? "lexicom-textinput-input-valid" : "lexicom-textinput-input-invalid")" type="text" placeholder="@Hint" @bind="Text" @bind:event="oninput" @bind:after="InputTextChanged" @onkeypress="OnKeyPressAsync" />
+    <div class="lexicom-textinput-errors-border @(IsValid ? "lexicom-textinput-errors-border-valid" : "lexicom-textinput-errors-border-invalid")">
+        <ul class="lexicom-textinput-errors @(IsValid ? "lexicom-textinput-errors-valid" : "lexicom-textinput-errors-invalid")">
             @foreach (string error in Errors)
             {
-                <li class="lexicom-textinput-error">
+                <li class="lexicom-textinput-error @(IsValid ? "lexicom-textinput-error-valid" : "lexicom-textinput-error-invalid")">
                     @error
                 </li>
             }
