@@ -82,22 +82,7 @@
     [Parameter]
     public EventCallback<bool> IsValidChanged { get; set; }
 
-    private void ErrorsCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
-    {
-        IsValid = Errors is null || !Errors.Any();
-
-        StateHasChanged();
-    }
-
-    private async Task OnKeyPressAsync(KeyboardEventArgs e)
-    {
-        if (e.Code is "Enter")
-        {
-            await EnterPressed.InvokeAsync(Text);
-        }
-    }
-
-    private async Task InputTextChanged()
+    public async Task RefreshAsync()
     {
         bool newIsValid;
         if (Validation is not null)
@@ -135,5 +120,46 @@
 
             await IsValidChanged.InvokeAsync(IsValid);
         }
+        else
+        {
+            IsValid = newIsValid;
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await RefreshAsync();
+        }
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await RefreshAsync();
+
+        await base.OnInitializedAsync();
+    }
+
+    private void ErrorsCollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
+    {
+        IsValid = Errors is null || !Errors.Any();
+
+        StateHasChanged();
+    }
+
+    private async Task OnKeyPressAsync(KeyboardEventArgs e)
+    {
+        if (e.Code is "Enter")
+        {
+            await EnterPressed.InvokeAsync(Text);
+        }
+    }
+
+    private async Task InputTextChanged()
+    {
+        await RefreshAsync();
     }
 }
