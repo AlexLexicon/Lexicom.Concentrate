@@ -16,6 +16,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IPeriodicNotificator, PeriodicNotificator>();
         services.AddSingleton<IPrismService, PrismService>();
         services.AddSingleton<ITailwindsService, TailwindsService>();
+        services.AddSingleton<IKeyboardService, KeyboardService>();
 
         return services;
     }

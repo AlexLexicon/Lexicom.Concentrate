@@ -5,7 +5,7 @@ using MediatR;
 using Microsoft.JSInterop;
 
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
-public class TailwindsService : ITailwindsService
+public class TailwindsService : ITailwindsService, IDisposable
 {
     private const int TAILWINDS_BREAKPOINT_SIZE_SM = 640;
     private const int TAILWINDS_BREAKPOINT_SIZE_MD = 768;
