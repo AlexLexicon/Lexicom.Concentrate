@@ -1,5 +1,5 @@
-﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions.Notifications;
-using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions.Services;
+﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Exceptions;
+using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Notifications;
 using MediatR;
 using Microsoft.JSInterop;
 
@@ -22,7 +22,7 @@ public class KeyboardService : IKeyboardService, IDisposable
     private bool IsInitalized { get; set; }
 
     /// <exception cref="JavascriptExecutionException"/>
-    public async Task InitalizeNotificationsAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken = default)
+    public async Task InitalizeNotificationsAsync(bool reset = false, CancellationToken cancellationToken = default)
     {
         if (reset)
         {
@@ -34,14 +34,9 @@ public class KeyboardService : IKeyboardService, IDisposable
             return;
         }
 
-        await _browserService.ExecuteJavaScriptFunctionAsync("window.lexicomConcentrateAmenitiesRegisterTailwindsBreakpointCallback", cancellationToken, Reference);
+        await _browserService.ExecuteJavaScriptFunctionAsync("window.lexicomConcentrateAmenitiesRegisterKeyboardCallback", cancellationToken, Reference);
 
         IsInitalized = true;
-
-        if (invoke)
-        {
-            await _browserService.ExecuteJavaScriptFunctionAsync("window.lexicomConcentrateAmenitiesUpdateTailwindsBreakpointCallback", cancellationToken, Reference);
-        }
     }
 
     [JSInvokable]

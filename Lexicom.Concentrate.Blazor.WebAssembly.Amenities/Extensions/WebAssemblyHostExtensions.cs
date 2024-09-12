@@ -1,5 +1,5 @@
-﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions.Services;
-using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Exceptions;
+﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Exceptions;
+using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 

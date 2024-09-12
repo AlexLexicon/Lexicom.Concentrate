@@ -1,5 +1,4 @@
-﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions.Services;
-using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Notifications;
+﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Notifications;
 using Lexicom.DependencyInjection.Primitives;
 using MediatR;
 
@@ -52,7 +51,7 @@ public class PeriodicNotificator : IPeriodicNotificator
         Tick++;
 
         DateTimeOffset utcNow = GetUtcNowDelegate.Invoke();
-        
+
         await _mediator.Publish(new PeriodicTickNotification(Tick, utcNow));
     }
 }

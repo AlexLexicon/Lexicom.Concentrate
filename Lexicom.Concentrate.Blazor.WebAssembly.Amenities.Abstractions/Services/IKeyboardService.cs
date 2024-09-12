@@ -1,5 +1,5 @@
-﻿namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions.Services;
+﻿namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
 public interface IKeyboardService
 {
-    Task InitalizeNotificationsAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken = default);
+    Task InitalizeNotificationsAsync(bool reset = false, CancellationToken cancellationToken = default);
 }

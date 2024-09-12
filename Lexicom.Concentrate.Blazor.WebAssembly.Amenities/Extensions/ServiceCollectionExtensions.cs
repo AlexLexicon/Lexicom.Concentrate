@@ -1,5 +1,4 @@
-﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions.Services;
-using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
+﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Extensions;
