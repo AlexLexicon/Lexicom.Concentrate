@@ -13,7 +13,9 @@
 
     <UserControl.Template>
         <ControlTemplate TargetType="UserControl">
-            <StackPanel x:Name="ccStackPanel">
+            <StackPanel 
+                x:Name="ccStackPanel" 
+                Orientation="{Binding Orientation, ElementName=ccTextInput}">
                 <Border
                     x:Name="ccTitleBorder"
                     
@@ -134,6 +136,11 @@
                         LostFocus="InputTextBox_LostFocus"/>
                 </Border>
                 <ItemsControl ItemsSource="{Binding Errors, ElementName=ccTextInput}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="{Binding Orientation, ElementName=ccTextInput}"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Border

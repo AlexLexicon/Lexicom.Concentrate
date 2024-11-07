@@ -24,6 +24,13 @@ public partial class TextInput : UserControl
         }
     }
 
+    public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(nameof(Orientation), typeof(Orientation), typeof(TextInput), new PropertyMetadata(System.Windows.Controls.Orientation.Vertical));
+    public Orientation? Orientation
+    {
+        get => (Orientation?)GetValue(OrientationProperty);
+        set => SetValue(OrientationProperty, value);
+    }
+
     #region ccTitleBorder
 
     public static readonly DependencyProperty TitleBackgroundProperty = DependencyProperty.Register(nameof(TitleBackground), typeof(Brush), typeof(TextInput), new PropertyMetadata(BackgroundProperty.DefaultMetadata.DefaultValue));
