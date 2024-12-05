@@ -31,7 +31,14 @@ public partial class TextInput : UserControl
         set => SetValue(OrientationProperty, value);
     }
 
-    #region ccTitleBorder
+    public static readonly DependencyProperty ErrorOrientationProperty = DependencyProperty.Register(nameof(ErrorOrientation), typeof(Orientation), typeof(TextInput), new PropertyMetadata(System.Windows.Controls.Orientation.Vertical));
+    public Orientation? ErrorOrientation
+    {
+        get => (Orientation?)GetValue(ErrorOrientationProperty);
+        set => SetValue(ErrorOrientationProperty, value);
+    }
+
+    #region lccTitleBorder
 
     public static readonly DependencyProperty TitleBackgroundProperty = DependencyProperty.Register(nameof(TitleBackground), typeof(Brush), typeof(TextInput), new PropertyMetadata(BackgroundProperty.DefaultMetadata.DefaultValue));
     public Brush? TitleBackground
@@ -126,7 +133,7 @@ public partial class TextInput : UserControl
 
     #endregion
 
-    #region ccTitleLabel
+    #region lccTitleLabel
 
     public static readonly DependencyProperty TitleFlowDirectionProperty = DependencyProperty.Register(nameof(TitleFlowDirection), typeof(FlowDirection), typeof(TextInput), new PropertyMetadata(FlowDirectionProperty.DefaultMetadata.DefaultValue));
     public FlowDirection TitleFlowDirection
@@ -193,7 +200,7 @@ public partial class TextInput : UserControl
 
     #endregion
 
-    #region ccTitleTextBlock
+    #region lccTitleTextBlock
 
     public static readonly DependencyProperty TitleLineHeightProperty = DependencyProperty.Register(nameof(TitleLineHeight), typeof(double), typeof(TextInput), new PropertyMetadata(TextBlock.LineHeightProperty.DefaultMetadata.DefaultValue));
     public double TitleLineHeight
@@ -232,7 +239,7 @@ public partial class TextInput : UserControl
 
     #endregion
 
-    #region ccInputBorder
+    #region lccInputBorder
 
     public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(TextInput), new PropertyMetadata(Border.CornerRadiusProperty.DefaultMetadata.DefaultValue));
     public CornerRadius CornerRadius
@@ -299,7 +306,7 @@ public partial class TextInput : UserControl
 
     #endregion
 
-    #region ccInputTextBox
+    #region lccInputTextBox
 
     public static readonly DependencyProperty AcceptsReturnProperty = DependencyProperty.Register(nameof(AcceptsReturn), typeof(bool), typeof(TextInput), new PropertyMetadata(TextBoxBase.AcceptsReturnProperty.DefaultMetadata.DefaultValue));
     public bool AcceptsReturn
@@ -457,7 +464,7 @@ public partial class TextInput : UserControl
 
     #endregion
 
-    #region ccErrorBorder
+    #region lccErrorBorder
 
     public static readonly DependencyProperty ErrorBackgroundProperty = DependencyProperty.Register(nameof(ErrorBackground), typeof(Brush), typeof(TextInput), new PropertyMetadata(BackgroundProperty.DefaultMetadata.DefaultValue));
     public Brush? ErrorBackground
@@ -552,7 +559,7 @@ public partial class TextInput : UserControl
 
     #endregion
 
-    #region ccErrorLabel
+    #region lccErrorLabel
 
     public static readonly DependencyProperty ErrorFlowDirectionProperty = DependencyProperty.Register(nameof(ErrorFlowDirection), typeof(FlowDirection), typeof(TextInput), new PropertyMetadata(FlowDirectionProperty.DefaultMetadata.DefaultValue));
     public FlowDirection ErrorFlowDirection
@@ -619,7 +626,7 @@ public partial class TextInput : UserControl
 
     #endregion
 
-    #region ccErrorTextBlock
+    #region lccErrorTextBlock
 
     public static readonly DependencyProperty ErrorLineHeightProperty = DependencyProperty.Register(nameof(ErrorLineHeight), typeof(double), typeof(TextInput), new PropertyMetadata(TextBlock.LineHeightProperty.DefaultMetadata.DefaultValue));
     public double ErrorLineHeight

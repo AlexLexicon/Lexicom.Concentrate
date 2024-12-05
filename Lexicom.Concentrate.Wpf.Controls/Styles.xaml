@@ -1,9 +1,9 @@
 ﻿<ResourceDictionary 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:cc="clr-namespace:Lexicom.Concentrate.Wpf.Controls">
+    xmlns:lcc="clr-namespace:Lexicom.Concentrate.Wpf.Controls">
 
-    <Style x:Key="BasicTextFieldStyle" TargetType="{x:Type cc:TextField}">
+    <Style x:Key="lccBasicTextFieldStyle" TargetType="{x:Type lcc:TextField}">
         <Setter Property="BorderBrush" Value="Black"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="KeyBackground" Value="#FFF0F0F0"/>
@@ -14,9 +14,9 @@
         <Setter Property="ValuePadding" Value="5"/>
     </Style>
 
-    <Style TargetType="{x:Type cc:TextField}" BasedOn="{StaticResource BasicTextFieldStyle}"/>
+    <Style TargetType="{x:Type lcc:TextField}" BasedOn="{StaticResource lccBasicTextFieldStyle}"/>
 
-    <Style x:Key="BasicTextInputStyle" TargetType="{x:Type cc:TextInput}">
+    <Style x:Key="lccBasicTextInputStyle" TargetType="{x:Type lcc:TextInput}">
         <Setter Property="TitlePadding" Value="5"/>
         <Setter Property="TitleTextTrimming" Value="CharacterEllipsis"/>
         <Setter Property="Background" Value="White"/>
@@ -38,6 +38,6 @@
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="{x:Type cc:TextInput}" BasedOn="{StaticResource BasicTextInputStyle}"/>
+    <Style TargetType="{x:Type lcc:TextInput}" BasedOn="{StaticResource lccBasicTextInputStyle}"/>
 
 </ResourceDictionary>

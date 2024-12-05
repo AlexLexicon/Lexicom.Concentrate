@@ -22,7 +22,7 @@ public partial class TextField : UserControl
         }
     }
 
-    #region ccBorder
+    #region lccBorder
 
     public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(TextField), new PropertyMetadata(Border.CornerRadiusProperty.DefaultMetadata.DefaultValue));
     public CornerRadius CornerRadius
@@ -33,7 +33,7 @@ public partial class TextField : UserControl
 
     #endregion
 
-    #region ccKeyBorder
+    #region lccKeyBorder
 
     public static readonly DependencyProperty KeyBackgroundProperty = DependencyProperty.Register(nameof(KeyBackground), typeof(Brush), typeof(TextField), new PropertyMetadata(BackgroundProperty.DefaultMetadata.DefaultValue));
     public Brush? KeyBackground
@@ -107,7 +107,7 @@ public partial class TextField : UserControl
 
     #endregion
 
-    #region ccKeyLabel
+    #region lccKeyLabel
 
     public static readonly DependencyProperty KeyFlowDirectionProperty = DependencyProperty.Register(nameof(KeyFlowDirection), typeof(FlowDirection), typeof(TextField), new PropertyMetadata(FlowDirectionProperty.DefaultMetadata.DefaultValue));
     public FlowDirection KeyFlowDirection
@@ -174,7 +174,7 @@ public partial class TextField : UserControl
 
     #endregion
 
-    #region ccKeyTextBlock
+    #region lccKeyTextBlock
 
     public static readonly DependencyProperty KeyLineHeightProperty = DependencyProperty.Register(nameof(KeyLineHeight), typeof(double), typeof(TextField), new PropertyMetadata(TextBlock.LineHeightProperty.DefaultMetadata.DefaultValue));
     public double KeyLineHeight
@@ -213,7 +213,7 @@ public partial class TextField : UserControl
 
     #endregion
 
-    #region ccValueBorder
+    #region lccValueBorder
 
     public static readonly DependencyProperty ValueBackgroundProperty = DependencyProperty.Register(nameof(ValueBackground), typeof(Brush), typeof(TextField), new PropertyMetadata(BackgroundProperty.DefaultMetadata.DefaultValue));
     public Brush? ValueBackground
@@ -287,7 +287,7 @@ public partial class TextField : UserControl
 
     #endregion
 
-    #region ccValueTextBox
+    #region lccValueTextBox
 
     public static readonly DependencyProperty CaretBrushProperty = DependencyProperty.Register(nameof(CaretBrush), typeof(Brush), typeof(TextField), new PropertyMetadata(TextBoxBase.CaretBrushProperty.DefaultMetadata.DefaultValue));
     public Brush? CaretBrush

@@ -9,41 +9,41 @@
     VerticalContentAlignment="Center"
     d:DesignWidth="128"
     d:DesignHeight="32"
-    x:Name="ccTextField">
+    x:Name="lccTextField">
 
     <UserControl.Template>
         <ControlTemplate TargetType="UserControl">
             <Border 
-                x:Name="ccBorder"
+                x:Name="lccBorder"
                 
                 IsEnabled="{TemplateBinding IsEnabled}"
                 IsHitTestVisible="{TemplateBinding IsHitTestVisible}"
                 Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
                 BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="{Binding CornerRadius, ElementName=ccTextField}"
+                CornerRadius="{Binding CornerRadius, ElementName=lccTextField}"
                 Padding="{TemplateBinding Padding}">
-                <DockPanel x:Name="ccDockPanel">
+                <DockPanel x:Name="lccDockPanel">
                     <Border 
-                        x:Name="ccKeyBorder"
+                        x:Name="lccKeyBorder"
                         
                         DockPanel.Dock="Left"
                         
                         IsEnabled="{TemplateBinding IsEnabled}"
                         IsHitTestVisible="{TemplateBinding IsHitTestVisible}"
                     
-                        Background="{Binding KeyBackground, ElementName=ccTextField}"
-                        BorderBrush="{Binding KeyBorderBrush, ElementName=ccTextField}"
-                        BorderThickness="{Binding KeyBorderThickness, ElementName=ccTextField}"
-                        CornerRadius="{Binding KeyCornerRadius, ElementName=ccTextField}"
-                        Opacity="{Binding KeyOpacity, ElementName=ccTextField}"
-                        Padding="{Binding KeyPadding, ElementName=ccTextField}"
-                        Visibility="{Binding KeyVisiblity, ElementName=ccTextField}"
-                        Width="{Binding KeyWidth, ElementName=ccTextField}"
-                        MinWidth="{Binding KeyMinWidth, ElementName=ccTextField}"
-                        MaxWidth="{Binding KeyMaxWidth, ElementName=ccTextField}">
+                        Background="{Binding KeyBackground, ElementName=lccTextField}"
+                        BorderBrush="{Binding KeyBorderBrush, ElementName=lccTextField}"
+                        BorderThickness="{Binding KeyBorderThickness, ElementName=lccTextField}"
+                        CornerRadius="{Binding KeyCornerRadius, ElementName=lccTextField}"
+                        Opacity="{Binding KeyOpacity, ElementName=lccTextField}"
+                        Padding="{Binding KeyPadding, ElementName=lccTextField}"
+                        Visibility="{Binding KeyVisiblity, ElementName=lccTextField}"
+                        Width="{Binding KeyWidth, ElementName=lccTextField}"
+                        MinWidth="{Binding KeyMinWidth, ElementName=lccTextField}"
+                        MaxWidth="{Binding KeyMaxWidth, ElementName=lccTextField}">
                         <Label
-                            x:Name="ccKeyLabel"
+                            x:Name="lccKeyLabel"
                             
                             DockPanel.Dock="Left"
                             Background="{x:Null}"
@@ -51,45 +51,45 @@
                             BorderThickness="0"
                             Padding="0"
                         
-                            FlowDirection="{Binding KeyFlowDirection, ElementName=ccTextField}"
-                            FontFamily="{Binding KeyFontFamily, ElementName=ccTextField}"
-                            FontSize="{Binding KeyFontSize, ElementName=ccTextField}"
-                            FontStretch="{Binding KeyFontStretch, ElementName=ccTextField}"
-                            FontStyle="{Binding KeyFontStyle, ElementName=ccTextField}"
-                            FontWeight="{Binding KeyFontWeight, ElementName=ccTextField}"
-                            Foreground="{Binding KeyForeground, ElementName=ccTextField}"
-                            HorizontalContentAlignment="{Binding KeyHorizontalContentAlignment, ElementName=ccTextField}"
-                            VerticalContentAlignment="{Binding KeyVerticalContentAlignment, ElementName=ccTextField}">
+                            FlowDirection="{Binding KeyFlowDirection, ElementName=lccTextField}"
+                            FontFamily="{Binding KeyFontFamily, ElementName=lccTextField}"
+                            FontSize="{Binding KeyFontSize, ElementName=lccTextField}"
+                            FontStretch="{Binding KeyFontStretch, ElementName=lccTextField}"
+                            FontStyle="{Binding KeyFontStyle, ElementName=lccTextField}"
+                            FontWeight="{Binding KeyFontWeight, ElementName=lccTextField}"
+                            Foreground="{Binding KeyForeground, ElementName=lccTextField}"
+                            HorizontalContentAlignment="{Binding KeyHorizontalContentAlignment, ElementName=lccTextField}"
+                            VerticalContentAlignment="{Binding KeyVerticalContentAlignment, ElementName=lccTextField}">
                             <TextBlock
-                                x:Name="ccKeyTextBlock"
+                                x:Name="lccKeyTextBlock"
                                 
                                 d:Text="Key"
                                 
-                                LineHeight="{Binding KeyLineHeight, ElementName=ccTextField}"
-                                Text="{Binding Key, ElementName=ccTextField}"
-                                TextAlignment="{Binding KeyTextAlignment, ElementName=ccTextField}" 
-                                TextTrimming="{Binding KeyTextTrimming, ElementName=ccTextField}"
-                                TextWrapping="{Binding KeyTextWrapping, ElementName=ccTextField}"/>
+                                LineHeight="{Binding KeyLineHeight, ElementName=lccTextField}"
+                                Text="{Binding Key, ElementName=lccTextField}"
+                                TextAlignment="{Binding KeyTextAlignment, ElementName=lccTextField}" 
+                                TextTrimming="{Binding KeyTextTrimming, ElementName=lccTextField}"
+                                TextWrapping="{Binding KeyTextWrapping, ElementName=lccTextField}"/>
                         </Label>
                     </Border>
                     <Border
-                        x:Name="ccValueBorder"
+                        x:Name="lccValueBorder"
                         
                         IsEnabled="{TemplateBinding IsEnabled}"
                         IsHitTestVisible="{TemplateBinding IsHitTestVisible}"
                     
-                        Background="{Binding ValueBackground, ElementName=ccTextField}"
-                        BorderBrush="{Binding ValueBorderBrush, ElementName=ccTextField}"
-                        BorderThickness="{Binding ValueBorderThickness, ElementName=ccTextField}"
-                        CornerRadius="{Binding ValueCornerRadius, ElementName=ccTextField}"
-                        Opacity="{Binding ValueOpacity, ElementName=ccTextField}"
-                        Padding="{Binding ValuePadding, ElementName=ccTextField}"
-                        Visibility="{Binding ValueVisiblity, ElementName=ccTextField}"
-                        Width="{Binding ValueWidth, ElementName=ccTextField}"
-                        MinWidth="{Binding ValueMinWidth, ElementName=ccTextField}"
-                        MaxWidth="{Binding ValueMaxWidth, ElementName=ccTextField}">
+                        Background="{Binding ValueBackground, ElementName=lccTextField}"
+                        BorderBrush="{Binding ValueBorderBrush, ElementName=lccTextField}"
+                        BorderThickness="{Binding ValueBorderThickness, ElementName=lccTextField}"
+                        CornerRadius="{Binding ValueCornerRadius, ElementName=lccTextField}"
+                        Opacity="{Binding ValueOpacity, ElementName=lccTextField}"
+                        Padding="{Binding ValuePadding, ElementName=lccTextField}"
+                        Visibility="{Binding ValueVisiblity, ElementName=lccTextField}"
+                        Width="{Binding ValueWidth, ElementName=lccTextField}"
+                        MinWidth="{Binding ValueMinWidth, ElementName=lccTextField}"
+                        MaxWidth="{Binding ValueMaxWidth, ElementName=lccTextField}">
                         <TextBox
-                            x:Name="ccValueTextBox"
+                            x:Name="lccValueTextBox"
                             
                             d:Text="Value"
                  
@@ -119,21 +119,21 @@
                             TabIndex="{TemplateBinding TabIndex}"
                             VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                             
-                            CaretBrush="{Binding CaretBrush, ElementName=ccTextField}"
-                            CharacterCasing="{Binding CharacterCasing, ElementName=ccTextField}"
-                            HorizontalScrollBarVisibility="{Binding HorizontalScrollBarVisibility, ElementName=ccTextField}"
-                            IsInactiveSelectionHighlightEnabled="{Binding IsInactiveSelectionHighlightEnabled, ElementName=ccTextField}"
-                            IsReadOnlyCaretVisible="{Binding IsReadOnlyCaretVisible, ElementName=ccTextField}"
-                            MaxLength="{Binding MaxLength, ElementName=ccTextField}"
-                            MaxLines="{Binding MaxLines, ElementName=ccTextField}"
-                            MinLines="{Binding MinLines, ElementName=ccTextField}"
-                            SelectionBrush="{Binding SelectionBrush, ElementName=ccTextField}"
-                            SelectionOpacity="{Binding SelectionOpacity, ElementName=ccTextField}"
-                            SelectionTextBrush="{Binding SelectionTextBrush, ElementName=ccTextField}"
-                            Text="{Binding Value, ElementName=ccTextField, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                            TextAlignment="{Binding TextAlignment, ElementName=ccTextField}"
-                            TextWrapping="{Binding TextWrapping, ElementName=ccTextField}"
-                            VerticalScrollBarVisibility="{Binding VerticalScrollBarVisibility, ElementName=ccTextField}"/>
+                            CaretBrush="{Binding CaretBrush, ElementName=lccTextField}"
+                            CharacterCasing="{Binding CharacterCasing, ElementName=lccTextField}"
+                            HorizontalScrollBarVisibility="{Binding HorizontalScrollBarVisibility, ElementName=lccTextField}"
+                            IsInactiveSelectionHighlightEnabled="{Binding IsInactiveSelectionHighlightEnabled, ElementName=lccTextField}"
+                            IsReadOnlyCaretVisible="{Binding IsReadOnlyCaretVisible, ElementName=lccTextField}"
+                            MaxLength="{Binding MaxLength, ElementName=lccTextField}"
+                            MaxLines="{Binding MaxLines, ElementName=lccTextField}"
+                            MinLines="{Binding MinLines, ElementName=lccTextField}"
+                            SelectionBrush="{Binding SelectionBrush, ElementName=lccTextField}"
+                            SelectionOpacity="{Binding SelectionOpacity, ElementName=lccTextField}"
+                            SelectionTextBrush="{Binding SelectionTextBrush, ElementName=lccTextField}"
+                            Text="{Binding Value, ElementName=lccTextField, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            TextAlignment="{Binding TextAlignment, ElementName=lccTextField}"
+                            TextWrapping="{Binding TextWrapping, ElementName=lccTextField}"
+                            VerticalScrollBarVisibility="{Binding VerticalScrollBarVisibility, ElementName=lccTextField}"/>
                     </Border>
                 </DockPanel>
             </Border>
