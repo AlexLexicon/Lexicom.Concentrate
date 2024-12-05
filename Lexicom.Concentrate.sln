@@ -38,7 +38,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\dotnet6.yml = .github\workflows\dotnet6.yml
 		.github\workflows\dotnet7.yml = .github\workflows\dotnet7.yml
 		.github\workflows\dotnet8.yml = .github\workflows\dotnet8.yml
-		dotnet9.yml = dotnet9.yml
+		.github\workflows\dotnet9.yml = .github\workflows\dotnet9.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".repo", ".repo", "{142A0BDB-15E1-429B-8D5C-4910B46C8D93}"
