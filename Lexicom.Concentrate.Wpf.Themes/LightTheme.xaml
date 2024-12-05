@@ -4,38 +4,38 @@
 
     <!--Surface (Backgrounds)-->
 
-    <SolidColorBrush x:Key="xThemeSurfaceMask" Color="#AF323232"/>
+    <SolidColorBrush x:Key="ThemeSurfaceMask" Color="#AF323232"/>
 
-    <SolidColorBrush x:Key="xThemeSurfaceNoticeSoft" Color="#FF93A7C0"/>
-    <SolidColorBrush x:Key="xThemeSurfaceNoticeHard" Color="#FF899DB6"/>
+    <SolidColorBrush x:Key="ThemeSurfaceNoticeSoft" Color="#FF93A7C0"/>
+    <SolidColorBrush x:Key="ThemeSurfaceNoticeHard" Color="#FF899DB6"/>
 
-    <SolidColorBrush x:Key="xThemeSurfaceAlertSoft" Color="#FFFF6464"/>
-    <SolidColorBrush x:Key="xThemeSurfaceAlertHard" Color="#FFF55A5A"/>
+    <SolidColorBrush x:Key="ThemeSurfaceAlertSoft" Color="#FFFF6464"/>
+    <SolidColorBrush x:Key="ThemeSurfaceAlertHard" Color="#FFF55A5A"/>
 
-    <SolidColorBrush x:Key="xThemeSurfacePrimarySoft" Color="#FFFAFAFA"/>
-    <SolidColorBrush x:Key="xThemeSurfacePrimaryHard" Color="#FFF3F3F3"/>
+    <SolidColorBrush x:Key="ThemeSurfacePrimarySoft" Color="#FFFAFAFA"/>
+    <SolidColorBrush x:Key="ThemeSurfacePrimaryHard" Color="#FFF3F3F3"/>
 
-    <SolidColorBrush x:Key="xThemeSurfaceSecondarySoft" Color="#FFE9E9E9"/>
-    <SolidColorBrush x:Key="xThemeSurfaceSecondaryHard" Color="#FFE2E2E2"/>
+    <SolidColorBrush x:Key="ThemeSurfaceSecondarySoft" Color="#FFE9E9E9"/>
+    <SolidColorBrush x:Key="ThemeSurfaceSecondaryHard" Color="#FFE2E2E2"/>
 
-    <SolidColorBrush x:Key="xThemeSurfaceFocusSoft" Color="#FFD8D8D8"/>
-    <SolidColorBrush x:Key="xThemeSurfaceFocusHard" Color="#FFD1D1D1"/>
+    <SolidColorBrush x:Key="ThemeSurfaceFocusSoft" Color="#FFD8D8D8"/>
+    <SolidColorBrush x:Key="ThemeSurfaceFocusHard" Color="#FFD1D1D1"/>
 
     <!--Interior (Foregrounds)-->
 
-    <SolidColorBrush x:Key="xThemeInteriorNoticeSoft" Color="#FF50647D"/>
-    <SolidColorBrush x:Key="xThemeInteriorNoticeHard" Color="#FF3C505F"/>
+    <SolidColorBrush x:Key="ThemeInteriorNoticeSoft" Color="#FF50647D"/>
+    <SolidColorBrush x:Key="ThemeInteriorNoticeHard" Color="#FF3C505F"/>
 
-    <SolidColorBrush x:Key="xThemeInteriorAlertSoft" Color="#FFBE4B4B"/>
-    <SolidColorBrush x:Key="xThemeInteriorAlertHard" Color="#FFB44141"/>
+    <SolidColorBrush x:Key="ThemeInteriorAlertSoft" Color="#FFBE4B4B"/>
+    <SolidColorBrush x:Key="ThemeInteriorAlertHard" Color="#FFB44141"/>
 
-    <SolidColorBrush x:Key="xThemeInteriorFocusSoft" Color="#FF464646"/>
-    <SolidColorBrush x:Key="xThemeInteriorFocusHard" Color="#FF3C3C3C"/>
+    <SolidColorBrush x:Key="ThemeInteriorFocusSoft" Color="#FF464646"/>
+    <SolidColorBrush x:Key="ThemeInteriorFocusHard" Color="#FF3C3C3C"/>
 
-    <SolidColorBrush x:Key="xThemeInteriorPrimarySoft" Color="#FF282828"/>
-    <SolidColorBrush x:Key="xThemeInteriorPrimaryHard" Color="#FF1E1E1E"/>
+    <SolidColorBrush x:Key="ThemeInteriorPrimarySoft" Color="#FF282828"/>
+    <SolidColorBrush x:Key="ThemeInteriorPrimaryHard" Color="#FF1E1E1E"/>
 
-    <SolidColorBrush x:Key="xThemeInteriorSecondarySoft" Color="#FF0A0A0A"/>
-    <SolidColorBrush x:Key="xThemeInteriorSecondaryHard" Color="#FF000000"/>
+    <SolidColorBrush x:Key="ThemeInteriorSecondarySoft" Color="#FF0A0A0A"/>
+    <SolidColorBrush x:Key="ThemeInteriorSecondaryHard" Color="#FF000000"/>
 
 </ResourceDictionary>
