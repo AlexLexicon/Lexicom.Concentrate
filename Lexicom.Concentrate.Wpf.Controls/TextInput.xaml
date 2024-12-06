@@ -13,31 +13,318 @@
 
     <UserControl.Template>
         <ControlTemplate TargetType="UserControl">
-            <DockPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition>
+                        <ColumnDefinition.Style>
+                            <Style TargetType="ColumnDefinition">
+                                <Setter Property="Width" Value="auto"/>
+                                <Style.Triggers>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding Orientation, ElementName=lccTextInput}" Value="Vertical"/>
+                                            <Condition Binding="{Binding ErrorsOrientation, ElementName=lccTextInput}" Value="Vertical"/>
+                                        </MultiDataTrigger.Conditions>
+                                        <MultiDataTrigger.Setters>
+                                            <Setter Property="Width" Value="1*"/>
+                                        </MultiDataTrigger.Setters>
+                                    </MultiDataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ColumnDefinition.Style>
+                    </ColumnDefinition>
+                    <ColumnDefinition>
+                        <ColumnDefinition.Style>
+                            <Style TargetType="ColumnDefinition">
+                                <Setter Property="Width" Value="auto"/>
+                                <Style.Triggers>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding Orientation, ElementName=lccTextInput}" Value="Horizontal"/>
+                                            <Condition Binding="{Binding ErrorsOrientation, ElementName=lccTextInput}" Value="Vertical"/>
+                                        </MultiDataTrigger.Conditions>
+                                        <MultiDataTrigger.Setters>
+                                            <Setter Property="Width" Value="1*"/>
+                                        </MultiDataTrigger.Setters>
+                                    </MultiDataTrigger>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding Orientation, ElementName=lccTextInput}" Value="Vertical"/>
+                                            <Condition Binding="{Binding ErrorsOrientation, ElementName=lccTextInput}" Value="Horizontal"/>
+                                        </MultiDataTrigger.Conditions>
+                                        <MultiDataTrigger.Setters>
+                                            <Setter Property="Width" Value="1*"/>
+                                        </MultiDataTrigger.Setters>
+                                    </MultiDataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ColumnDefinition.Style>
+                    </ColumnDefinition>
+                    <ColumnDefinition>
+                        <ColumnDefinition.Style>
+                            <Style TargetType="ColumnDefinition">
+                                <Setter Property="Width" Value="auto"/>
+                            </Style>
+                        </ColumnDefinition.Style>
+                    </ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition>
+                        <RowDefinition.Style>
+                            <Style TargetType="RowDefinition">
+                                <Setter Property="Height" Value="auto"/>
+                            </Style>
+                        </RowDefinition.Style>
+                    </RowDefinition>
+                    <RowDefinition>
+                        <RowDefinition.Style>
+                            <Style TargetType="RowDefinition">
+                                <Setter Property="Height" Value="auto"/>
+                            </Style>
+                        </RowDefinition.Style>
+                    </RowDefinition>
+                    <RowDefinition>
+                        <RowDefinition.Style>
+                            <Style TargetType="RowDefinition">
+                                <Setter Property="Height" Value="auto"/>
+                            </Style>
+                        </RowDefinition.Style>
+                    </RowDefinition>
+                </Grid.RowDefinitions>
+
+                <!--Title-->
+                <Border
+                    x:Name="lccTitleBorder"
+
+                    IsEnabled="{TemplateBinding IsEnabled}"
+                    IsHitTestVisible="{TemplateBinding IsHitTestVisible}"
+
+                    Background="{Binding TitleBackground, ElementName=lccTextInput}"
+                    BorderBrush="{Binding TitleBorderBrush, ElementName=lccTextInput}"
+                    BorderThickness="{Binding TitleBorderThickness, ElementName=lccTextInput}"
+                    CornerRadius="{Binding TitleCornerRadius, ElementName=lccTextInput}"
+                    Height="{Binding TitleHeight, ElementName=lccTextInput}"
+                    MinHeight="{Binding TitleMinHeight, ElementName=lccTextInput}"
+                    MaxHeight="{Binding TitleMaxHeight, ElementName=lccTextInput}"
+                    Opacity="{Binding TitleOpacity, ElementName=lccTextInput}"
+                    Padding="{Binding TitlePadding, ElementName=lccTextInput}"
+                    Visibility="{Binding TitleVisiblity, ElementName=lccTextInput}"
+                    Width="{Binding TitleWidth, ElementName=lccTextInput}"
+                    MinWidth="{Binding TitleMinWidth, ElementName=lccTextInput}"
+                    MaxWidth="{Binding TitleMaxWidth, ElementName=lccTextInput}">
+
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Grid.Column" Value="0"/>
+                            <Setter Property="Grid.Row" Value="0"/>
+                        </Style>
+                    </Border.Style>
+
+                    <Label
+                        x:Name="lccTitleLabel"
+    
+                        Background="{x:Null}"
+                        BorderBrush="{x:Null}"
+                        BorderThickness="0"
+                        Padding="0"
+    
+                        FlowDirection="{Binding TitleFlowDirection, ElementName=lccTextInput}"
+                        FontFamily="{Binding TitleFontFamily, ElementName=lccTextInput}"
+                        FontSize="{Binding TitleFontSize, ElementName=lccTextInput}"
+                        FontStretch="{Binding TitleFontStretch, ElementName=lccTextInput}"
+                        FontStyle="{Binding TitleFontStyle, ElementName=lccTextInput}"
+                        FontWeight="{Binding TitleFontWeight, ElementName=lccTextInput}"
+                        Foreground="{Binding TitleForeground, ElementName=lccTextInput}"
+                        HorizontalContentAlignment="{Binding TitleHorizontalContentAlignment, ElementName=lccTextInput}"
+                        VerticalContentAlignment="{Binding TitleVerticalContentAlignment, ElementName=lccTextInput}">
+                        <TextBlock 
+                            x:Name="lccTitleTextBlock"
+        
+                            d:Text="Title"
+        
+                            LineHeight="{Binding TitleLineHeight, ElementName=lccTextInput}"
+                            Text="{Binding TitleText, ElementName=lccTextInput}"
+                            TextAlignment="{Binding TitleTextAlignment, ElementName=lccTextInput}" 
+                            TextTrimming="{Binding TitleTextTrimming, ElementName=lccTextInput}"
+                            TextWrapping="{Binding TitleTextWrapping, ElementName=lccTextInput}"/>
+                    </Label>
+                </Border>
+
+                <!--Input-->
+                <Border 
+                    x:Name="lccInputBorder"
+    
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    IsHitTestVisible="{TemplateBinding IsHitTestVisible}"
+                    Padding="{TemplateBinding Padding}"
+                    ToolTip="{TemplateBinding ToolTip}"
+
+                    CornerRadius="{Binding CornerRadius, ElementName=lccTextInput}"
+                    Height="{Binding InputHeight, ElementName=lccTextInput}"
+                    MinHeight="{Binding InputMinHeight, ElementName=lccTextInput}"
+                    MaxHeight="{Binding InputMaxHeight, ElementName=lccTextInput}"
+                    Opacity="{Binding InputOpacity, ElementName=lccTextInput}"
+                    Visibility="{Binding InputVisiblity, ElementName=lccTextInput}"
+                    Width="{Binding InputWidth, ElementName=lccTextInput}"
+                    MinWidth="{Binding InputMinWidth, ElementName=lccTextInput}"
+                    MaxWidth="{Binding InputMaxWidth, ElementName=lccTextInput}">
+
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Grid.Column" Value="0"/>
+                            <Setter Property="Grid.Row" Value="1"/>
+                            <Style.Triggers>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding Orientation, ElementName=lccTextInput}" Value="Horizontal"/>
+                                        <Condition Binding="{Binding ErrorsOrientation, ElementName=lccTextInput}" Value="Horizontal"/>
+                                    </MultiDataTrigger.Conditions>
+                                    <MultiDataTrigger.Setters>
+                                        <Setter Property="Grid.Column" Value="1"/>
+                                        <Setter Property="Grid.Row" Value="0"/>
+                                    </MultiDataTrigger.Setters>
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding Orientation, ElementName=lccTextInput}" Value="Horizontal"/>
+                                        <Condition Binding="{Binding ErrorsOrientation, ElementName=lccTextInput}" Value="Vertical"/>
+                                    </MultiDataTrigger.Conditions>
+                                    <MultiDataTrigger.Setters>
+                                        <Setter Property="Grid.Column" Value="1"/>
+                                        <Setter Property="Grid.Row" Value="0"/>
+                                    </MultiDataTrigger.Setters>
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+
+                    <TextBox
+                        x:Name="lccInputTextBox"
+
+                        d:Text="Input"
+    
+                        Background="{x:Null}"
+                        BorderBrush="{x:Null}"
+                        BorderThickness="0"
+                        Padding="0"
+    
+                        AllowDrop="{TemplateBinding AllowDrop}"
+                        ContextMenu="{TemplateBinding ContextMenu}"
+                        FlowDirection="{TemplateBinding FlowDirection}"
+                        Focusable="{TemplateBinding Focusable}"
+                        FontFamily="{TemplateBinding FontFamily}"
+                        FontSize="{TemplateBinding FontSize}"
+                        FontStyle="{TemplateBinding FontStyle}"
+                        FontStretch="{TemplateBinding FontStretch}"
+                        FontWeight="{TemplateBinding FontWeight}"
+                        Foreground="{TemplateBinding Foreground}"
+                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        IsEnabled="{TemplateBinding IsEnabled}"
+                        IsTabStop="{TemplateBinding IsTabStop}"
+                        TabIndex="{TemplateBinding TabIndex}"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+    
+                        AcceptsReturn="{Binding AcceptsReturn, ElementName=lccTextInput}"
+                        AcceptsTab="{Binding AcceptsTab, ElementName=lccTextInput}"
+                        CaretBrush="{Binding CaretBrush, ElementName=lccTextInput}"
+                        CharacterCasing="{Binding CharacterCasing, ElementName=lccTextInput}"
+                        HorizontalScrollBarVisibility="{Binding HorizontalScrollBarVisibility, ElementName=lccTextInput}"
+                        IsReadOnly="{Binding IsReadOnly, ElementName=lccTextInput}"
+                        IsInactiveSelectionHighlightEnabled="{Binding IsInactiveSelectionHighlightEnabled, ElementName=lccTextInput}"
+                        IsReadOnlyCaretVisible="{Binding IsReadOnlyCaretVisible, ElementName=lccTextInput}"
+                        IsUndoEnabled="{Binding IsUndoEnabled, ElementName=lccTextInput}"
+                        MaxLength="{Binding MaxLength, ElementName=lccTextInput}"
+                        MaxLines="{Binding MaxLines, ElementName=lccTextInput}"
+                        MinLines="{Binding MinLines, ElementName=lccTextInput}"
+                        SelectionBrush="{Binding SelectionBrush, ElementName=lccTextInput}"
+                        SelectionOpacity="{Binding SelectionOpacity, ElementName=lccTextInput}"
+                        SelectionTextBrush="{Binding SelectionTextBrush, ElementName=lccTextInput}"
+                        Text="{Binding Text, ElementName=lccTextInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        TextAlignment="{Binding TextAlignment, ElementName=lccTextInput}"
+                        TextWrapping="{Binding TextWrapping, ElementName=lccTextInput}"
+                        UndoLimit="{Binding UndoLimit, ElementName=lccTextInput}"
+                        VerticalScrollBarVisibility="{Binding VerticalScrollBarVisibility, ElementName=lccTextInput}"
+
+                        Loaded="InputTextBox_Loaded"
+                        TextChanged="InputTextBox_TextChanged"
+                        GotFocus="InputTextBox_GotFocus"
+                        LostFocus="InputTextBox_LostFocus"/>
+                </Border>
+
+                <!--Errors-->
                 <ItemsControl ItemsSource="{Binding Errors, ElementName=lccTextInput}">
+
                     <ItemsControl.Style>
                         <Style TargetType="ItemsControl">
-                            <Setter Property="DockPanel.Dock" Value="Bottom"/>
+                            <Setter Property="Grid.Column" Value="0"/>
+                            <Setter Property="Grid.Row" Value="2"/>
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding ErrorOrientation, ElementName=lccTextInput}" Value="Horizontal">
-                                    <Setter Property="DockPanel.Dock" Value="Right"/>
-                                </DataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding Orientation, ElementName=lccTextInput}" Value="Horizontal"/>
+                                        <Condition Binding="{Binding ErrorsOrientation, ElementName=lccTextInput}" Value="Horizontal"/>
+                                    </MultiDataTrigger.Conditions>
+                                    <MultiDataTrigger.Setters>
+                                        <Setter Property="Grid.Column" Value="2"/>
+                                        <Setter Property="Grid.Row" Value="0"/>
+                                    </MultiDataTrigger.Setters>
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding Orientation, ElementName=lccTextInput}" Value="Horizontal"/>
+                                        <Condition Binding="{Binding ErrorsOrientation, ElementName=lccTextInput}" Value="Vertical"/>
+                                    </MultiDataTrigger.Conditions>
+                                    <MultiDataTrigger.Setters>
+                                        <Setter Property="Grid.ColumnSpan" Value="2"/>
+                                    </MultiDataTrigger.Setters>
+                                </MultiDataTrigger>
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding Orientation, ElementName=lccTextInput}" Value="Vertical"/>
+                                        <Condition Binding="{Binding ErrorsOrientation, ElementName=lccTextInput}" Value="Horizontal"/>
+                                    </MultiDataTrigger.Conditions>
+                                    <MultiDataTrigger.Setters>
+                                        <Setter Property="Grid.Column" Value="1"/>
+                                        <Setter Property="Grid.Row" Value="0"/>
+                                        <Setter Property="Grid.RowSpan" Value="2"/>
+                                    </MultiDataTrigger.Setters>
+                                </MultiDataTrigger>
                             </Style.Triggers>
                         </Style>
                     </ItemsControl.Style>
+
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <StackPanel Orientation="{Binding ErrorOrientation, ElementName=lccTextInput}"/>
+                            <StackPanel>
+                                <StackPanel.Style>
+                                    <Style TargetType="StackPanel">
+                                        <Setter Property="Orientation" Value="Vertical"/>
+                                        <Style.Triggers>
+                                            <MultiDataTrigger>
+                                                <MultiDataTrigger.Conditions>
+                                                    <Condition Binding="{Binding Orientation, ElementName=lccTextInput}" Value="Horizontal"/>
+                                                    <Condition Binding="{Binding ErrorsOrientation, ElementName=lccTextInput}" Value="Horizontal"/>
+                                                </MultiDataTrigger.Conditions>
+                                                <MultiDataTrigger.Setters>
+                                                    <Setter Property="Orientation" Value="Horizontal"/>
+                                                </MultiDataTrigger.Setters>
+                                            </MultiDataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </StackPanel.Style>
+                            </StackPanel>
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Border
                                 x:Name="lccErrorBorder"
-                    
+    
                                 IsEnabled="{TemplateBinding IsEnabled}"
                                 IsHitTestVisible="{TemplateBinding IsHitTestVisible}"
-                    
+    
                                 Background="{Binding ErrorBackground, ElementName=lccTextInput}"
                                 BorderBrush="{Binding ErrorBorderBrush, ElementName=lccTextInput}"
                                 BorderThickness="{Binding ErrorBorderThickness, ElementName=lccTextInput}"
@@ -51,14 +338,15 @@
                                 Width="{Binding ErrorWidth, ElementName=lccTextInput}"
                                 MinWidth="{Binding ErrorMinWidth, ElementName=lccTextInput}"
                                 MaxWidth="{Binding ErrorMaxWidth, ElementName=lccTextInput}">
+
                                 <Label
                                     x:Name="lccErrorLabel"
-                        
+        
                                     Background="{x:Null}"
                                     BorderBrush="{x:Null}"
                                     BorderThickness="0"
                                     Padding="0"
-                        
+        
                                     FlowDirection="{Binding ErrorFlowDirection, ElementName=lccTextInput}"
                                     FontFamily="{Binding ErrorFontFamily, ElementName=lccTextInput}"
                                     FontSize="{Binding ErrorFontSize, ElementName=lccTextInput}"
@@ -70,7 +358,7 @@
                                     VerticalContentAlignment="{Binding ErrorVerticalContentAlignment, ElementName=lccTextInput}">
                                     <TextBlock 
                                         x:Name="lccErrorTextBlock"
-                            
+
                                         LineHeight="{Binding ErrorLineHeight, ElementName=lccTextInput}"
                                         Text="{Binding}"
                                         TextAlignment="{Binding ErrorTextAlignment, ElementName=lccTextInput}" 
@@ -81,130 +369,7 @@
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
-                <StackPanel 
-                    x:Name="lccStackPanel" 
-                    Orientation="{Binding Orientation, ElementName=lccTextInput}">
-                    <Border
-                        x:Name="lccTitleBorder"
-                    
-                        IsEnabled="{TemplateBinding IsEnabled}"
-                        IsHitTestVisible="{TemplateBinding IsHitTestVisible}"
-                    
-                        Background="{Binding TitleBackground, ElementName=lccTextInput}"
-                        BorderBrush="{Binding TitleBorderBrush, ElementName=lccTextInput}"
-                        BorderThickness="{Binding TitleBorderThickness, ElementName=lccTextInput}"
-                        CornerRadius="{Binding TitleCornerRadius, ElementName=lccTextInput}"
-                        Height="{Binding TitleHeight, ElementName=lccTextInput}"
-                        MinHeight="{Binding TitleMinHeight, ElementName=lccTextInput}"
-                        MaxHeight="{Binding TitleMaxHeight, ElementName=lccTextInput}"
-                        Opacity="{Binding TitleOpacity, ElementName=lccTextInput}"
-                        Padding="{Binding TitlePadding, ElementName=lccTextInput}"
-                        Visibility="{Binding TitleVisiblity, ElementName=lccTextInput}"
-                        Width="{Binding TitleWidth, ElementName=lccTextInput}"
-                        MinWidth="{Binding TitleMinWidth, ElementName=lccTextInput}"
-                        MaxWidth="{Binding TitleMaxWidth, ElementName=lccTextInput}">
-                        <Label
-                            x:Name="lccTitleLabel"
-                        
-                            Background="{x:Null}"
-                            BorderBrush="{x:Null}"
-                            BorderThickness="0"
-                            Padding="0"
-                        
-                            FlowDirection="{Binding TitleFlowDirection, ElementName=lccTextInput}"
-                            FontFamily="{Binding TitleFontFamily, ElementName=lccTextInput}"
-                            FontSize="{Binding TitleFontSize, ElementName=lccTextInput}"
-                            FontStretch="{Binding TitleFontStretch, ElementName=lccTextInput}"
-                            FontStyle="{Binding TitleFontStyle, ElementName=lccTextInput}"
-                            FontWeight="{Binding TitleFontWeight, ElementName=lccTextInput}"
-                            Foreground="{Binding TitleForeground, ElementName=lccTextInput}"
-                            HorizontalContentAlignment="{Binding TitleHorizontalContentAlignment, ElementName=lccTextInput}"
-                            VerticalContentAlignment="{Binding TitleVerticalContentAlignment, ElementName=lccTextInput}">
-                            <TextBlock 
-                                x:Name="lccTitleTextBlock"
-                            
-                                d:Text="Title"
-                            
-                                LineHeight="{Binding TitleLineHeight, ElementName=lccTextInput}"
-                                Text="{Binding TitleText, ElementName=lccTextInput}"
-                                TextAlignment="{Binding TitleTextAlignment, ElementName=lccTextInput}" 
-                                TextTrimming="{Binding TitleTextTrimming, ElementName=lccTextInput}"
-                                TextWrapping="{Binding TitleTextWrapping, ElementName=lccTextInput}"/>
-                        </Label>
-                    </Border>
-                    <Border 
-                        x:Name="lccInputBorder"
-                    
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        IsHitTestVisible="{TemplateBinding IsHitTestVisible}"
-                        Padding="{TemplateBinding Padding}"
-                        ToolTip="{TemplateBinding ToolTip}"
-
-                        CornerRadius="{Binding CornerRadius, ElementName=lccTextInput}"
-                        Height="{Binding InputHeight, ElementName=lccTextInput}"
-                        MinHeight="{Binding InputMinHeight, ElementName=lccTextInput}"
-                        MaxHeight="{Binding InputMaxHeight, ElementName=lccTextInput}"
-                        Opacity="{Binding InputOpacity, ElementName=lccTextInput}"
-                        Visibility="{Binding InputVisiblity, ElementName=lccTextInput}"
-                        Width="{Binding InputWidth, ElementName=lccTextInput}"
-                        MinWidth="{Binding InputMinWidth, ElementName=lccTextInput}"
-                        MaxWidth="{Binding InputMaxWidth, ElementName=lccTextInput}">
-                        <TextBox
-                            x:Name="lccInputTextBox"
-
-                            d:Text="Input"
-                        
-                            Background="{x:Null}"
-                            BorderBrush="{x:Null}"
-                            BorderThickness="0"
-                            Padding="0"
-                        
-                            AllowDrop="{TemplateBinding AllowDrop}"
-                            ContextMenu="{TemplateBinding ContextMenu}"
-                            FlowDirection="{TemplateBinding FlowDirection}"
-                            Focusable="{TemplateBinding Focusable}"
-                            FontFamily="{TemplateBinding FontFamily}"
-                            FontSize="{TemplateBinding FontSize}"
-                            FontStyle="{TemplateBinding FontStyle}"
-                            FontStretch="{TemplateBinding FontStretch}"
-                            FontWeight="{TemplateBinding FontWeight}"
-                            Foreground="{TemplateBinding Foreground}"
-                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            IsEnabled="{TemplateBinding IsEnabled}"
-                            IsTabStop="{TemplateBinding IsTabStop}"
-                            TabIndex="{TemplateBinding TabIndex}"
-                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                        
-                            AcceptsReturn="{Binding AcceptsReturn, ElementName=lccTextInput}"
-                            AcceptsTab="{Binding AcceptsTab, ElementName=lccTextInput}"
-                            CaretBrush="{Binding CaretBrush, ElementName=lccTextInput}"
-                            CharacterCasing="{Binding CharacterCasing, ElementName=lccTextInput}"
-                            HorizontalScrollBarVisibility="{Binding HorizontalScrollBarVisibility, ElementName=lccTextInput}"
-                            IsReadOnly="{Binding IsReadOnly, ElementName=lccTextInput}"
-                            IsInactiveSelectionHighlightEnabled="{Binding IsInactiveSelectionHighlightEnabled, ElementName=lccTextInput}"
-                            IsReadOnlyCaretVisible="{Binding IsReadOnlyCaretVisible, ElementName=lccTextInput}"
-                            IsUndoEnabled="{Binding IsUndoEnabled, ElementName=lccTextInput}"
-                            MaxLength="{Binding MaxLength, ElementName=lccTextInput}"
-                            MaxLines="{Binding MaxLines, ElementName=lccTextInput}"
-                            MinLines="{Binding MinLines, ElementName=lccTextInput}"
-                            SelectionBrush="{Binding SelectionBrush, ElementName=lccTextInput}"
-                            SelectionOpacity="{Binding SelectionOpacity, ElementName=lccTextInput}"
-                            SelectionTextBrush="{Binding SelectionTextBrush, ElementName=lccTextInput}"
-                            Text="{Binding Text, ElementName=lccTextInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                            TextAlignment="{Binding TextAlignment, ElementName=lccTextInput}"
-                            TextWrapping="{Binding TextWrapping, ElementName=lccTextInput}"
-                            UndoLimit="{Binding UndoLimit, ElementName=lccTextInput}"
-                            VerticalScrollBarVisibility="{Binding VerticalScrollBarVisibility, ElementName=lccTextInput}"
-
-                            Loaded="InputTextBox_Loaded"
-                            TextChanged="InputTextBox_TextChanged"
-                            GotFocus="InputTextBox_GotFocus"
-                            LostFocus="InputTextBox_LostFocus"/>
-                    </Border>
-                </StackPanel>
-            </DockPanel>
+            </Grid>
         </ControlTemplate>
     </UserControl.Template>
 </UserControl>

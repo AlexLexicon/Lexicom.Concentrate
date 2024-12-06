@@ -31,11 +31,11 @@ public partial class TextInput : UserControl
         set => SetValue(OrientationProperty, value);
     }
 
-    public static readonly DependencyProperty ErrorOrientationProperty = DependencyProperty.Register(nameof(ErrorOrientation), typeof(Orientation), typeof(TextInput), new PropertyMetadata(System.Windows.Controls.Orientation.Vertical));
-    public Orientation? ErrorOrientation
+    public static readonly DependencyProperty ErrorsOrientationProperty = DependencyProperty.Register(nameof(ErrorsOrientation), typeof(Orientation), typeof(TextInput), new PropertyMetadata(System.Windows.Controls.Orientation.Vertical));
+    public Orientation? ErrorsOrientation
     {
-        get => (Orientation?)GetValue(ErrorOrientationProperty);
-        set => SetValue(ErrorOrientationProperty, value);
+        get => (Orientation?)GetValue(ErrorsOrientationProperty);
+        set => SetValue(ErrorsOrientationProperty, value);
     }
 
     #region lccTitleBorder
@@ -283,7 +283,7 @@ public partial class TextInput : UserControl
         set => SetValue(InputVisiblityProperty, value);
     }
 
-    public static readonly DependencyProperty InputWidthProperty = DependencyProperty.Register(nameof(InputWidth), typeof(double), typeof(TextInput), new PropertyMetadata(double.NaN));
+    public static readonly DependencyProperty InputWidthProperty = DependencyProperty.Register(nameof(InputWidth), typeof(double), typeof(TextInput), new PropertyMetadata(defaultValue: double.NaN));
     public double InputWidth
     {
         get => (double)GetValue(InputWidthProperty);

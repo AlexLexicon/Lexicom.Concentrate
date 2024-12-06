@@ -17,6 +17,7 @@
     <Style TargetType="{x:Type lcc:TextField}" BasedOn="{StaticResource lccBasicTextFieldStyle}"/>
 
     <Style x:Key="lccBasicTextInputStyle" TargetType="{x:Type lcc:TextInput}">
+        <Setter Property="InputMinWidth" Value="32"/>
         <Setter Property="TitlePadding" Value="5"/>
         <Setter Property="TitleTextTrimming" Value="CharacterEllipsis"/>
         <Setter Property="Background" Value="White"/>
