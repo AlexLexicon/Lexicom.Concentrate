@@ -9,7 +9,14 @@ using System.Windows.Media;
 namespace Lexicom.Concentrate.Wpf.Controls;
 public partial class TextInput : UserControl
 {
-    public TextInput() => InitializeComponent();
+    public TextInput()
+    {
+        InitializeComponent();
+
+        //if I use the default metadata it shares the
+        //same collection with all TextInput instances
+        Errors = [];
+    }
 
     private InputBindingCollection? PreBindInputBindingCollection { get; set; }
 
@@ -731,7 +738,7 @@ public partial class TextInput : UserControl
         set => SetValue(IsValidProperty, value);
     }
 
-    public static readonly DependencyProperty ErrorsProperty = DependencyProperty.Register(nameof(Errors), typeof(ObservableCollection<string>), typeof(TextInput), new PropertyMetadata(new ObservableCollection<string>(), OnErrorsProperty_PropertyChanged));
+    public static readonly DependencyProperty ErrorsProperty = DependencyProperty.Register(nameof(Errors), typeof(ObservableCollection<string>), typeof(TextInput), new PropertyMetadata(null, OnErrorsProperty_PropertyChanged));
     public ObservableCollection<string> Errors
     {
         get => (ObservableCollection<string>)GetValue(ErrorsProperty);
