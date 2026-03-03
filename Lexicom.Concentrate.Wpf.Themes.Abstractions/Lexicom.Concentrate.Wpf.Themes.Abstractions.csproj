@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
@@ -25,9 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Validation.Amenities" Version="9.0.10" />
-    <PackageReference Include="Lexicom.Validation.Options" Version="9.0.10" />
-    <PackageReference Include="Lexicom.Wpf.Amenities.Abstractions" Version="9.0.10" />
+    <PackageReference Include="Lexicom.Validation.Amenities" Version="10.0.4" />
+    <PackageReference Include="Lexicom.Validation.Options" Version="10.0.4" />
+    <PackageReference Include="Lexicom.Wpf.Amenities.Abstractions" Version="10.0.4" />
   </ItemGroup>
 
 </Project>

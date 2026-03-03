@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.5.33502.453
+# Visual Studio Version 18
+VisualStudioVersion = 18.3.11520.95 d18.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lexicom.Concentrate.Wpf.Controls", "Lexicom.Concentrate.Wpf.Controls\Lexicom.Concentrate.Wpf.Controls.csproj", "{4E29B4D0-52D6-45DA-AED6-947D13D7AEE0}"
 EndProject
@@ -35,6 +35,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{DE5E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{703B7EA7-4900-4AAE-BDAC-6E090FCD061A}"
 	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet10.yml = .github\workflows\dotnet10.yml
 		.github\workflows\dotnet6.yml = .github\workflows\dotnet6.yml
 		.github\workflows\dotnet7.yml = .github\workflows\dotnet7.yml
 		.github\workflows\dotnet8.yml = .github\workflows\dotnet8.yml

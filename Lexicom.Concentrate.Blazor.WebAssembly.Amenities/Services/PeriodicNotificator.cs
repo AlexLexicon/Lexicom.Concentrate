@@ -43,10 +43,10 @@ public class PeriodicNotificator : IPeriodicNotificator
             }
         }
 
-        Timer ??= new Timer(TimerCallback, null, TimeSpan.Zero, period);
+        Timer ??= new Timer(TimerCallback, state: null, TimeSpan.Zero, period);
     }
 
-    private async void TimerCallback(object? thing)
+    private async void TimerCallback(object? state)
     {
         Tick++;
 
