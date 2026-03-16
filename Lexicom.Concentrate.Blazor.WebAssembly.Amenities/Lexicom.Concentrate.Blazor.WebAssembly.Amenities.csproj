@@ -29,9 +29,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.DependencyInjection.Primitives.Abstractions" Version="10.0.4" />
+    <PackageReference Include="Lexicom.DependencyInjection.Primitives.Abstractions" Version="10.0.7" />
     <PackageReference Include="MediatR" Version="12.4.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="10.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="10.0.5" />
   </ItemGroup>
 
   <ItemGroup>
