@@ -1,0 +1,42 @@
+<Solution>
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/workflows/">
+    <File Path=".github/workflows/dotnet10.yml" />
+    <File Path=".github/workflows/dotnet6.yml" />
+    <File Path=".github/workflows/dotnet7.yml" />
+    <File Path=".github/workflows/dotnet8.yml" />
+    <File Path=".github/workflows/dotnet9.yml" />
+  </Folder>
+  <Folder Name="/.images/">
+    <File Path="lexicom.concentrate.nuget.icon.png" />
+  </Folder>
+  <Folder Name="/.repo/">
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="LICENSE.txt" />
+  </Folder>
+  <Folder Name="/Blazor/">
+    <Project Path="Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions/Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions.csproj" />
+    <Project Path="Lexicom.Concentrate.Blazor.WebAssembly.Amenities/Lexicom.Concentrate.Blazor.WebAssembly.Amenities.csproj" />
+    <Project Path="Lexicom.Concentrate.Blazor.WebAssembly.Components/Lexicom.Concentrate.Blazor.WebAssembly.Components.csproj" />
+    <Project Path="Lexicom.Concentrate.Blazor.WebAssembly.Wiki.Abstractions/Lexicom.Concentrate.Blazor.WebAssembly.Wiki.Abstractions.csproj" />
+    <Project Path="Lexicom.Concentrate.Blazor.WebAssembly.Wiki/Lexicom.Concentrate.Blazor.WebAssembly.Wiki.csproj" />
+  </Folder>
+  <Folder Name="/Client/">
+    <Project Path="Lexicom.Concentrate.Client.Authentication.For.Wpf/Lexicom.Concentrate.Client.Authentication.For.Wpf.csproj" />
+    <Project Path="Lexicom.Concentrate.Client.Authentication/Lexicom.Concentrate.Client.Authentication.csproj" />
+  </Folder>
+  <Folder Name="/Supports/">
+    <Project Path="Lexicom.Concentrate.Supports.AspNetCore.Controllers/Lexicom.Concentrate.Supports.AspNetCore.Controllers.csproj" />
+    <Project Path="Lexicom.Concentrate.Supports.Blazor.WebAssembly/Lexicom.Concentrate.Supports.Blazor.WebAssembly.csproj" />
+    <Project Path="Lexicom.Concentrate.Supports.ConsoleApp/Lexicom.Concentrate.Supports.ConsoleApp.csproj" />
+    <Project Path="Lexicom.Concentrate.Supports.Wpf/Lexicom.Concentrate.Supports.Wpf.csproj" />
+  </Folder>
+  <Folder Name="/Wpf/">
+    <Project Path="Lexicom.Concentrate.Wpf.Amenities.Abstractions/Lexicom.Concentrate.Wpf.Amenities.Abstractions.csproj" />
+    <Project Path="Lexicom.Concentrate.Wpf.Amenities/Lexicom.Concentrate.Wpf.Amenities.csproj" />
+    <Project Path="Lexicom.Concentrate.Wpf.Controls/Lexicom.Concentrate.Wpf.Controls.csproj" />
+    <Project Path="Lexicom.Concentrate.Wpf.Themes.Abstractions/Lexicom.Concentrate.Wpf.Themes.Abstractions.csproj" />
+    <Project Path="Lexicom.Concentrate.Wpf.Themes/Lexicom.Concentrate.Wpf.Themes.csproj" />
+  </Folder>
+</Solution>
