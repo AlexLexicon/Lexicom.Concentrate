@@ -1,20 +1,26 @@
-﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Notifications;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Notifications;
 using Lexicom.DependencyInjection.Primitives;
-using MediatR;
+using Lexicom.Mvvm.Extensions;
+using Microsoft.Extensions.Logging;
 
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
-public class PeriodicNotificator : IPeriodicNotificator
+
+public class PeriodicMessenger : IPeriodicMessenger
 {
-    private readonly IMediator _mediator;
+    private readonly ILogger<PeriodicMessenger> _logger;
+    private readonly IMessenger _messenger;
     private readonly IEnumerable<ITimeProvider> _timeProviderInterfaces;
     private readonly IEnumerable<TimeProvider> _timeProviders;
 
-    public PeriodicNotificator(
-        IMediator mediator,
+    public PeriodicMessenger(
+        ILogger<PeriodicMessenger> logger,
+        IMessenger messenger,
         IEnumerable<ITimeProvider> timeProviderInterfaces,
         IEnumerable<TimeProvider> timeProviders)
     {
-        _mediator = mediator;
+        _logger = logger;
+        _messenger = messenger;
         _timeProviderInterfaces = timeProviderInterfaces;
         _timeProviders = timeProviders;
 
@@ -48,10 +54,31 @@ public class PeriodicNotificator : IPeriodicNotificator
 
     private async void TimerCallback(object? state)
     {
-        Tick++;
+        DateTimeOffset? utcNow = null;
+        try
+        {
+            Tick++;
 
-        DateTimeOffset utcNow = GetUtcNowDelegate.Invoke();
+            utcNow = GetUtcNowDelegate.Invoke();
+        }
+        catch (Exception e)
+        {
+            _logger.LogCritical(e, "An unexpected error occurred during the timer callback.");
+        }
 
-        await _mediator.Publish(new PeriodicTickNotification(Tick, utcNow));
+        if (utcNow is not null)
+        {
+            try
+            {
+                await _messenger.SendAsync(new PeriodicTickMessage(Tick, utcNow.Value));
+            }
+            catch (Exception e)
+            {
+                if (_logger.IsEnabled(LogLevel.Error))
+                {
+                    _logger.LogError(e, "An unexpected error occurred during the periodic tick.");
+                }
+            }
+        }
     }
 }

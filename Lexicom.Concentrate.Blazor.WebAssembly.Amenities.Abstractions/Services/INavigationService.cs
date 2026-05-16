@@ -1,7 +1,7 @@
 ﻿namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
 public interface INavigationService
 {
-    Task InitalizeNotificationsAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken = default);
+    Task InitalizeAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken = default);
     Task RefreshPageAsync();
     string GetUrl();
     Task<string> GetUrlAsync();

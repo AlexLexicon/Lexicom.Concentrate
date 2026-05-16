@@ -12,7 +12,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IBrowserService, BrowserService>();
         services.AddSingleton<IClipboardService, ClipboardService>();
         services.AddSingleton<INavigationService, NavigationService>();
-        services.AddSingleton<IPeriodicNotificator, PeriodicNotificator>();
+        services.AddSingleton<IPeriodicMessenger, PeriodicMessenger>();
         services.AddSingleton<IPrismService, PrismService>();
         services.AddSingleton<ITailwindsService, TailwindsService>();
         services.AddSingleton<IKeyboardService, KeyboardService>();

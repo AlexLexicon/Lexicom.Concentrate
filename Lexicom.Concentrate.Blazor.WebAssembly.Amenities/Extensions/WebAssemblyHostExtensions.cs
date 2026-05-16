@@ -6,20 +6,20 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Extensions;
 public static class WebAssemblyHostExtensions
 {
-    public static void UsePeriodicNotificator(this WebAssemblyHost host, TimeSpan period)
+    public static void UsePeriodicMessenger(this WebAssemblyHost host, TimeSpan period)
     {
-        IPeriodicNotificator? periodicNotificator = host.Services.GetService<IPeriodicNotificator>();
+        IPeriodicMessenger? periodicMessenger = host.Services.GetService<IPeriodicMessenger>();
 
-        if (periodicNotificator is null)
+        if (periodicMessenger is null)
         {
-            throw new PeriodicNotificatorNotRegisteredException();
+            throw new PeriodicMessengerNotRegisteredException();
         }
 
-        if (periodicNotificator.IsStarted)
+        if (periodicMessenger.IsStarted)
         {
-            throw new PeriodicNotificatorAlreadyStartedException();
+            throw new PeriodicMessengerAlreadyStartedException();
         }
 
-        periodicNotificator.Start(period);
+        periodicMessenger.Start(period);
     }
 }

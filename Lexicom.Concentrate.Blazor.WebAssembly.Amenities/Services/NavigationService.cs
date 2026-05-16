@@ -1,26 +1,28 @@
-﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Notifications;
-using MediatR;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Notifications;
+using Lexicom.Mvvm.Extensions;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
 
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
+
 public class NavigationService : INavigationService, IDisposable
 {
-    private readonly IMediator _mediator;
+    private readonly IMessenger _messenger;
     private readonly IBrowserService _browserService;
     private readonly NavigationManager _navigationManager;
 
     /// <exception cref="ArgumentNullException"/>
     public NavigationService(
-        IMediator mediator,
+        IMessenger messenger,
         IBrowserService browserService,
         NavigationManager navigationManager)
     {
-        ArgumentNullException.ThrowIfNull(mediator);
+        ArgumentNullException.ThrowIfNull(messenger);
         ArgumentNullException.ThrowIfNull(browserService);
         ArgumentNullException.ThrowIfNull(navigationManager);
 
-        _mediator = mediator;
+        _messenger = messenger;
         _browserService = browserService;
         _navigationManager = navigationManager;
     }
@@ -29,7 +31,7 @@ public class NavigationService : INavigationService, IDisposable
 
     private IDisposable? RegisteredLocationChangingHandler { get; set; }
 
-    public async Task InitalizeNotificationsAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken = default)
+    public async Task InitalizeAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken = default)
     {
         if (reset)
         {
@@ -50,6 +52,7 @@ public class NavigationService : INavigationService, IDisposable
         if (invoke)
         {
             string currentUrl = await GetUrlAsync();
+
             await NavigationLocationChangedAsync(currentUrl, cancellationToken);
         }
     }
@@ -126,9 +129,9 @@ public class NavigationService : INavigationService, IDisposable
         ArgumentNullException.ThrowIfNull(url);
         ArgumentNullException.ThrowIfNull(name);
 
-        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?> 
-        { 
-            { name, value } 
+        return await GetUrlWithQueryParametersAsync(url, new Dictionary<string, object?>
+        {
+            { name, value }
         });
     }
 
@@ -629,11 +632,11 @@ public class NavigationService : INavigationService, IDisposable
 
         string url = await locationChangingManager.GetUrlAsync();
 
-        await _mediator.Publish(new NavigationLocationChangingNotification(url, locationChangingManager));
+        await _messenger.SendAsync(new NavigationLocationChangingMessage(url, locationChangingManager));
     }
 
     private async Task NavigationLocationChangedAsync(string url, CancellationToken cancellationToken)
     {
-        await _mediator.Publish(new NavigationLocationChangedNotification(url), cancellationToken);
+        await _messenger.SendAsync(new NavigationLocationChangedMessage(url), cancellationToken);
     }
 }

@@ -20,13 +20,12 @@ public partial class TextInput : UserControl
 
     private InputBindingCollection? PreBindInputBindingCollection { get; set; }
 
-    private TextBox? _inputTextBox;
     private TextBox? InputTextBox
     {
-        get => _inputTextBox;
+        get;
         set
         {
-            _inputTextBox = value;
+            field = value;
             SetInputTextBoxBinding(PreBindInputBindingCollection);
         }
     }
@@ -744,10 +743,7 @@ public partial class TextInput : UserControl
         get => (ObservableCollection<string>)GetValue(ErrorsProperty);
         set
         {
-            if (Errors is not null)
-            {
-                Errors.CollectionChanged -= Errors_CollectionChanged;
-            }
+            Errors?.CollectionChanged -= Errors_CollectionChanged;
 
             SetValue(ErrorsProperty, value);
 

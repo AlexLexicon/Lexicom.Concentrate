@@ -1,10 +1,12 @@
-﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Exceptions;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Exceptions;
 using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Models;
 using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Notifications;
-using MediatR;
+using Lexicom.Mvvm.Extensions;
 using Microsoft.JSInterop;
 
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
+
 public class TailwindsService : ITailwindsService, IDisposable
 {
     private const int TAILWINDS_BREAKPOINT_SIZE_SM = 640;
@@ -13,14 +15,14 @@ public class TailwindsService : ITailwindsService, IDisposable
     private const int TAILWINDS_BREAKPOINT_SIZE_XL = 1280;
     private const int TAILWINDS_BREAKPOINT_SIZE_2XL = 1536;
 
-    private readonly IMediator _mediator;
+    private readonly IMessenger _messenger;
     private readonly IBrowserService _browserService;
 
     public TailwindsService(
-        IMediator mediator,
+        IMessenger messenger,
         IBrowserService browserService)
     {
-        _mediator = mediator;
+        _messenger = messenger;
         _browserService = browserService;
     }
 
@@ -30,7 +32,7 @@ public class TailwindsService : ITailwindsService, IDisposable
     private TailwindBreakpoint CurrentBreakpoint { get; set; }
 
     /// <exception cref="JavascriptExecutionException"/>
-    public async Task InitalizeNotificationsAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken = default)
+    public async Task InitalizeAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken = default)
     {
         if (reset)
         {
@@ -70,7 +72,7 @@ public class TailwindsService : ITailwindsService, IDisposable
             _ => TailwindBreakpoint.Default,
         };
 
-        await _mediator.Publish(new TailwindsBreakpointChangedNotification(CurrentBreakpoint));
+        await _messenger.SendAsync(new TailwindsBreakpointChangedMessage(CurrentBreakpoint));
     }
 
     public void Dispose()
