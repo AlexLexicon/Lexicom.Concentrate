@@ -12,7 +12,7 @@
     <Authors>Alex Stroot</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>The base package for all Lexicom.Concentrate...For.ConsoleApp packages. Relies on and enforces the inclusion of the Lexicom.ConsoleApp.DependencyInjection package. Extends the base Lexicom.Supports.ConsoleApp.</Description>
-    <Copyright>2023</Copyright>
+    <Copyright>2026</Copyright>
     <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom/tree/master/Lexicom.Concentrate.Supports.ConsoleApp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AlexLexicon/Lexicom</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
