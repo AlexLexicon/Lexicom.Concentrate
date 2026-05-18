@@ -6,8 +6,11 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Extensions;
 public static class WebAssemblyHostExtensions
 {
+    /// <exception cref="ArgumentNullException"/>
     public static void UsePeriodicMessenger(this WebAssemblyHost host, TimeSpan period)
     {
+        ArgumentNullException.ThrowIfNull(host);
+
         IPeriodicMessenger? periodicMessenger = host.Services.GetService<IPeriodicMessenger>();
 
         if (periodicMessenger is null)

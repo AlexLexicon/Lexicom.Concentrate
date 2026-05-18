@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
-using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Notifications;
+using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Messages;
 using Lexicom.Mvvm.Extensions;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
@@ -27,18 +27,18 @@ public class NavigationService : INavigationService, IDisposable
         _navigationManager = navigationManager;
     }
 
-    private bool IsInitalized { get; set; }
+    private bool IsInitialized { get; set; }
 
     private IDisposable? RegisteredLocationChangingHandler { get; set; }
 
-    public async Task InitalizeAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken = default)
+    public async Task InitializeAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken = default)
     {
         if (reset)
         {
             Dispose();
         }
 
-        if (IsInitalized)
+        if (IsInitialized)
         {
             return;
         }
@@ -47,7 +47,7 @@ public class NavigationService : INavigationService, IDisposable
 
         RegisteredLocationChangingHandler = _navigationManager.RegisterLocationChangingHandler(OnLocationChanging);
 
-        IsInitalized = true;
+        IsInitialized = true;
 
         if (invoke)
         {
@@ -87,11 +87,11 @@ public class NavigationService : INavigationService, IDisposable
     }
 
     /// <exception cref="ArgumentNullException"/>
-    public Task<string> GetAbsoluteUrlAsync(string relativeUrlPath)
+    public Task<string> GetAbsoluteUrlAsync(string relativeUrl)
     {
-        ArgumentNullException.ThrowIfNull(relativeUrlPath);
+        ArgumentNullException.ThrowIfNull(relativeUrl);
 
-        Uri absoluteUri = _navigationManager.ToAbsoluteUri(relativeUrlPath);
+        Uri absoluteUri = _navigationManager.ToAbsoluteUri(relativeUrl);
 
         return Task.FromResult(absoluteUri.ToString());
     }
@@ -618,7 +618,7 @@ public class NavigationService : INavigationService, IDisposable
         _navigationManager.LocationChanged -= OnLocationChanged;
         RegisteredLocationChangingHandler?.Dispose();
         RegisteredLocationChangingHandler = null;
-        IsInitalized = false;
+        IsInitialized = false;
     }
 
     private async void OnLocationChanged(object? sender, LocationChangedEventArgs e)

@@ -33,7 +33,7 @@ public class WpfThemeService : IThemeService
     }
 
     /// <exception cref="ThemesNotFoundException"/>
-    /// <exception cref="AppliedThemeNotFound"/>
+    /// <exception cref="AppliedThemeNotFoundException"/>
     public async Task LoadThemeAsync()
     {
         string theme = await GetThemeAsync();
@@ -61,21 +61,21 @@ public class WpfThemeService : IThemeService
         return themes;
     }
 
-    /// <exception cref="AppliedThemeNotFound"/>
+    /// <exception cref="AppliedThemeNotFoundException"/>
     public async Task<string> GetAppliedThemeAsync()
     {
         string? theme = await _themeProvider.GetAppliedThemeAsync();
 
         if (theme is null)
         {
-            throw new AppliedThemeNotFound();
+            throw new AppliedThemeNotFoundException();
         }
 
         return theme;
     }
 
     /// <exception cref="ThemesNotFoundException"/>
-    /// <exception cref="AppliedThemeNotFound"/>
+    /// <exception cref="AppliedThemeNotFoundException"/>
     public async Task<string> GetThemeAsync()
     {
         ThemeOptions themeOptions = _themeOptions.CurrentValue;
@@ -106,7 +106,6 @@ public class WpfThemeService : IThemeService
             AppliedTheme = theme,
         });
 
-        await applyTask;
-        await saveAndBindTask;
+        await Task.WhenAll(applyTask, saveAndBindTask);
     }
 }

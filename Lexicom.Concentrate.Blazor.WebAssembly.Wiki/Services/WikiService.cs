@@ -26,8 +26,11 @@ public class WikiService : IWikiService
         _asyncWikiReferenceProviders = asyncWikiReferenceProviders;
     }
 
-    public Dictionary<string, WikiReference>? IdentifierToReferenceDictionary { get; set; }
-    public Dictionary<string, string>? IdentifierToUrlDictionary { get; set; }
+    private Dictionary<string, WikiReference>? IdentifierToReferenceDictionary { get; set; }
+    private Dictionary<string, string>? IdentifierToUrlDictionary { get; set; }
+
+    public IReadOnlyDictionary<string, WikiReference> IdentifierToReference => IdentifierToReferenceDictionary ?? [];
+    public IReadOnlyDictionary<string, string> IdentifierToUrl => IdentifierToUrlDictionary ?? [];
 
     /// <exception cref="ArgumentNullException"/>
     public async Task<WikiReference?> GetReferenceFromIdentifierAsync(string referenceIdentifier)

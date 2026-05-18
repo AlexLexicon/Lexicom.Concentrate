@@ -3,6 +3,7 @@
 namespace Lexicom.Concentrate.Supports.ConsoleApp.Extensions;
 public static class ConsoleAppServiceBuilderExtensions
 {
+    /// <exception cref="ArgumentNullException"/>
     public static IDependantConsoleAppServiceBuilder Concentrate(this IDependantConsoleAppServiceBuilder builder, Action<IConcentrateConsoleAppServiceBuilder>? configure)
     {
         ArgumentNullException.ThrowIfNull(builder);

@@ -1,7 +1,7 @@
 ﻿namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
 public interface INavigationService
 {
-    Task InitalizeAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken = default);
+    Task InitializeAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken = default);
     Task RefreshPageAsync();
     string GetUrl();
     Task<string> GetUrlAsync();
@@ -11,7 +11,7 @@ public interface INavigationService
     Task<string> GetAbsoluteUrlAsync(string relativePath);
     Task<string> GetRelativeUrlPathAsync();
     /// <exception cref="ArgumentNullException"/>
-    Task<string> GetRelativeUrlPathAsync(string fullUrl);
+    Task<string> GetRelativeUrlPathAsync(string absoluteUrl);
     /// <exception cref="ArgumentNullException"/>
     Task<string> GetUrlWithQueryParameterAsync(string name, bool value);
     /// <exception cref="ArgumentNullException"/>
@@ -101,7 +101,7 @@ public interface INavigationService
     /// <exception cref="ArgumentNullException"/>
     Task<string> GetUrlWithQueryParametersAsync(string url, IReadOnlyDictionary<string, object?> parameters);
 
-#pragma warning disable CA1068 // CancellationToken parameters must come last (I prefer this since it makes the most common case (where you do pass the cancellation easier)
+#pragma warning disable CA1068 // CancellationToken parameters must come last (I prefer this since it makes the most common case where you do pass the cancellation easier)
     /// <exception cref="ArgumentNullException"/>
     Task NavigateToUrlAsync(string url, CancellationToken cancellationToken = default, bool forceLoad = false, bool noLoad = false, bool replace = false);
 #pragma warning restore CA1068 // CancellationToken parameters must come last

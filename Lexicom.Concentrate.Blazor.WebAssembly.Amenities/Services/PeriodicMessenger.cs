@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
-using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Notifications;
+using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Messages;
 using Lexicom.DependencyInjection.Primitives;
 using Lexicom.Mvvm.Extensions;
 using Microsoft.Extensions.Logging;
@@ -13,12 +13,18 @@ public class PeriodicMessenger : IPeriodicMessenger
     private readonly IEnumerable<ITimeProvider> _timeProviderInterfaces;
     private readonly IEnumerable<TimeProvider> _timeProviders;
 
+    /// <exception cref="ArgumentNullException"/>
     public PeriodicMessenger(
         ILogger<PeriodicMessenger> logger,
         IMessenger messenger,
         IEnumerable<ITimeProvider> timeProviderInterfaces,
         IEnumerable<TimeProvider> timeProviders)
     {
+        ArgumentNullException.ThrowIfNull(logger);
+        ArgumentNullException.ThrowIfNull(messenger);
+        ArgumentNullException.ThrowIfNull(timeProviderInterfaces);
+        ArgumentNullException.ThrowIfNull(timeProviders);
+
         _logger = logger;
         _messenger = messenger;
         _timeProviderInterfaces = timeProviderInterfaces;

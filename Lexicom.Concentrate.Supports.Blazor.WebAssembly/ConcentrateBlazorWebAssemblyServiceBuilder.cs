@@ -8,11 +8,11 @@ public interface IConcentrateBlazorWebAssemblyServiceBuilder
 public class ConcentrateBlazorWebAssemblyServiceBuilder : IConcentrateBlazorWebAssemblyServiceBuilder
 {
     /// <exception cref="ArgumentNullException"/>
-    public ConcentrateBlazorWebAssemblyServiceBuilder(WebAssemblyHostBuilder webAssemblyHostBuilder)
+    public ConcentrateBlazorWebAssemblyServiceBuilder(WebAssemblyHostBuilder builder)
     {
-        ArgumentNullException.ThrowIfNull(webAssemblyHostBuilder);
+        ArgumentNullException.ThrowIfNull(builder);
 
-        WebAssemblyHostBuilder = webAssemblyHostBuilder;
+        WebAssemblyHostBuilder = builder;
     }
 
     public WebAssemblyHostBuilder WebAssemblyHostBuilder { get; }

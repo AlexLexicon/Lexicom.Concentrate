@@ -1,7 +1,7 @@
 ﻿using Lexicom.Concentrate.Client.Authentication.Extensions;
 using Lexicom.Concentrate.Supports.Wpf;
 
-namespace Lexicom.Validation.For.Wpf.Extensions;
+namespace Lexicom.Concentrate.Client.Authentication.For.Wpf.Extensions;
 public static class ConcentrateWpfServiceBuilderExtensions
 {
     /// <exception cref="ArgumentNullException"/>

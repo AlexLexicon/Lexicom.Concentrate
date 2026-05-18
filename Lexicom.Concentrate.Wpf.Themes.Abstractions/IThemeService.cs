@@ -5,17 +5,17 @@ namespace Lexicom.Concentrate.Wpf.Themes;
 public interface IThemeService
 {
     /// <exception cref="ThemesNotFoundException"/>
-    /// <exception cref="ThemeDoesNotExistException"/>
+    /// <exception cref="AppliedThemeNotFoundException"/>
     Task LoadThemeAsync();
 
     /// <exception cref="ThemesNotFoundException"/>
     Task<IReadOnlyList<string>> GetThemesAsync();
 
     /// <exception cref="ThemesNotFoundException"/>
-    /// <exception cref="AppliedThemeNotFound"/>
+    /// <exception cref="AppliedThemeNotFoundException"/>
     Task<string> GetThemeAsync();
 
-    /// <exception cref="AppliedThemeNotFound"/>
+    /// <exception cref="AppliedThemeNotFoundException"/>
     Task<string> GetAppliedThemeAsync();
 
     /// <exception cref="ThemeDoesNotExistException"/>

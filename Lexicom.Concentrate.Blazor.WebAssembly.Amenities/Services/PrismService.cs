@@ -5,8 +5,11 @@ public class PrismService : IPrismService
 {
     private readonly IBrowserService _browserService;
 
+    /// <exception cref="ArgumentNullException"/>
     public PrismService(IBrowserService browserService)
     {
+        ArgumentNullException.ThrowIfNull(browserService);
+
         _browserService = browserService;
     }
 

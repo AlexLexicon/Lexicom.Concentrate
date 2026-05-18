@@ -11,8 +11,8 @@ public interface IBrowserService
     Task ChangeUrlAsync(string url, CancellationToken cancellationToken = default);
     /// <exception cref="ArgumentNullException"/>
     /// <exception cref="JavascriptExecutionException"/>
-    Task ExecuteJavaScriptFunctionAsync(string functionName, CancellationToken cancellationToken = default, params object[] args);
+    Task ExecuteJavaScriptFunctionAsync(string functionName, CancellationToken cancellationToken = default, params object?[]? args);
     /// <exception cref="ArgumentNullException"/>
     /// <exception cref="JavascriptExecutionException"/>
-    ValueTask<T> ExecuteJavaScriptFunctionAsync<T>(string functionName, CancellationToken cancellationToken = default, params object[] args);
+    ValueTask<T> ExecuteJavaScriptFunctionAsync<T>(string functionName, CancellationToken cancellationToken = default, params object?[]? args);
 }
