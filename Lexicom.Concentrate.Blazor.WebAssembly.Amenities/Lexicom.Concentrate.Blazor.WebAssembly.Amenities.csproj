@@ -29,8 +29,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.DependencyInjection.Primitives.Abstractions" Version="10.0.29" />
-    <PackageReference Include="Lexicom.Mvvm" Version="10.0.29" />
+    <PackageReference Include="Lexicom.DependencyInjection.Primitives.Abstractions" Version="10.0.31" />
+    <PackageReference Include="Lexicom.Mvvm" Version="10.0.31" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="10.0.8" />
   </ItemGroup>
 

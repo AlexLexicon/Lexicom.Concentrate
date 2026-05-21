@@ -14,6 +14,7 @@
     <File Path=".gitattributes" />
     <File Path=".gitignore" />
     <File Path="LICENSE.txt" />
+    <File Path="README.md" />
   </Folder>
   <Folder Name="/Blazor/">
     <Project Path="Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions/Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions.csproj" />

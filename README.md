@@ -1,0 +1,6 @@
+# Lexicom.Concentrate
+
+Work in progress...
+Todo fill in readme...
+
+[![Build and Publish Nuget Packages](https://github.com/AlexLexicon/Lexicom.Concentrate/actions/workflows/dotnet10.yml/badge.svg?branch=master)](https://github.com/AlexLexicon/Lexicom.Concentrate/actions/workflows/dotnet10.yml)

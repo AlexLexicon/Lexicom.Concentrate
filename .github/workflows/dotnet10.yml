@@ -7,6 +7,10 @@ on:
   pull_request:
     branches: [ master ]
     
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
 
@@ -20,9 +24,12 @@ jobs:
       with:
         dotnet-version: 10.x
         
+    - name: Restore Workload
+      run: dotnet workload restore
+
     - name: Restore
       run: dotnet restore
-      
+
     - name: Build
       run: dotnet build --configuration Release --no-restore /p:VersionPrefix=10.0.$env:GITHUB_RUN_NUMBER
 
@@ -30,4 +37,5 @@ jobs:
       run: dotnet test --no-build --configuration Release --verbosity normal
 
     - name: Push
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       run: dotnet nuget push */**/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
