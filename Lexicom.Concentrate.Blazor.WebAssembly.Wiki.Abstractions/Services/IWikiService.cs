@@ -1,6 +1,5 @@
-﻿using Lexicom.Concentrate.Blazor.WebAssembly.Wiki.Models;
+﻿namespace Lexicom.Concentrate.Blazor.WebAssembly.Wiki.Services;
 
-namespace Lexicom.Concentrate.Blazor.WebAssembly.Wiki.Services;
 public interface IWikiService
 {
     /// <exception cref="ArgumentNullException"/>

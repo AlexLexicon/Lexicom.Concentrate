@@ -5,9 +5,15 @@ using System.Windows.Input;
 using System.Windows.Media;
 
 namespace Lexicom.Concentrate.Wpf.Controls;
+
 public partial class TextField : UserControl
 {
-    public TextField() => InitializeComponent();
+    public TextField()
+    {
+        InitializeComponent();
+
+        InputBindings = [];
+    }
 
     private InputBindingCollection? PreBindInputBindingCollection { get; set; }
 
@@ -393,7 +399,7 @@ public partial class TextField : UserControl
         set => SetValue(VerticalScrollBarVisibilityProperty, value);
     }
 
-    public static readonly DependencyProperty InputBindingsProperty = DependencyProperty.RegisterAttached(nameof(InputBindings), typeof(InputBindingCollection), typeof(TextField), new FrameworkPropertyMetadata(new InputBindingCollection(), OnInputBindings_PropertyChanged));
+    public static readonly DependencyProperty InputBindingsProperty = DependencyProperty.Register(nameof(InputBindings), typeof(InputBindingCollection), typeof(TextField), new FrameworkPropertyMetadata(null, OnInputBindings_PropertyChanged));
     public new InputBindingCollection? InputBindings
     {
         get => (InputBindingCollection?)GetValue(InputBindingsProperty);

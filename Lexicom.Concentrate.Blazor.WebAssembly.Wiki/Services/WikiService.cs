@@ -1,6 +1,5 @@
-﻿using Lexicom.Concentrate.Blazor.WebAssembly.Wiki.Models;
+﻿namespace Lexicom.Concentrate.Blazor.WebAssembly.Wiki.Services;
 
-namespace Lexicom.Concentrate.Blazor.WebAssembly.Wiki.Services;
 public class WikiService : IWikiService
 {
     private readonly IEnumerable<IWikiUrlProvider> _wikiUrlProviders;

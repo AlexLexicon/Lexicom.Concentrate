@@ -43,7 +43,7 @@
     <Project Path="Lexicom.Concentrate.Wpf.Themes.Abstractions/Lexicom.Concentrate.Wpf.Themes.Abstractions.csproj" />
     <Project Path="Lexicom.Concentrate.Wpf.Themes/Lexicom.Concentrate.Wpf.Themes.csproj" />
   </Folder>
-  <Folder Name="/Wpf/Sandboxs/">
+  <Folder Name="/Wpf/Sandboxes/">
     <Project Path="Lexicom.Concentrate.Wpf.Sandbox/Lexicom.Concentrate.Wpf.Sandbox.csproj" Id="99255ee1-8927-4887-96d9-eb6dc8229596" />
   </Folder>
 </Solution>

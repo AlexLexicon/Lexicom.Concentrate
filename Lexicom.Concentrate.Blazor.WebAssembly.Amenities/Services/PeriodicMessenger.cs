@@ -41,7 +41,7 @@ public class PeriodicMessenger : IPeriodicMessenger, IDisposable
 
     public void Start(TimeSpan period)
     {
-        Timer?.Dispose();
+        Dispose();
 
         var timeProviderInterface = _timeProviderInterfaces.FirstOrDefault();
         if (timeProviderInterface is not null)
@@ -57,7 +57,7 @@ public class PeriodicMessenger : IPeriodicMessenger, IDisposable
             }
         }
 
-        Timer ??= new Timer(TimerCallback, state: null, TimeSpan.Zero, period);
+        Timer = new Timer(TimerCallback, state: null, TimeSpan.Zero, period);
     }
 
     private async void TimerCallback(object? state)
@@ -93,5 +93,6 @@ public class PeriodicMessenger : IPeriodicMessenger, IDisposable
     public void Dispose()
     {
         Timer?.Dispose();
+        Timer = null;
     }
 }

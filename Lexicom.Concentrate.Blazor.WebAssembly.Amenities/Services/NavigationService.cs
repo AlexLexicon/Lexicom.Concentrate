@@ -21,6 +21,7 @@ public class NavigationService : INavigationService, IDisposable
         IBrowserService browserService,
         NavigationManager navigationManager)
     {
+        ArgumentNullException.ThrowIfNull(logger);
         ArgumentNullException.ThrowIfNull(messenger);
         ArgumentNullException.ThrowIfNull(browserService);
         ArgumentNullException.ThrowIfNull(navigationManager);
@@ -633,17 +634,30 @@ public class NavigationService : INavigationService, IDisposable
         }
         catch (Exception e)
         {
-            _logger.LogCritical(e, "An unexpected error occurred while handling a navigation location change to '{location}'", args?.Location ?? "null");
+            if (_logger.IsEnabled(LogLevel.Critical))
+            {
+                _logger.LogCritical(e, "An unexpected error occurred while handling a navigation location change to '{location}'.", args?.Location ?? "null");
+            }
         }
     }
 
     private async ValueTask OnLocationChanging(LocationChangingContext locationChangingContext)
     {
-        var locationChangingManager = new LocationChangingManager(locationChangingContext);
+        try
+        {
+            var locationChangingManager = new LocationChangingManager(locationChangingContext);
 
-        string url = await locationChangingManager.GetUrlAsync();
+            string url = await locationChangingManager.GetUrlAsync();
 
-        await _messenger.SendAsync(new NavigationLocationChangingMessage(url, locationChangingManager));
+            await _messenger.SendAsync(new NavigationLocationChangingMessage(url, locationChangingManager));
+        }
+        catch (Exception e)
+        {
+            if (_logger.IsEnabled(LogLevel.Critical))
+            {
+                _logger.LogCritical(e, "An unexpected error occurred while handling a navigation location changing.");
+            }
+        }
     }
 
     private async Task NavigationLocationChangedAsync(string url, CancellationToken cancellationToken)
