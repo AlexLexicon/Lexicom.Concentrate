@@ -6,11 +6,14 @@
     <input class="lexicom-textinput-input @(IsValid ? "lexicom-textinput-input-valid" : "lexicom-textinput-input-invalid")" type="text" placeholder="@Hint" @bind="Text" @bind:event="oninput" @bind:after="InputTextChanged" @onkeypress="OnKeyPressAsync" />
     <div class="lexicom-textinput-errors-border @(IsValid ? "lexicom-textinput-errors-border-valid" : "lexicom-textinput-errors-border-invalid")">
         <ul class="lexicom-textinput-errors @(IsValid ? "lexicom-textinput-errors-valid" : "lexicom-textinput-errors-invalid")">
-            @foreach (string error in Errors)
+            @if (Errors is not null)
             {
-                <li class="lexicom-textinput-error @(IsValid ? "lexicom-textinput-error-valid" : "lexicom-textinput-error-invalid")">
-                    @error
-                </li>
+                @foreach (string error in Errors)
+                {
+                    <li class="lexicom-textinput-error @(IsValid ? "lexicom-textinput-error-valid" : "lexicom-textinput-error-invalid")">
+                        @error
+                    </li>
+                }
             }
         </ul>
     </div>
@@ -23,31 +26,26 @@
     [Parameter]
     public string? Text { get; set; }
 
-    private IRuleSetValidator<string?>? _validator;
-#pragma warning disable BL0007 // we are not updating the view in this code, only updating other parameters
     [Parameter]
     public IRuleSetValidator<string?>? Validator
     {
-        get => _validator;
+        get => field;
         set
         {
-            _validator = value;
+            field = value;
 
-            Validation = _validator?.Validation;
-            Errors = _validator?.ValidationErrors ?? [];
+            Validation = field?.Validation;
+            Errors = field?.ValidationErrors ?? [];
         }
     }
-#pragma warning restore BL0007
 
     [Parameter]
-    public Func<string?, IEnumerable<string>>? Validation { get; set; }
+    public Func<string?, IEnumerable<string?>>? Validation { get; set; }
 
-    private ObservableCollection<string> _errors = [];
     [Parameter]
-#pragma warning disable BL0007 // we are not updating the view in this code, only adding/removing event triggers so we should be safe
-    public ObservableCollection<string> Errors
+    public ObservableCollection<string>? Errors
     {
-        get => _errors;
+        get => field;
         set
         {
             if (Errors is not null)
@@ -55,17 +53,14 @@
                 Errors.CollectionChanged -= ErrorsCollectionChanged;
             }
 
-            _errors = value;
+            field = value;
 
-            if (Errors is null)
+            if (Errors is not null)
             {
-                throw new Exception("hjkasdhjlasdjklasjkld!!!");
+                Errors.CollectionChanged += ErrorsCollectionChanged;
             }
-
-            Errors.CollectionChanged += ErrorsCollectionChanged;
         }
     }
-#pragma warning restore BL0007
 
     [Parameter]
     public int? ErrorsMaxLines { get; set; }
@@ -94,7 +89,15 @@
                 errors = errors.Take(ErrorsMaxLines.Value);
             }
 
-            Errors.Clear();
+            if (Errors is null)
+            {
+                Errors = new ObservableCollection<string>();
+            }
+            else
+            {
+                Errors.Clear();
+            }
+
             foreach (string? error in errors)
             {
                 if (error is not null)
@@ -119,10 +122,6 @@
             IsValid = newIsValid;
 
             await IsValidChanged.InvokeAsync(IsValid);
-        }
-        else
-        {
-            IsValid = newIsValid;
         }
     }
 
