@@ -23,8 +23,13 @@ public class WikiService : IWikiService
         _asyncWikiUrlProviders = asyncWikiUrlProviders;
         _wikiReferenceProviders = wikiReferenceProviders;
         _asyncWikiReferenceProviders = asyncWikiReferenceProviders;
+
+        IdentifierToReferenceCreationSemiphore = new SemaphoreSlim(1, 1);
+        IdentifierToUrlCreationSemiphore = new SemaphoreSlim(1, 1);
     }
 
+    private SemaphoreSlim IdentifierToReferenceCreationSemiphore { get; }
+    private SemaphoreSlim IdentifierToUrlCreationSemiphore { get; }
     private Dictionary<string, WikiReference>? IdentifierToReferenceDictionary { get; set; }
     private Dictionary<string, string>? IdentifierToUrlDictionary { get; set; }
 
@@ -64,77 +69,115 @@ public class WikiService : IWikiService
 
     private async Task<IDictionary<string, WikiReference>> GetIdentifierToReferenceDictionaryOrCreateWhenNotExistingAsync()
     {
-        if (IdentifierToReferenceDictionary is null)
+        if (IdentifierToReferenceDictionary is not null)
         {
-            IdentifierToReferenceDictionary = [];
+            return IdentifierToReferenceDictionary;
+        }
+
+        await IdentifierToReferenceCreationSemiphore.WaitAsync();
+        try
+        {
+            if (IdentifierToReferenceDictionary is not null)
+            {
+                return IdentifierToReferenceDictionary;
+            }
+
+            var dictionary = new Dictionary<string, WikiReference>();
 
             foreach (IWikiReferenceProvider wikiReferenceProvider in _wikiReferenceProviders)
             {
                 IEnumerable<WikiReference> references = wikiReferenceProvider.GetReferences();
 
-                AppendToIdentifierToReferenceDictionary(references);
+                AppendToReferenceDictionary(dictionary, references);
             }
 
             foreach (IAsyncWikiReferenceProvider asyncWikiReferenceProvider in _asyncWikiReferenceProviders)
             {
                 IEnumerable<WikiReference> references = await asyncWikiReferenceProvider.GetReferencesAsync();
 
-                AppendToIdentifierToReferenceDictionary(references);
+                AppendToReferenceDictionary(dictionary, references);
             }
-        }
 
-        return IdentifierToReferenceDictionary;
+            IdentifierToReferenceDictionary = dictionary;
+
+            return IdentifierToReferenceDictionary;
+        }
+        finally
+        {
+            IdentifierToReferenceCreationSemiphore.Release();
+        }
     }
 
     private async Task<IDictionary<string, string>> GetIdentifierToUrlDictionaryOrCreateWhenNotExistingAsync()
     {
-        if (IdentifierToUrlDictionary is null)
+        if (IdentifierToUrlDictionary is not null)
         {
-            IdentifierToUrlDictionary = [];
+            return IdentifierToUrlDictionary;
+        }
+
+        await IdentifierToUrlCreationSemiphore.WaitAsync();
+        try
+        {
+            if (IdentifierToUrlDictionary is not null)
+            {
+                return IdentifierToUrlDictionary;
+            }
+
+            var dictionary = new Dictionary<string, string>();
 
             foreach (IWikiUrlProvider wikiUrlProvider in _wikiUrlProviders)
             {
                 IDictionary<string, string> identifierToUrlDictionary = wikiUrlProvider.GetIdentifierToUrlDictionary();
 
-                AppendToIdentifierToUrlDictionary(identifierToUrlDictionary);
+                AppendToUrlDictionary(dictionary, identifierToUrlDictionary);
             }
 
             foreach (IAsyncWikiUrlProvider asyncWikiUrlProvider in _asyncWikiUrlProviders)
             {
                 IDictionary<string, string> identifierToUrlDictionary = await asyncWikiUrlProvider.GetIdentifierToUrlDictionaryAsync();
 
-                AppendToIdentifierToUrlDictionary(identifierToUrlDictionary);
+                AppendToUrlDictionary(dictionary, identifierToUrlDictionary);
             }
+
+            IdentifierToUrlDictionary = dictionary;
+
+            return IdentifierToUrlDictionary;
         }
-
-        return IdentifierToUrlDictionary;
-    }
-
-    private void AppendToIdentifierToReferenceDictionary(IEnumerable<WikiReference> referencesToAppend)
-    {
-        if (IdentifierToReferenceDictionary is not null && referencesToAppend is not null)
+        finally
         {
-            foreach (WikiReference reference in referencesToAppend)
-            {
-                string identifier = reference.Identifier.ToLowerInvariant();
-
-                IdentifierToReferenceDictionary.TryAdd(identifier, reference);
-            }
+            IdentifierToUrlCreationSemiphore.Release();
         }
     }
 
-    private void AppendToIdentifierToUrlDictionary(IDictionary<string, string> identifierToUrlDictionaryToAppend)
+    private static void AppendToReferenceDictionary(Dictionary<string, WikiReference> target, IEnumerable<WikiReference> referencesToAppend)
     {
-        if (IdentifierToUrlDictionary is not null && identifierToUrlDictionaryToAppend is not null)
+        if (referencesToAppend is null)
         {
-            foreach (var identifierToUrl in identifierToUrlDictionaryToAppend)
-            {
-                if (identifierToUrl.Key is not null && identifierToUrl.Value is not null)
-                {
-                    string identifier = identifierToUrl.Key.ToLowerInvariant();
+            return;
+        }
 
-                    IdentifierToUrlDictionary.TryAdd(identifier, identifierToUrl.Value);
-                }
+        foreach (WikiReference reference in referencesToAppend)
+        {
+            string identifier = reference.Identifier.ToLowerInvariant();
+
+            target.TryAdd(identifier, reference);
+        }
+    }
+
+    private static void AppendToUrlDictionary(Dictionary<string, string> target, IDictionary<string, string> identifierToUrlDictionaryToAppend)
+    {
+        if (identifierToUrlDictionaryToAppend is null)
+        {
+            return;
+        }
+
+        foreach (var identifierToUrl in identifierToUrlDictionaryToAppend)
+        {
+            if (identifierToUrl.Key is not null && identifierToUrl.Value is not null)
+            {
+                string identifier = identifierToUrl.Key.ToLowerInvariant();
+
+                target.TryAdd(identifier, identifierToUrl.Value);
             }
         }
     }
