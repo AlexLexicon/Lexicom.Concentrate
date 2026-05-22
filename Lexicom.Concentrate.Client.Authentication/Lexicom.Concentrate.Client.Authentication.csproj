@@ -14,7 +14,7 @@
     <Description>Implements a firm pattern for authentication with an HttpClient.</Description>
     <Copyright>2026</Copyright>
     <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom/tree/master/Lexicom.Concentrate.Client.Authentication</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/AlexLexicon/Lexicom</RepositoryUrl>
+    <RepositoryUrl>https://github.com/AlexLexicon/Lexicom.Concentrate</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageTags>authentication;dependencyinjection;http</PackageTags>
   </PropertyGroup>
@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Authentication.Http" Version="10.0.37" />
+    <PackageReference Include="Lexicom.Authentication.Http" Version="10.0.38" />
   </ItemGroup>
 
 </Project>

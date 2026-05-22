@@ -14,7 +14,7 @@
     <Description>Abstractions for the Lexicom.Concentrate.Blazor.WebAssembly.Amenities package. Allowing this package to not enforce a specific sdk including Razor.</Description>
     <Copyright>2026</Copyright>
     <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom/tree/master/Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Abstractions</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/AlexLexicon/Lexicom</RepositoryUrl>
+    <RepositoryUrl>https://github.com/AlexLexicon/Lexicom.Concentrate</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageTags>blazor;webassembly</PackageTags>
   </PropertyGroup>

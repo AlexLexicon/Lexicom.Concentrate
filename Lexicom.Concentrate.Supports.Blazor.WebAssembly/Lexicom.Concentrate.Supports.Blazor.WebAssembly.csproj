@@ -14,7 +14,7 @@
     <Description>The base package for all Lexicom.Concentrate...For.Blazor.WebAssembly packages. Relies on and enforces the inclusion of the Microsoft.AspNetCore.Components.WebAssembly package reference. Extends the base Lexicom.Supports.Blazor.WebAssembly.</Description>
     <Copyright>2026</Copyright>
     <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom/tree/master/Lexicom.Concentrate.Supports.Blazor.WebAssembly</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/AlexLexicon/Lexicom</RepositoryUrl>
+    <RepositoryUrl>https://github.com/AlexLexicon/Lexicom.Concentrate</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageTags>blazor;dependencyinjection;webassembly</PackageTags>
   </PropertyGroup>
@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Supports.Blazor.WebAssembly" Version="10.0.37" />
+    <PackageReference Include="Lexicom.Supports.Blazor.WebAssembly" Version="10.0.38" />
   </ItemGroup>
 
 </Project>

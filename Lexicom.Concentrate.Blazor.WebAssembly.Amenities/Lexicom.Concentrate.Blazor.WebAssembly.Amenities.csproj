@@ -14,7 +14,7 @@
     <Description>Adds convenient but optional features for any Blazor web assembly application project. Although not necessary these features are specifically designed to integrate with other Lexicom Blazor web assembly application packages.</Description>
     <Copyright>2026</Copyright>
     <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom/tree/master/Lexicom.Concentrate.Blazor.WebAssembly.Amenities</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/AlexLexicon/Lexicom</RepositoryUrl>
+    <RepositoryUrl>https://github.com/AlexLexicon/Lexicom.Concentrate</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageTags>blazor;webassembly</PackageTags>
   </PropertyGroup>
@@ -29,8 +29,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.DependencyInjection.Primitives.Abstractions" Version="10.0.37" />
-    <PackageReference Include="Lexicom.Mvvm" Version="10.0.37" />
+    <PackageReference Include="Lexicom.DependencyInjection.Primitives.Abstractions" Version="10.0.38" />
+    <PackageReference Include="Lexicom.Mvvm" Version="10.0.38" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="10.0.8" />
   </ItemGroup>
 

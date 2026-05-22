@@ -27,6 +27,9 @@
     <Project Path="Lexicom.Concentrate.Client.Authentication.For.Wpf/Lexicom.Concentrate.Client.Authentication.For.Wpf.csproj" />
     <Project Path="Lexicom.Concentrate.Client.Authentication/Lexicom.Concentrate.Client.Authentication.csproj" />
   </Folder>
+  <Folder Name="/Mvvm/">
+    <Project Path="Lexicom.Concentrate.Mvvm.Amenities/Lexicom.Concentrate.Mvvm.Amenities.csproj" Id="61fe3e06-dbd2-4845-a34e-c40a0bbdc7cd" />
+  </Folder>
   <Folder Name="/Supports/">
     <Project Path="Lexicom.Concentrate.Supports.AspNetCore.Controllers/Lexicom.Concentrate.Supports.AspNetCore.Controllers.csproj" />
     <Project Path="Lexicom.Concentrate.Supports.Blazor.WebAssembly/Lexicom.Concentrate.Supports.Blazor.WebAssembly.csproj" />

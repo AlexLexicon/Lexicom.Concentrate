@@ -15,7 +15,7 @@
     <Description>Supplies useful controls for any Wpf application project.</Description>
     <Copyright>2026</Copyright>
     <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom/tree/master/Lexicom.Concentrate.Wpf.Controls</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/AlexLexicon/Lexicom</RepositoryUrl>
+    <RepositoryUrl>https://github.com/AlexLexicon/Lexicom.Concentrate</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageTags>wpf</PackageTags>
   </PropertyGroup>
@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Validation" Version="10.0.37" />
+    <PackageReference Include="Lexicom.Validation" Version="10.0.38" />
   </ItemGroup>
 
 </Project>
