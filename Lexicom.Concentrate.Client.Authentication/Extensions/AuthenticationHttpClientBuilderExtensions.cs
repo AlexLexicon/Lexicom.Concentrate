@@ -11,7 +11,7 @@ public static class AuthenticationHttpClientBuilderExtensions
 
         builder.Builder.Services.TryAddSingleton<IAuthenticationTokenStore, AuthenticationTokenStore>();
 
-        builder.AuthorizeWithAccessToken<AuthenticationTokenStore>();
+        builder.AuthorizeWithAccessToken<IAuthenticationTokenStore>();
     }
 
     public static void AutomaticallyRefreshAccessToken<TAccessTokenRefresher>(this AuthenticationHttpClientBuilder builder) where TAccessTokenRefresher : class, IHttpClientAccessTokenRefresher
@@ -20,6 +20,6 @@ public static class AuthenticationHttpClientBuilderExtensions
 
         builder.Builder.Services.TryAddSingleton<IAuthenticationTokenStore, AuthenticationTokenStore>();
 
-        builder.AutomaticallyRefreshAccessToken<AuthenticationTokenStore, TAccessTokenRefresher>();
+        builder.AutomaticallyRefreshAccessToken<IAuthenticationTokenStore, TAccessTokenRefresher>();
     }
 }

@@ -3,17 +3,20 @@ using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Messages;
 using Lexicom.Mvvm.Extensions;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Routing;
+using Microsoft.Extensions.Logging;
 
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
 
 public class NavigationService : INavigationService, IDisposable
 {
+    private readonly ILogger<NavigationService> _logger;
     private readonly IMessenger _messenger;
     private readonly IBrowserService _browserService;
     private readonly NavigationManager _navigationManager;
 
     /// <exception cref="ArgumentNullException"/>
     public NavigationService(
+        ILogger<NavigationService> logger,
         IMessenger messenger,
         IBrowserService browserService,
         NavigationManager navigationManager)
@@ -22,6 +25,7 @@ public class NavigationService : INavigationService, IDisposable
         ArgumentNullException.ThrowIfNull(browserService);
         ArgumentNullException.ThrowIfNull(navigationManager);
 
+        _logger = logger;
         _messenger = messenger;
         _browserService = browserService;
         _navigationManager = navigationManager;
@@ -597,7 +601,7 @@ public class NavigationService : INavigationService, IDisposable
     }
 
     /// <exception cref="ArgumentNullException"/>
-    public async Task NavigateToUrlAsync(string url, CancellationToken cancellationToken, bool forceLoad = false, bool noLoad = false, bool replace = false)
+    public async Task NavigateToUrlAsync(string url, CancellationToken cancellationToken = default, bool forceLoad = false, bool noLoad = false, bool replace = false)
     {
         ArgumentNullException.ThrowIfNull(url);
 
@@ -621,9 +625,16 @@ public class NavigationService : INavigationService, IDisposable
         IsInitialized = false;
     }
 
-    private async void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    private async void OnLocationChanged(object? sender, LocationChangedEventArgs args)
     {
-        await NavigationLocationChangedAsync(e.Location, cancellationToken: default);
+        try
+        {
+            await NavigationLocationChangedAsync(args.Location, cancellationToken: default);
+        }
+        catch (Exception e)
+        {
+            _logger.LogCritical(e, "An unexpected error occurred while handling a navigation location change to '{location}'", args?.Location ?? "null");
+        }
     }
 
     private async ValueTask OnLocationChanging(LocationChangingContext locationChangingContext)

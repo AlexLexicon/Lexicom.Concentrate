@@ -76,11 +76,11 @@ public partial class TextField : UserControl
         set => SetValue(KeyPaddingProperty, value);
     }
 
-    public static readonly DependencyProperty KeyVisiblityProperty = DependencyProperty.Register(nameof(KeyVisiblity), typeof(Visibility), typeof(TextField), new PropertyMetadata(VisibilityProperty.DefaultMetadata.DefaultValue));
-    public Visibility KeyVisiblity
+    public static readonly DependencyProperty KeyVisibilityProperty = DependencyProperty.Register(nameof(KeyVisibility), typeof(Visibility), typeof(TextField), new PropertyMetadata(VisibilityProperty.DefaultMetadata.DefaultValue));
+    public Visibility KeyVisibility
     {
-        get => (Visibility)GetValue(KeyVisiblityProperty);
-        set => SetValue(KeyVisiblityProperty, value);
+        get => (Visibility)GetValue(KeyVisibilityProperty);
+        set => SetValue(KeyVisibilityProperty, value);
     }
 
     public static readonly DependencyProperty KeyWidthProperty = DependencyProperty.Register(nameof(KeyWidth), typeof(double), typeof(TextField), new PropertyMetadata(double.NaN));
@@ -256,11 +256,11 @@ public partial class TextField : UserControl
         set => SetValue(ValuePaddingProperty, value);
     }
 
-    public static readonly DependencyProperty ValueVisiblityProperty = DependencyProperty.Register(nameof(ValueVisiblity), typeof(Visibility), typeof(TextField), new PropertyMetadata(VisibilityProperty.DefaultMetadata.DefaultValue));
-    public Visibility ValueVisiblity
+    public static readonly DependencyProperty ValueVisibilityProperty = DependencyProperty.Register(nameof(ValueVisibility), typeof(Visibility), typeof(TextField), new PropertyMetadata(VisibilityProperty.DefaultMetadata.DefaultValue));
+    public Visibility ValueVisibility
     {
-        get => (Visibility)GetValue(ValueVisiblityProperty);
-        set => SetValue(ValueVisiblityProperty, value);
+        get => (Visibility)GetValue(ValueVisibilityProperty);
+        set => SetValue(ValueVisibilityProperty, value);
     }
 
     public static readonly DependencyProperty ValueWidthProperty = DependencyProperty.Register(nameof(ValueWidth), typeof(double), typeof(TextField), new PropertyMetadata(double.NaN));
@@ -416,6 +416,14 @@ public partial class TextField : UserControl
         {
             ValueTextBox.InputBindings?.Clear();
             ValueTextBox.InputBindings?.AddRange(PreBindInputBindingCollection);
+        }
+    }
+
+    private void ValueTextBox_Loaded(object sender, RoutedEventArgs e)
+    {
+        if (sender is TextBox senderTextBox)
+        {
+            ValueTextBox = senderTextBox;
         }
     }
 }

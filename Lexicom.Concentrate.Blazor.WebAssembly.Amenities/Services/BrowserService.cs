@@ -4,14 +4,14 @@ using Microsoft.JSInterop;
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
 public class BrowserService : IBrowserService
 {
-    private readonly IJSRuntime _iJSRuntime;
+    private readonly IJSRuntime _jsRuntime;
 
     /// <exception cref="ArgumentNullException"/>
-    public BrowserService(IJSRuntime iJSRuntime)
+    public BrowserService(IJSRuntime jsRuntime)
     {
-        ArgumentNullException.ThrowIfNull(iJSRuntime);
+        ArgumentNullException.ThrowIfNull(jsRuntime);
 
-        _iJSRuntime = iJSRuntime;
+        _jsRuntime = jsRuntime;
     }
 
     /// <exception cref="ArgumentNullException"/>
@@ -40,7 +40,7 @@ public class BrowserService : IBrowserService
 
         try
         {
-            await _iJSRuntime.InvokeVoidAsync(functionName, cancellationToken, args);
+            await _jsRuntime.InvokeVoidAsync(functionName, cancellationToken, args);
         }
         catch (Exception e)
         {
@@ -56,7 +56,7 @@ public class BrowserService : IBrowserService
 
         try
         {
-            return await _iJSRuntime.InvokeAsync<T>(functionName, cancellationToken, args);
+            return await _jsRuntime.InvokeAsync<T>(functionName, cancellationToken, args);
         }
         catch (Exception e)
         {

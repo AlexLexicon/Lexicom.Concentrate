@@ -16,6 +16,7 @@ public partial class TextInput : UserControl
         //if I use the default metadata it shares the
         //same collection with all TextInput instances
         Errors = [];
+        InputBindings = [];
     }
 
     private InputBindingCollection? PreBindInputBindingCollection { get; set; }
@@ -109,11 +110,11 @@ public partial class TextInput : UserControl
         set => SetValue(TitlePaddingProperty, value);
     }
 
-    public static readonly DependencyProperty TitleVisiblityProperty = DependencyProperty.Register(nameof(TitleVisiblity), typeof(Visibility), typeof(TextInput), new PropertyMetadata(VisibilityProperty.DefaultMetadata.DefaultValue));
-    public Visibility TitleVisiblity
+    public static readonly DependencyProperty TitleVisibilityProperty = DependencyProperty.Register(nameof(TitleVisibility), typeof(Visibility), typeof(TextInput), new PropertyMetadata(VisibilityProperty.DefaultMetadata.DefaultValue));
+    public Visibility TitleVisibility
     {
-        get => (Visibility)GetValue(TitleVisiblityProperty);
-        set => SetValue(TitleVisiblityProperty, value);
+        get => (Visibility)GetValue(TitleVisibilityProperty);
+        set => SetValue(TitleVisibilityProperty, value);
     }
 
     public static readonly DependencyProperty TitleWidthProperty = DependencyProperty.Register(nameof(TitleWidth), typeof(double), typeof(TextInput), new PropertyMetadata(double.NaN));
@@ -282,11 +283,11 @@ public partial class TextInput : UserControl
         set => SetValue(InputOpacityProperty, value);
     }
 
-    public static readonly DependencyProperty InputVisiblityProperty = DependencyProperty.Register(nameof(InputVisiblity), typeof(Visibility), typeof(TextInput), new PropertyMetadata(VisibilityProperty.DefaultMetadata.DefaultValue));
-    public Visibility InputVisiblity
+    public static readonly DependencyProperty InputVisibilityProperty = DependencyProperty.Register(nameof(InputVisibility), typeof(Visibility), typeof(TextInput), new PropertyMetadata(VisibilityProperty.DefaultMetadata.DefaultValue));
+    public Visibility InputVisibility
     {
-        get => (Visibility)GetValue(InputVisiblityProperty);
-        set => SetValue(InputVisiblityProperty, value);
+        get => (Visibility)GetValue(InputVisibilityProperty);
+        set => SetValue(InputVisibilityProperty, value);
     }
 
     public static readonly DependencyProperty InputWidthProperty = DependencyProperty.Register(nameof(InputWidth), typeof(double), typeof(TextInput), new PropertyMetadata(defaultValue: double.NaN));
@@ -454,7 +455,7 @@ public partial class TextInput : UserControl
         set => SetValue(VerticalScrollBarVisibilityProperty, value);
     }
 
-    public static readonly DependencyProperty InputBindingsProperty = DependencyProperty.RegisterAttached(nameof(InputBindings), typeof(InputBindingCollection), typeof(TextInput), new FrameworkPropertyMetadata(new InputBindingCollection(), OnInputBindings_PropertyChanged));
+    public static readonly DependencyProperty InputBindingsProperty = DependencyProperty.Register(nameof(InputBindings), typeof(InputBindingCollection), typeof(TextInput), new FrameworkPropertyMetadata(null, OnInputBindings_PropertyChanged));
     public new InputBindingCollection? InputBindings
     {
         get => (InputBindingCollection?)GetValue(InputBindingsProperty);
@@ -535,11 +536,11 @@ public partial class TextInput : UserControl
         set => SetValue(ErrorPaddingProperty, value);
     }
 
-    public static readonly DependencyProperty ErrorVisiblityProperty = DependencyProperty.Register(nameof(ErrorVisiblity), typeof(Visibility), typeof(TextInput), new PropertyMetadata(VisibilityProperty.DefaultMetadata.DefaultValue));
-    public Visibility ErrorVisiblity
+    public static readonly DependencyProperty ErrorVisibilityProperty = DependencyProperty.Register(nameof(ErrorVisibility), typeof(Visibility), typeof(TextInput), new PropertyMetadata(VisibilityProperty.DefaultMetadata.DefaultValue));
+    public Visibility ErrorVisibility
     {
-        get => (Visibility)GetValue(ErrorVisiblityProperty);
-        set => SetValue(ErrorVisiblityProperty, value);
+        get => (Visibility)GetValue(ErrorVisibilityProperty);
+        set => SetValue(ErrorVisibilityProperty, value);
     }
 
     public static readonly DependencyProperty ErrorWidthProperty = DependencyProperty.Register(nameof(ErrorWidth), typeof(double), typeof(TextInput), new PropertyMetadata(double.NaN));
@@ -681,9 +682,9 @@ public partial class TextInput : UserControl
     }
     private static void OnErrorTextMaxLinesProperty_PropertyChanged(DependencyObject source, DependencyPropertyChangedEventArgs e)
     {
-        if (source is TextInput TextInput)
+        if (source is TextInput textInput)
         {
-            TextInput.Validate();
+            textInput.Validate();
         }
     }
 

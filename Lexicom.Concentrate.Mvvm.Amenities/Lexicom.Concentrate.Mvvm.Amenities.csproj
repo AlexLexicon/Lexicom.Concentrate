@@ -16,7 +16,7 @@
     <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom/tree/master/Lexicom.Concentrate.Mvvm.Amenities</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AlexLexicon/Lexicom.Concentrate</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
-    <PackageTags>authentication;dependencyinjection;http</PackageTags>
+    <PackageTags>mvvm;dependencyinjection</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

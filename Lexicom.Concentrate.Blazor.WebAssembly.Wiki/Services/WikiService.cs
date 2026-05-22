@@ -29,9 +29,6 @@ public class WikiService : IWikiService
     private Dictionary<string, WikiReference>? IdentifierToReferenceDictionary { get; set; }
     private Dictionary<string, string>? IdentifierToUrlDictionary { get; set; }
 
-    public IReadOnlyDictionary<string, WikiReference> IdentifierToReference => IdentifierToReferenceDictionary ?? [];
-    public IReadOnlyDictionary<string, string> IdentifierToUrl => IdentifierToUrlDictionary ?? [];
-
     /// <exception cref="ArgumentNullException"/>
     public async Task<WikiReference?> GetReferenceFromIdentifierAsync(string referenceIdentifier)
     {
@@ -120,12 +117,9 @@ public class WikiService : IWikiService
         {
             foreach (WikiReference reference in referencesToAppend)
             {
-                if (reference.Identifier is not null && reference.Text is not null && reference.Url is not null)
-                {
-                    string identifier = reference.Identifier.ToLowerInvariant();
+                string identifier = reference.Identifier.ToLowerInvariant();
 
-                    IdentifierToReferenceDictionary.TryAdd(identifier, reference);
-                }
+                IdentifierToReferenceDictionary.TryAdd(identifier, reference);
             }
         }
     }

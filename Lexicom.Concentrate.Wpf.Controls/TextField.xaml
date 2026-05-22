@@ -38,7 +38,7 @@
                         CornerRadius="{Binding KeyCornerRadius, ElementName=lccTextField}"
                         Opacity="{Binding KeyOpacity, ElementName=lccTextField}"
                         Padding="{Binding KeyPadding, ElementName=lccTextField}"
-                        Visibility="{Binding KeyVisiblity, ElementName=lccTextField}"
+                        Visibility="{Binding KeyVisibility, ElementName=lccTextField}"
                         Width="{Binding KeyWidth, ElementName=lccTextField}"
                         MinWidth="{Binding KeyMinWidth, ElementName=lccTextField}"
                         MaxWidth="{Binding KeyMaxWidth, ElementName=lccTextField}">
@@ -84,7 +84,7 @@
                         CornerRadius="{Binding ValueCornerRadius, ElementName=lccTextField}"
                         Opacity="{Binding ValueOpacity, ElementName=lccTextField}"
                         Padding="{Binding ValuePadding, ElementName=lccTextField}"
-                        Visibility="{Binding ValueVisiblity, ElementName=lccTextField}"
+                        Visibility="{Binding ValueVisibility, ElementName=lccTextField}"
                         Width="{Binding ValueWidth, ElementName=lccTextField}"
                         MinWidth="{Binding ValueMinWidth, ElementName=lccTextField}"
                         MaxWidth="{Binding ValueMaxWidth, ElementName=lccTextField}">
@@ -133,7 +133,9 @@
                             Text="{Binding Value, ElementName=lccTextField, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextAlignment="{Binding TextAlignment, ElementName=lccTextField}"
                             TextWrapping="{Binding TextWrapping, ElementName=lccTextField}"
-                            VerticalScrollBarVisibility="{Binding VerticalScrollBarVisibility, ElementName=lccTextField}"/>
+                            VerticalScrollBarVisibility="{Binding VerticalScrollBarVisibility, ElementName=lccTextField}"
+                            
+                            Loaded="ValueTextBox_Loaded"/>
                     </Border>
                 </DockPanel>
             </Border>

@@ -44,7 +44,7 @@ public class WpfThemeService : IThemeService
         }
         catch (ThemeDoesNotExistException e)
         {
-            throw e.ToUnreachableException($"The theme '{theme}' should exist since we already checked that is could be found.");
+            throw e.ToUnreachableException($"The theme '{theme}' should exist since we already checked that it could be found.");
         }
     }
 
@@ -97,9 +97,12 @@ public class WpfThemeService : IThemeService
         return theme;
     }
 
+    /// <exception cref="ArgumentNullException"/>
     /// <exception cref="ThemeDoesNotExistException"/>
     public async Task SetThemeAsync(string theme)
     {
+        ArgumentNullException.ThrowIfNull(theme);
+
         var applyTask = _themeApplicator.ApplyAsync(theme);
         var saveAndBindTask = _settingsWriter.SaveAndBindAsync(new ThemeOptions
         {

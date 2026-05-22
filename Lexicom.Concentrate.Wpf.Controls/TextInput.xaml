@@ -108,7 +108,7 @@
                     MaxHeight="{Binding TitleMaxHeight, ElementName=lccTextInput}"
                     Opacity="{Binding TitleOpacity, ElementName=lccTextInput}"
                     Padding="{Binding TitlePadding, ElementName=lccTextInput}"
-                    Visibility="{Binding TitleVisiblity, ElementName=lccTextInput}"
+                    Visibility="{Binding TitleVisibility, ElementName=lccTextInput}"
                     Width="{Binding TitleWidth, ElementName=lccTextInput}"
                     MinWidth="{Binding TitleMinWidth, ElementName=lccTextInput}"
                     MaxWidth="{Binding TitleMaxWidth, ElementName=lccTextInput}">
@@ -166,7 +166,7 @@
                     MinHeight="{Binding InputMinHeight, ElementName=lccTextInput}"
                     MaxHeight="{Binding InputMaxHeight, ElementName=lccTextInput}"
                     Opacity="{Binding InputOpacity, ElementName=lccTextInput}"
-                    Visibility="{Binding InputVisiblity, ElementName=lccTextInput}"
+                    Visibility="{Binding InputVisibility, ElementName=lccTextInput}"
                     Width="{Binding InputWidth, ElementName=lccTextInput}"
                     MinWidth="{Binding InputMinWidth, ElementName=lccTextInput}"
                     MaxWidth="{Binding InputMaxWidth, ElementName=lccTextInput}">
@@ -334,7 +334,7 @@
                                 MaxHeight="{Binding ErrorMaxHeight, ElementName=lccTextInput}"
                                 Opacity="{Binding ErrorOpacity, ElementName=lccTextInput}"
                                 Padding="{Binding ErrorPadding, ElementName=lccTextInput}"
-                                Visibility="{Binding ErrorVisiblity, ElementName=lccTextInput}"
+                                Visibility="{Binding ErrorVisibility, ElementName=lccTextInput}"
                                 Width="{Binding ErrorWidth, ElementName=lccTextInput}"
                                 MinWidth="{Binding ErrorMinWidth, ElementName=lccTextInput}"
                                 MaxWidth="{Binding ErrorMaxWidth, ElementName=lccTextInput}">

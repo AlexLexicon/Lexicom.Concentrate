@@ -2,12 +2,15 @@
 
 namespace Lexicom.Concentrate.Mvvm.Amenities;
 
-public class SingletonViewModelSourceService<TViewModel> where TViewModel : class
+public abstract class AbstractSingletonViewModelSourceService<TViewModel> where TViewModel : class
 {
     private readonly IViewModelProvider<TViewModel> _viewModelProvider;
 
-    protected SingletonViewModelSourceService(IViewModelProvider<TViewModel> viewModelProvider)
+    /// <exception cref="ArgumentNullException"/>
+    protected AbstractSingletonViewModelSourceService(IViewModelProvider<TViewModel> viewModelProvider)
     {
+        ArgumentNullException.ThrowIfNull(viewModelProvider);
+
         _viewModelProvider = viewModelProvider;
     }
 

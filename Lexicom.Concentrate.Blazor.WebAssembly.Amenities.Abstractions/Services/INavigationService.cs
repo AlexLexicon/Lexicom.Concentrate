@@ -8,7 +8,7 @@ public interface INavigationService
     string GetBaseUrl();
     Task<string> GetBaseUrlAsync();
     /// <exception cref="ArgumentNullException"/>
-    Task<string> GetAbsoluteUrlAsync(string relativePath);
+    Task<string> GetAbsoluteUrlAsync(string relativeUrl);
     Task<string> GetRelativeUrlPathAsync();
     /// <exception cref="ArgumentNullException"/>
     Task<string> GetRelativeUrlPathAsync(string absoluteUrl);

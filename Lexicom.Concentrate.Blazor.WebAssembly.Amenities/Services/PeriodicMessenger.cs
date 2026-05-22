@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
 
-public class PeriodicMessenger : IPeriodicMessenger
+public class PeriodicMessenger : IPeriodicMessenger, IDisposable
 {
     private readonly ILogger<PeriodicMessenger> _logger;
     private readonly IMessenger _messenger;
@@ -41,6 +41,8 @@ public class PeriodicMessenger : IPeriodicMessenger
 
     public void Start(TimeSpan period)
     {
+        Timer?.Dispose();
+
         var timeProviderInterface = _timeProviderInterfaces.FirstOrDefault();
         if (timeProviderInterface is not null)
         {
@@ -86,5 +88,10 @@ public class PeriodicMessenger : IPeriodicMessenger
                 }
             }
         }
+    }
+
+    public void Dispose()
+    {
+        Timer?.Dispose();
     }
 }

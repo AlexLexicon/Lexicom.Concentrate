@@ -18,6 +18,7 @@ public interface IThemeService
     /// <exception cref="AppliedThemeNotFoundException"/>
     Task<string> GetAppliedThemeAsync();
 
+    /// <exception cref="ArgumentNullException"/>
     /// <exception cref="ThemeDoesNotExistException"/>
     Task SetThemeAsync(string theme);
 }
