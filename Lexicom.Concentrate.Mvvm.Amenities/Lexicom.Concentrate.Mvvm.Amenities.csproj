@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Mvvm" Version="10.0.38" />
+    <PackageReference Include="Lexicom.Mvvm" Version="10.0.39" />
   </ItemGroup>
 
 </Project>
