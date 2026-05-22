@@ -182,7 +182,7 @@ public partial class TextField : UserControl
         set => SetValue(KeyLineHeightProperty, value);
     }
 
-    public static readonly DependencyProperty KeyProperty = DependencyProperty.Register(nameof(Key), typeof(string), typeof(TextField), new PropertyMetadata(TextBlock.TextProperty.DefaultMetadata.DefaultValue));
+    public static readonly DependencyProperty KeyProperty = DependencyProperty.Register(nameof(Key), typeof(string), typeof(TextField), new PropertyMetadata("Key"));
     public string? Key
     {
         get => (string?)GetValue(KeyProperty);
@@ -365,7 +365,7 @@ public partial class TextField : UserControl
         set => SetValue(SelectionTextBrushProperty, value);
     }
 
-    public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(nameof(Value), typeof(string), typeof(TextField), new PropertyMetadata(TextBox.TextProperty.DefaultMetadata.DefaultValue));
+    public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(nameof(Value), typeof(string), typeof(TextField), new PropertyMetadata("Value"));
     public string? Value
     {
         get => (string?)GetValue(ValueProperty);

@@ -216,11 +216,11 @@ public partial class TextInput : UserControl
         set => SetValue(TitleLineHeightProperty, value);
     }
 
-    public static readonly DependencyProperty TitleTextProperty = DependencyProperty.Register(nameof(TitleText), typeof(string), typeof(TextInput), new PropertyMetadata(TextBlock.TextProperty.DefaultMetadata.DefaultValue));
-    public string? TitleText
+    public static readonly DependencyProperty TitleProperty = DependencyProperty.Register(nameof(Title), typeof(string), typeof(TextInput), new PropertyMetadata("Title"));
+    public string? Title
     {
-        get => (string?)GetValue(TitleTextProperty);
-        set => SetValue(TitleTextProperty, value);
+        get => (string?)GetValue(TitleProperty);
+        set => SetValue(TitleProperty, value);
     }
 
     public static readonly DependencyProperty TitleTextAlignmentProperty = DependencyProperty.Register(nameof(TitleTextAlignment), typeof(TextAlignment), typeof(TextInput), new PropertyMetadata(TextBlock.TextAlignmentProperty.DefaultMetadata.DefaultValue));
@@ -420,7 +420,7 @@ public partial class TextInput : UserControl
         set => SetValue(SelectionTextBrushProperty, value);
     }
 
-    public static readonly DependencyProperty TextProperty = DependencyProperty.Register(nameof(Text), typeof(string), typeof(TextInput), new PropertyMetadata(TextBox.TextProperty.DefaultMetadata.DefaultValue));
+    public static readonly DependencyProperty TextProperty = DependencyProperty.Register(nameof(Text), typeof(string), typeof(TextInput), new PropertyMetadata("Text"));
     public string? Text
     {
         get => (string?)GetValue(TextProperty);
@@ -674,11 +674,7 @@ public partial class TextInput : UserControl
     public int? ErrorsMaxLines
     {
         get => (int?)GetValue(ErrorsMaxLinesProperty);
-        set
-        {
-            SetValue(ErrorsMaxLinesProperty, value);
-            Validate();
-        }
+        set => SetValue(ErrorsMaxLinesProperty, value);
     }
     private static void OnErrorTextMaxLinesProperty_PropertyChanged(DependencyObject source, DependencyPropertyChangedEventArgs e)
     {
@@ -694,11 +690,7 @@ public partial class TextInput : UserControl
     public IRuleSetValidator<string?>? Validator
     {
         get => (IRuleSetValidator<string?>?)GetValue(ValidatorProperty);
-        set
-        {
-            SetValue(ValidatorProperty, value);
-            SetValidator(value);
-        }
+        set => SetValue(ValidatorProperty, value);
     }
     private static void OnValidatorProperty_PropertyChanged(DependencyObject source, DependencyPropertyChangedEventArgs e)
     {
@@ -717,11 +709,7 @@ public partial class TextInput : UserControl
     public Func<string?, IEnumerable<string?>>? Validation
     {
         get => (Func<string?, IEnumerable<string?>>?)GetValue(ValidationProperty);
-        set
-        {
-            SetValue(ValidationProperty, value);
-            Validate();
-        }
+        set => SetValue(ValidationProperty, value);
     }
     private static void OnValidationProperty_PropertyChanged(DependencyObject source, DependencyPropertyChangedEventArgs e)
     {
@@ -742,18 +730,7 @@ public partial class TextInput : UserControl
     public ObservableCollection<string> Errors
     {
         get => (ObservableCollection<string>)GetValue(ErrorsProperty);
-        set
-        {
-            Errors?.CollectionChanged -= Errors_CollectionChanged;
-
-            SetValue(ErrorsProperty, value);
-
-            ArgumentNullException.ThrowIfNull(Errors);
-
-            Errors.CollectionChanged += Errors_CollectionChanged;
-
-            SetIsValidFromErrors();
-        }
+        set => SetValue(ErrorsProperty, value);
     }
     private void Errors_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
     {

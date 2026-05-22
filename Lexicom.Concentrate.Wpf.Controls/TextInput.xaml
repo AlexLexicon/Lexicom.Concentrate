@@ -139,11 +139,9 @@
                         VerticalContentAlignment="{Binding TitleVerticalContentAlignment, ElementName=lccTextInput}">
                         <TextBlock 
                             x:Name="lccTitleTextBlock"
-        
-                            d:Text="Title"
-        
+
                             LineHeight="{Binding TitleLineHeight, ElementName=lccTextInput}"
-                            Text="{Binding TitleText, ElementName=lccTextInput}"
+                            Text="{Binding Title, ElementName=lccTextInput}"
                             TextAlignment="{Binding TitleTextAlignment, ElementName=lccTextInput}" 
                             TextTrimming="{Binding TitleTextTrimming, ElementName=lccTextInput}"
                             TextWrapping="{Binding TitleTextWrapping, ElementName=lccTextInput}"/>
@@ -203,8 +201,6 @@
                     <TextBox
                         x:Name="lccInputTextBox"
 
-                        d:Text="Input"
-    
                         Background="{x:Null}"
                         BorderBrush="{x:Null}"
                         BorderThickness="0"

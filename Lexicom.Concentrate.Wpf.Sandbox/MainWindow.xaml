@@ -1,0 +1,81 @@
+﻿<Window x:Class="Lexicom.Concentrate.Wpf.Sandbox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
+        xmlns:sb="clr-namespace:Lexicom.Concentrate.Wpf.Sandbox"
+        xmlns:lc_c="clr-namespace:Lexicom.Concentrate.Wpf.Controls;assembly=Lexicom.Concentrate.Wpf.Controls"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance sb:MainWindowViewModel}"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border 
+            Grid.Column="0"
+            BorderBrush="Gray"
+            BorderThickness="1"
+            Margin="2,2,1,0">
+            <StackPanel Margin="4,0">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Text="Text Field Testing"
+                    Padding="0,8"/>
+                <lc_c:TextField
+                    Margin="0,0,0,2"
+                    KeyWidth="50"
+                    Key="name"
+                    Value="alex"/>
+                <lc_c:TextField
+                    Margin="0,0,0,2"
+                    KeyWidth="50"
+                    Key="age"
+                    Value="29"/>
+                <lc_c:TextField
+                    Margin="0,0,0,2"
+                    KeyWidth="50"
+                    Key="date"
+                    Value="5/22/2026"/>
+                <lc_c:TextField
+                    Margin="0,0,0,2"
+                    KeyWidth="50"/>
+            </StackPanel>
+        </Border>
+        <Border 
+            Grid.Column="1"
+            BorderBrush="Gray"
+            BorderThickness="1"
+            Margin="1,2,2,0">
+            <StackPanel Margin="4,0">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Text="Text Input Testing"
+                    Padding="0,8"/>
+                <StackPanel 
+                    Height="24"
+                    Margin="0,2"
+                    Orientation="Horizontal">
+                    <Button 
+                        Content="Give Error"
+                        Command="{Binding InvalidateCommand}"/>
+                </StackPanel>
+                <lc_c:TextInput
+                    Margin="0,0,0,2"
+                    Title="Name"
+                    Validator="{Binding NameValidator}"/>
+                <lc_c:TextInput
+                    Margin="0,0,0,2"
+                    Title="Age">
+                    <lc_c:TextInput.Errors>
+                        <s:String>error example</s:String>
+                    </lc_c:TextInput.Errors>
+                </lc_c:TextInput>
+                <lc_c:TextInput
+                    Margin="0,0,0,2"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

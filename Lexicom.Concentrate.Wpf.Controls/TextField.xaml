@@ -63,8 +63,6 @@
                             <TextBlock
                                 x:Name="lccKeyTextBlock"
                                 
-                                d:Text="Key"
-                                
                                 LineHeight="{Binding KeyLineHeight, ElementName=lccTextField}"
                                 Text="{Binding Key, ElementName=lccTextField}"
                                 TextAlignment="{Binding KeyTextAlignment, ElementName=lccTextField}" 
@@ -91,8 +89,6 @@
                         <TextBox
                             x:Name="lccValueTextBox"
                             
-                            d:Text="Value"
-                 
                             AcceptsReturn="False"
                             AcceptsTab="False"
                             Background="{x:Null}"

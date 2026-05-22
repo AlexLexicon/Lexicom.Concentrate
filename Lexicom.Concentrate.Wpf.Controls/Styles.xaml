@@ -18,13 +18,14 @@
 
     <Style x:Key="lccBasicTextInputStyle" TargetType="{x:Type lcc:TextInput}">
         <Setter Property="InputMinWidth" Value="32"/>
-        <Setter Property="TitlePadding" Value="5"/>
+        <Setter Property="TitlePadding" Value="3,2"/>
+        <Setter Property="TitleFontSize" Value="14"/>
         <Setter Property="TitleTextTrimming" Value="CharacterEllipsis"/>
         <Setter Property="Background" Value="White"/>
         <Setter Property="BorderBrush" Value="#FFABADB3"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="ErrorForeground" Value="#FFB10E00"/>
-        <Setter Property="ErrorPadding" Value="5"/>
+        <Setter Property="ErrorPadding" Value="3,2"/>
         <Setter Property="ErrorTextTrimming" Value="CharacterEllipsis"/>
         <Style.Triggers>
             <Trigger Property="IsValid" Value="False">
