@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
@@ -13,7 +13,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>Controls to create wiki style pages in a Blazor web assembly application project.</Description>
     <Copyright>2026</Copyright>
-    <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom/tree/master/Lexicom.Concentrate.Blazor.WebAssembly.Wiki</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom.Concentrate/tree/master/Lexicom.Concentrate.Blazor.WebAssembly.Wiki</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AlexLexicon/Lexicom.Concentrate</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageTags>blazor;webassembly</PackageTags>

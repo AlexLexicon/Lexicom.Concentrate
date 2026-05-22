@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
@@ -13,7 +13,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>Adds convenient but optional features for any Blazor web assembly application project. Although not necessary these features are specifically designed to integrate with other Lexicom Blazor web assembly application packages.</Description>
     <Copyright>2026</Copyright>
-    <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom/tree/master/Lexicom.Concentrate.Blazor.WebAssembly.Amenities</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom.Concentrate/tree/master/Lexicom.Concentrate.Blazor.WebAssembly.Amenities</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AlexLexicon/Lexicom.Concentrate</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageTags>blazor;webassembly</PackageTags>

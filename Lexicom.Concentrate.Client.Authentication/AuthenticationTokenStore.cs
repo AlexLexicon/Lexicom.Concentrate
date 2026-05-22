@@ -9,37 +9,58 @@ public interface IAuthenticationTokenStore : IHttpClientAccessTokenProvider, IHt
 }
 public class AuthenticationTokenStore : IAuthenticationTokenStore
 {
+    public AuthenticationTokenStore()
+    {
+        Lock = new Lock();
+    }
+
+    private Lock Lock { get; }
     private string? AccessToken { get; set; }
     private string? RefreshToken { get; set; }
 
     public Task<bool> IsAuthenticatedAsync()
     {
-        bool hasAccessToken = !string.IsNullOrWhiteSpace(AccessToken);
-        bool hasRefreshToken = !string.IsNullOrWhiteSpace(RefreshToken);
+        lock (Lock)
+        {
+            bool hasAccessToken = !string.IsNullOrWhiteSpace(AccessToken);
+            bool hasRefreshToken = !string.IsNullOrWhiteSpace(RefreshToken);
 
-        return Task.FromResult(hasAccessToken && hasRefreshToken);
+            return Task.FromResult(hasAccessToken && hasRefreshToken);
+        }
     }
 
     public Task<string?> GetAccessTokenAsync()
     {
-        return Task.FromResult(AccessToken);
+        lock (Lock)
+        {
+            return Task.FromResult(AccessToken);
+        }
     }
 
     public Task SetAccessTokenAsync(string? accessToken)
     {
-        AccessToken = accessToken;
+        lock (Lock)
+        {
+            AccessToken = accessToken;
+        }
 
         return Task.CompletedTask;
     }
 
     public Task<string?> GetRefreshTokenAsync()
     {
-        return Task.FromResult(RefreshToken);
+        lock (Lock)
+        {
+            return Task.FromResult(RefreshToken);
+        }
     }
 
     public Task SetRefreshTokenAsync(string? refreshToken)
     {
-        RefreshToken = refreshToken;
+        lock (Lock)
+        {
+            RefreshToken = refreshToken;
+        }
 
         return Task.CompletedTask;
     }

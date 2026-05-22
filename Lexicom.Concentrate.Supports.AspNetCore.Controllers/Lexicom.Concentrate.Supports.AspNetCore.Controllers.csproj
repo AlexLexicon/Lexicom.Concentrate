@@ -13,7 +13,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>The base package for all Lexicom.Concentrate...For.AspNetCore.Controllers packages. Relies on and enforces the inclusion of the Microsoft.AspNetCore.App framework reference. Extends the base Lexicom.Supports.AspNetCore.Controllers.</Description>
     <Copyright>2026</Copyright>
-    <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom/tree/master/Lexicom.Concentrate.Supports.AspNetCore.Controllers</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom.Concentrate/tree/master/Lexicom.Concentrate.Supports.AspNetCore.Controllers</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AlexLexicon/Lexicom.Concentrate</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageTags>aspnetcore;dependencyinjection</PackageTags>

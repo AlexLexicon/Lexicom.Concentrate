@@ -13,7 +13,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>Implements a firm pattern for authentication with an HttpClient.</Description>
     <Copyright>2026</Copyright>
-    <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom/tree/master/Lexicom.Concentrate.Client.Authentication</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom.Concentrate/tree/master/Lexicom.Concentrate.Client.Authentication</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AlexLexicon/Lexicom.Concentrate</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageTags>authentication;dependencyinjection;http</PackageTags>

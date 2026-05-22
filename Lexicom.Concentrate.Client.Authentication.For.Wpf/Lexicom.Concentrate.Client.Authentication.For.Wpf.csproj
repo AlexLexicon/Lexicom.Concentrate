@@ -14,7 +14,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Description>Derives the Lexicom.Concentrate.Client.Authentication package to provide an implementation specific for a Wpf application project.</Description>
     <Copyright>2026</Copyright>
-    <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom/tree/master/Lexicom.Concentrate.Client.Authentication.For.Wpf</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/AlexLexicon/Lexicom.Concentrate/tree/master/Lexicom.Concentrate.Client.Authentication.For.Wpf</PackageProjectUrl>
     <RepositoryUrl>https://github.com/AlexLexicon/Lexicom.Concentrate</RepositoryUrl>
     <RepositoryType>github</RepositoryType>
     <PackageTags>authentication;dependencyinjection;http;wpf</PackageTags>
