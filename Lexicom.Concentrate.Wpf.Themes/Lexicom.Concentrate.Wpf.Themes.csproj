@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lexicom.Configuration.Settings.For.Wpf" Version="10.0.39" />
+    <PackageReference Include="Lexicom.Configuration.Settings.For.Wpf" Version="10.0.41" />
   </ItemGroup>
 
   <ItemGroup>
