@@ -1,0 +1,122 @@
+<UserControl
+    x:Class="Lexicom.Concentrate.Wpf.Controls.HintTextBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d"
+    Focusable="True"
+    VerticalContentAlignment="Center"
+    d:DesignWidth="128"
+    d:DesignHeight="32"
+    x:Name="lccHintTextBox">
+
+    <UserControl.Template>
+        <ControlTemplate TargetType="UserControl">
+            <Border
+                x:Name="lccBorder"
+
+                IsEnabled="{TemplateBinding IsEnabled}"
+                IsHitTestVisible="{TemplateBinding IsHitTestVisible}"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="{Binding CornerRadius, ElementName=lccHintTextBox}"
+                Padding="{TemplateBinding Padding}"
+                ToolTip="{TemplateBinding ToolTip}">
+
+                <Grid x:Name="lccGrid">
+                    <!--Because the internal textbox has a 2 pixel left padding built in for the aero theme
+                    we need to hardcode a 2 pixel left margin on the textblock so it lines up unfortunatly-->
+                    <TextBlock
+                        x:Name="lccHintTextBlock"
+
+                        Background="{x:Null}"
+                        IsHitTestVisible="False"
+                        Margin="2,0,0,0"
+
+                        FlowDirection="{Binding HintFlowDirection, ElementName=lccHintTextBox}"
+                        FontFamily="{Binding HintFontFamily, ElementName=lccHintTextBox}"
+                        FontSize="{Binding HintFontSize, ElementName=lccHintTextBox}"
+                        FontStretch="{Binding HintFontStretch, ElementName=lccHintTextBox}"
+                        FontStyle="{Binding HintFontStyle, ElementName=lccHintTextBox}"
+                        FontWeight="{Binding HintFontWeight, ElementName=lccHintTextBox}"
+                        Foreground="{Binding HintForeground, ElementName=lccHintTextBox}"
+                        HorizontalAlignment="{Binding HintHorizontalAlignment, ElementName=lccHintTextBox}"
+                        VerticalAlignment="{Binding HintVerticalAlignment, ElementName=lccHintTextBox}"
+                        LineHeight="{Binding HintLineHeight, ElementName=lccHintTextBox}"
+                        Opacity="{Binding HintOpacity, ElementName=lccHintTextBox}"
+                        Padding="{Binding HintPadding, ElementName=lccHintTextBox}"
+                        Text="{Binding HintText, ElementName=lccHintTextBox}"
+                        TextAlignment="{Binding HintTextAlignment, ElementName=lccHintTextBox}"
+                        TextTrimming="{Binding HintTextTrimming, ElementName=lccHintTextBox}"
+                        TextWrapping="{Binding HintTextWrapping, ElementName=lccHintTextBox}">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=lccHintTextBox}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Text, ElementName=lccHintTextBox}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+
+                    <TextBox
+                        x:Name="lccInputTextBox"
+
+                        Background="{x:Null}"
+                        BorderBrush="{x:Null}"
+                        BorderThickness="0"
+                        Padding="0"
+                        Margin="0"
+
+                        AllowDrop="{TemplateBinding AllowDrop}"
+                        ContextMenu="{TemplateBinding ContextMenu}"
+                        FlowDirection="{TemplateBinding FlowDirection}"
+                        Focusable="{TemplateBinding Focusable}"
+                        FontFamily="{TemplateBinding FontFamily}"
+                        FontSize="{TemplateBinding FontSize}"
+                        FontStyle="{TemplateBinding FontStyle}"
+                        FontStretch="{TemplateBinding FontStretch}"
+                        FontWeight="{TemplateBinding FontWeight}"
+                        Foreground="{TemplateBinding Foreground}"
+                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        IsEnabled="{TemplateBinding IsEnabled}"
+                        IsTabStop="{TemplateBinding IsTabStop}"
+                        TabIndex="{TemplateBinding TabIndex}"
+                        VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+
+                        AcceptsReturn="{Binding AcceptsReturn, ElementName=lccHintTextBox}"
+                        AcceptsTab="{Binding AcceptsTab, ElementName=lccHintTextBox}"
+                        CaretBrush="{Binding CaretBrush, ElementName=lccHintTextBox}"
+                        CharacterCasing="{Binding CharacterCasing, ElementName=lccHintTextBox}"
+                        HorizontalScrollBarVisibility="{Binding HorizontalScrollBarVisibility, ElementName=lccHintTextBox}"
+                        IsReadOnly="{Binding IsReadOnly, ElementName=lccHintTextBox}"
+                        IsInactiveSelectionHighlightEnabled="{Binding IsInactiveSelectionHighlightEnabled, ElementName=lccHintTextBox}"
+                        IsReadOnlyCaretVisible="{Binding IsReadOnlyCaretVisible, ElementName=lccHintTextBox}"
+                        IsUndoEnabled="{Binding IsUndoEnabled, ElementName=lccHintTextBox}"
+                        MaxLength="{Binding MaxLength, ElementName=lccHintTextBox}"
+                        MaxLines="{Binding MaxLines, ElementName=lccHintTextBox}"
+                        MinLines="{Binding MinLines, ElementName=lccHintTextBox}"
+                        SelectionBrush="{Binding SelectionBrush, ElementName=lccHintTextBox}"
+                        SelectionOpacity="{Binding SelectionOpacity, ElementName=lccHintTextBox}"
+                        SelectionTextBrush="{Binding SelectionTextBrush, ElementName=lccHintTextBox}"
+                        Text="{Binding Text, ElementName=lccHintTextBox, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        TextAlignment="{Binding TextAlignment, ElementName=lccHintTextBox}"
+                        TextWrapping="{Binding TextWrapping, ElementName=lccHintTextBox}"
+                        UndoLimit="{Binding UndoLimit, ElementName=lccHintTextBox}"
+                        VerticalScrollBarVisibility="{Binding VerticalScrollBarVisibility, ElementName=lccHintTextBox}"
+
+                        Loaded="InputTextBox_Loaded"
+                        GotFocus="InputTextBox_GotFocus"
+                        LostFocus="InputTextBox_LostFocus"/>
+                </Grid>
+            </Border>
+        </ControlTemplate>
+    </UserControl.Template>
+</UserControl>

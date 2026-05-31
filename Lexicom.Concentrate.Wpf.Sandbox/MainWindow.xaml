@@ -14,11 +14,16 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Border 
             Grid.Column="0"
+            Grid.Row="0"
             BorderBrush="Gray"
             BorderThickness="1"
-            Margin="2,2,1,0">
+            Margin="2,2,1,1">
             <StackPanel Margin="4,0">
                 <TextBlock
                     HorizontalAlignment="Center"
@@ -44,11 +49,28 @@
                     KeyWidth="50"/>
             </StackPanel>
         </Border>
+        <Border
+            Grid.Column="0"
+            Grid.Row="1"
+            BorderThickness="1"
+            BorderBrush="Gray"
+            Margin="2,1,1,2">
+            <StackPanel Margin="4,0">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Text="Hint TextBox Testing"
+                    Padding="0,8"/>
+                <lc_c:HintTextBox
+                    HintText="testing"/>
+            </StackPanel>
+        </Border>
         <Border 
             Grid.Column="1"
+            Grid.Row="0"
+            Grid.RowSpan="2"
             BorderBrush="Gray"
             BorderThickness="1"
-            Margin="1,2,2,0">
+            Margin="1,2,2,2">
             <StackPanel Margin="4,0">
                 <TextBlock
                     HorizontalAlignment="Center"
