@@ -1,6 +1,7 @@
 ﻿using Lexicom.Authentication.Http;
 
 namespace Lexicom.Concentrate.Client.Authentication;
+
 public interface IAuthenticationTokenStore : IHttpClientAccessTokenProvider, IHttpClientRefreshTokenProvider
 {
     Task<bool> IsAuthenticatedAsync();

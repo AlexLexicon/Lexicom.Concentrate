@@ -1,6 +1,7 @@
 ﻿using Lexicom.ConsoleApp.DependencyInjection;
 
 namespace Lexicom.Concentrate.Supports.ConsoleApp.Extensions;
+
 public static class ConsoleApplicationBuilderExtensions
 {
     /// <exception cref="ArgumentNullException"/>

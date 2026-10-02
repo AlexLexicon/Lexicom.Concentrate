@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components.Routing;
 
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities;
+
 internal class LocationChangingManager : ILocationChangingManager
 {
     private readonly LocationChangingContext _locationChangingContext;

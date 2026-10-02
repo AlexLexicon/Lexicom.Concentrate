@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Wiki.Extensions;
+
 public static class ServiceCollectionExtensions
 {
     /// <exception cref="ArgumentNullException"/>

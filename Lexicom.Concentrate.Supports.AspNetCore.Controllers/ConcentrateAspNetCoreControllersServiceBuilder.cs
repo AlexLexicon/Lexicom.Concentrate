@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 
 namespace Lexicom.Concentrate.Supports.AspNetCore.Controllers;
+
 public interface IConcentrateAspNetCoreControllersServiceBuilder
 {
     WebApplicationBuilder WebApplicationBuilder { get; }

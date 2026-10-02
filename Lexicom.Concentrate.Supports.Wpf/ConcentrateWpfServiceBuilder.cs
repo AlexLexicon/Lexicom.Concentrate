@@ -1,6 +1,7 @@
 ﻿using Lexicom.Wpf.DependencyInjection;
 
 namespace Lexicom.Concentrate.Supports.Wpf;
+
 public interface IConcentrateWpfServiceBuilder
 {
     WpfApplicationBuilder WpfApplicationBuilder { get; }

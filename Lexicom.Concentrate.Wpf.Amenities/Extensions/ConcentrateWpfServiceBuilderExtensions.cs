@@ -1,6 +1,7 @@
 ﻿using Lexicom.Concentrate.Supports.Wpf;
 
 namespace Lexicom.Concentrate.Wpf.Amenities.Extensions;
+
 public static class ConcentrateWpfServiceBuilderExtensions
 {
     /// <exception cref="ArgumentNullException"/>

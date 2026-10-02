@@ -3,6 +3,7 @@ using Lexicom.Validation.Extensions;
 using Lexicom.Validation.Options;
 
 namespace Lexicom.Concentrate.Wpf.Themes.Validators;
+
 public class ThemeOptionsValidator : AbstractOptionsValidator<ThemeOptions>
 {
     /// <exception cref="ArgumentNullException"/>

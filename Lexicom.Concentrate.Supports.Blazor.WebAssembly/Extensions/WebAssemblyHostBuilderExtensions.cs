@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
 namespace Lexicom.Concentrate.Supports.Blazor.WebAssembly.Extensions;
+
 public static class WebAssemblyHostBuilderExtensions
 {
     /// <exception cref="ArgumentNullException"/>

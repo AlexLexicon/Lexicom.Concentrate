@@ -2,6 +2,7 @@
 using Lexicom.Validation.Options;
 
 namespace Lexicom.Concentrate.Wpf.Amenities.Validators;
+
 public class WindowOptionsValidator : AbstractOptionsValidator<WindowOptions>
 {
     public WindowOptionsValidator()

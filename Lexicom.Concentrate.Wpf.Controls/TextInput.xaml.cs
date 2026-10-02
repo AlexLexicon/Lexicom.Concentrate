@@ -1,12 +1,13 @@
-﻿using Lexicom.Validation;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
+using Lexicom.Validation;
 
 namespace Lexicom.Concentrate.Wpf.Controls;
+
 public partial class TextInput : UserControl
 {
     public TextInput()

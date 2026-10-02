@@ -2,6 +2,7 @@
 using Lexicom.Concentrate.Supports.Wpf;
 
 namespace Lexicom.Concentrate.Client.Authentication.For.Wpf.Extensions;
+
 public static class ConcentrateWpfServiceBuilderExtensions
 {
     /// <exception cref="ArgumentNullException"/>

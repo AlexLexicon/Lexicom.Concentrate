@@ -1,4 +1,5 @@
 ﻿namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
+
 public interface INavigationService
 {
     Task InitializeAsync(bool invoke = true, bool reset = false, CancellationToken cancellationToken = default);

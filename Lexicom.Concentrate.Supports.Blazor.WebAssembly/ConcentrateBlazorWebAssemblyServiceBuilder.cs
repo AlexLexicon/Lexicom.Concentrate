@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
 namespace Lexicom.Concentrate.Supports.Blazor.WebAssembly;
+
 public interface IConcentrateBlazorWebAssemblyServiceBuilder
 {
     WebAssemblyHostBuilder WebAssemblyHostBuilder { get; }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Extensions;
+
 public static class WebAssemblyHostExtensions
 {
     /// <exception cref="ArgumentNullException"/>

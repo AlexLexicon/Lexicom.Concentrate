@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 
 namespace Lexicom.Concentrate.Supports.AspNetCore.Controllers.Extensions;
+
 public static class WebApplicationBuilderExtensions
 {
     /// <exception cref="ArgumentNullException"/>

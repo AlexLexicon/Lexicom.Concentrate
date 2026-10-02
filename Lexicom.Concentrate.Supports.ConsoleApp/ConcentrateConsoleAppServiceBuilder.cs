@@ -1,6 +1,7 @@
 ﻿using Lexicom.ConsoleApp.DependencyInjection;
 
 namespace Lexicom.Concentrate.Supports.ConsoleApp;
+
 public interface IConcentrateConsoleAppServiceBuilder
 {
     ConsoleApplicationBuilder ConsoleApplicationBuilder { get; }

@@ -1,6 +1,7 @@
 ﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Exceptions;
 
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
+
 public interface IClipboardService
 {
     /// <exception cref="JavascriptExecutionException"/>

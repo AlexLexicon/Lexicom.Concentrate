@@ -4,6 +4,7 @@ using Lexicom.Validation.Options.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Lexicom.Concentrate.Wpf.Amenities.Extensions;
+
 public static class ServiceCollectionExtensions
 {
     /// <exception cref="ArgumentNullException"/>

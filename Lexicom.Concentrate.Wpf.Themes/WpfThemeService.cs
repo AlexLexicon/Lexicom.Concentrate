@@ -7,6 +7,7 @@ using Lexicom.Wpf.Amenities.Themes;
 using Microsoft.Extensions.Options;
 
 namespace Lexicom.Concentrate.Wpf.Themes;
+
 public class WpfThemeService : IThemeService
 {
     private readonly ISettingsWriter _settingsWriter;

@@ -1,4 +1,5 @@
 ﻿namespace Lexicom.Concentrate.Wpf.Amenities;
+
 public class WindowOptions
 {
     public double? Top { get; set; }

@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
 using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Exceptions;
-using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Models;
 using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Messages;
+using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Models;
 using Lexicom.Mvvm.Extensions;
 using Microsoft.JSInterop;
 

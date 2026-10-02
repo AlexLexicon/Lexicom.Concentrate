@@ -1,6 +1,7 @@
 ﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Exceptions;
 
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
+
 public class ClipboardService : IClipboardService
 {
     private readonly IBrowserService _browserService;

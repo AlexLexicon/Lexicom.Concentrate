@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace Lexicom.Concentrate.Client.Authentication.Extensions;
+
 public static class ServiceCollectionExtensions
 {
     /// <exception cref="ArgumentNullException"/>

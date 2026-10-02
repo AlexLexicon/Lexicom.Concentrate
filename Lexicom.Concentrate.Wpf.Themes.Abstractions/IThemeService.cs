@@ -1,7 +1,8 @@
-﻿using Lexicom.Wpf.Amenities.Exceptions;
-using Lexicom.Concentrate.Wpf.Themes.Exceptions;
+﻿using Lexicom.Concentrate.Wpf.Themes.Exceptions;
+using Lexicom.Wpf.Amenities.Exceptions;
 
 namespace Lexicom.Concentrate.Wpf.Themes;
+
 public interface IThemeService
 {
     /// <exception cref="ThemesNotFoundException"/>

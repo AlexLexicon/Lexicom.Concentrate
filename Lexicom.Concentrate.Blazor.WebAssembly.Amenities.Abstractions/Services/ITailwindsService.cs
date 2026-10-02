@@ -2,6 +2,7 @@
 using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Models;
 
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
+
 public interface ITailwindsService
 {
     /// <exception cref="JavascriptExecutionException"/>

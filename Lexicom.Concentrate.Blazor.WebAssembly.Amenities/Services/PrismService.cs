@@ -1,6 +1,7 @@
 ﻿using Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Exceptions;
 
 namespace Lexicom.Concentrate.Blazor.WebAssembly.Amenities.Services;
+
 public class PrismService : IPrismService
 {
     private readonly IBrowserService _browserService;
