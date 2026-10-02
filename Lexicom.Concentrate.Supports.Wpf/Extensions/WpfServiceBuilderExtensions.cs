@@ -4,7 +4,7 @@ namespace Lexicom.Concentrate.Supports.Wpf.Extensions;
 public static class WpfServiceBuilderExtensions
 {
     /// <exception cref="ArgumentNullException"/>
-    public static IDependantWpfServiceBuilder Concentrate(this IDependantWpfServiceBuilder builder, Action<IConcentrateWpfServiceBuilder>? configure)
+    public static IDependentWpfServiceBuilder Concentrate(this IDependentWpfServiceBuilder builder, Action<IConcentrateWpfServiceBuilder>? configure)
     {
         ArgumentNullException.ThrowIfNull(builder);
 

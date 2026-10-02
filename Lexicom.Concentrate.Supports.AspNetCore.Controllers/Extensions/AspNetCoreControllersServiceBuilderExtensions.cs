@@ -4,7 +4,7 @@ namespace Lexicom.Concentrate.Supports.AspNetCore.Controllers.Extensions;
 public static class AspNetCoreControllersServiceBuilderExtensions
 {
     /// <exception cref="ArgumentNullException"/>
-    public static IDependantAspNetCoreControllersServiceBuilder Concentrate(this IDependantAspNetCoreControllersServiceBuilder builder, Action<IConcentrateAspNetCoreControllersServiceBuilder>? configure)
+    public static IDependentAspNetCoreControllersServiceBuilder Concentrate(this IDependentAspNetCoreControllersServiceBuilder builder, Action<IConcentrateAspNetCoreControllersServiceBuilder>? configure)
     {
         ArgumentNullException.ThrowIfNull(builder);
 
