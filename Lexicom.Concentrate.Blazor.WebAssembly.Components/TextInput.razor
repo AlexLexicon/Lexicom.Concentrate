@@ -26,26 +26,28 @@
     [Parameter]
     public string? Text { get; set; }
 
+    private IRuleSetValidator<string?>? _validator;
     [Parameter]
     public IRuleSetValidator<string?>? Validator
     {
-        get => field;
+        get => _validator;
         set
         {
-            field = value;
+            _validator = value;
 
-            Validation = field?.Validation;
-            Errors = field?.ValidationErrors ?? [];
+            Validation = _validator?.Validation;
+            Errors = _validator?.ValidationErrors ?? [];
         }
     }
 
     [Parameter]
     public Func<string?, IEnumerable<string?>>? Validation { get; set; }
 
+    private ObservableCollection<string>? _errors;
     [Parameter]
     public ObservableCollection<string>? Errors
     {
-        get => field;
+        get => _errors;
         set
         {
             if (Errors is not null)
@@ -53,7 +55,7 @@
                 Errors.CollectionChanged -= ErrorsCollectionChanged;
             }
 
-            field = value;
+            _errors = value;
 
             if (Errors is not null)
             {

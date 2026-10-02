@@ -22,12 +22,13 @@ public partial class TextInput : UserControl
 
     private InputBindingCollection? PreBindInputBindingCollection { get; set; }
 
+    private TextBox? _inputTextBox;
     private TextBox? InputTextBox
     {
-        get;
+        get => _inputTextBox;
         set
         {
-            field = value;
+            _inputTextBox = value;
             SetInputTextBoxBinding(PreBindInputBindingCollection);
         }
     }

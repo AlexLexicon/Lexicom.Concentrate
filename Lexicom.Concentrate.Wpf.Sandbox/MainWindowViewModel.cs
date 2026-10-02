@@ -13,7 +13,7 @@ public partial class MainWindowViewModel : ObservableObject
     }
 
     [ObservableProperty]
-    public partial IRuleSetValidator<NameRuleSet, string?> NameValidator { get; set; }
+    public IRuleSetValidator<NameRuleSet, string?> _nameValidator;
 
     [RelayCommand]
     public void Invalidate()

@@ -17,12 +17,13 @@ public partial class TextField : UserControl
 
     private InputBindingCollection? PreBindInputBindingCollection { get; set; }
 
+    private TextBox? _valueTextBox;
     private TextBox? ValueTextBox
     {
-        get;
+        get => _valueTextBox;
         set
         {
-            field = value;
+            _valueTextBox = value;
             SetInputTextBoxBinding(PreBindInputBindingCollection);
         }
     }
