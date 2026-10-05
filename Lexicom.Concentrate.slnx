@@ -24,7 +24,7 @@
     <Project Path="Lexicom.Concentrate.Blazor.WebAssembly.Wiki.Abstractions/Lexicom.Concentrate.Blazor.WebAssembly.Wiki.Abstractions.csproj" />
     <Project Path="Lexicom.Concentrate.Blazor.WebAssembly.Wiki/Lexicom.Concentrate.Blazor.WebAssembly.Wiki.csproj" />
   </Folder>
-  <Folder Name="/Blazor/Tests/">
+  <Folder Name="/Blazor/UnitTests/" Id="ed7b8a7f-7a27-b341-1490-b8fdb325b550">
     <Project Path="UnitTests.For.Lexicom.Concentrate.Blazor.WebAssembly.Amenities/UnitTests.For.Lexicom.Concentrate.Blazor.WebAssembly.Amenities.csproj" Id="24d9b897-58ec-4343-ba76-23b33355b846" />
   </Folder>
   <Folder Name="/Client/">
