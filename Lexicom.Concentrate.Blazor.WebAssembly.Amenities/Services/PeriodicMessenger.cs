@@ -71,7 +71,10 @@ public class PeriodicMessenger : IPeriodicMessenger, IDisposable
         }
         catch (Exception e)
         {
-            _logger.LogCritical(e, "An unexpected error occurred during the timer callback.");
+            if (_logger.IsEnabled(LogLevel.Critical))
+            {
+                _logger.LogCritical(e, "An unexpected error occurred during the timer callback.");
+            }
         }
 
         if (utcNow is not null)
@@ -86,6 +89,13 @@ public class PeriodicMessenger : IPeriodicMessenger, IDisposable
                 {
                     _logger.LogError(e, "An unexpected error occurred during the periodic tick.");
                 }
+            }
+        }
+        else
+        {
+            if (_logger.IsEnabled(LogLevel.Warning))
+            {
+                _logger.LogWarning("Cannot send {message} because the utc now datetime offset was null.", nameof(PeriodicTickMessage));
             }
         }
     }
