@@ -643,13 +643,6 @@ public partial class TextInput : UserControl
         set => SetValue(ErrorLineHeightProperty, value);
     }
 
-    public static readonly DependencyProperty ErrorTextProperty = DependencyProperty.Register(nameof(ErrorText), typeof(string), typeof(TextInput), new PropertyMetadata(TextBlock.TextProperty.DefaultMetadata.DefaultValue));
-    public string? ErrorText
-    {
-        get => (string?)GetValue(ErrorTextProperty);
-        set => SetValue(ErrorTextProperty, value);
-    }
-
     public static readonly DependencyProperty ErrorTextAlignmentProperty = DependencyProperty.Register(nameof(ErrorTextAlignment), typeof(TextAlignment), typeof(TextInput), new PropertyMetadata(TextBlock.TextAlignmentProperty.DefaultMetadata.DefaultValue));
     public TextAlignment ErrorTextAlignment
     {
@@ -745,8 +738,6 @@ public partial class TextInput : UserControl
             {
                 previousCollection.CollectionChanged -= textInput.Errors_CollectionChanged;
             }
-
-            ArgumentNullException.ThrowIfNull(e.NewValue, nameof(Errors));
 
             if (e.NewValue is ObservableCollection<string> newCollection)
             {

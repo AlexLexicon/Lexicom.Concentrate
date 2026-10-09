@@ -97,7 +97,9 @@
                         <s:String>error example</s:String>
                     </lc_c:TextInput.Errors>
                 </lc_c:TextInput>
-                <lc_c:TextInput Margin="0,0,0,2" />
+                <lc_c:TextInput 
+                    Margin="0,0,0,2"
+                    Errors="{Binding Errors}"/>
             </StackPanel>
         </Border>
     </Grid>
